@@ -17,3 +17,5 @@
 - [x] Global English-language beta availability matches the live support and legal pages.
 - [ ] Policy attestations are accurate.
 - [ ] Submission remains a draft until the account holder reviews identity fields and every attestation, then explicitly approves final submission.
+
+Live portal result: the signed-in OpenAI Platform dashboard exposes **Create plugin → Skills only**, then blocks creation and upload until developer identity verification is complete. See `SUBMISSION_STATUS.md`.

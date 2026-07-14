@@ -14,3 +14,5 @@
 - [ ] Account holder reviews every policy, ownership and privacy attestation.
 - [ ] Account holder explicitly approves the final **Submit** action.
 - [ ] Directory outcome is recorded without claiming Anthropic Verified status unless separately granted.
+
+Live portal result: the consumer submission route redirects the signed-in Max account to organization settings that require Team or Enterprise; the Claude Platform route requires a separate Platform sign-in. See `SUBMISSION_STATUS.md`.
