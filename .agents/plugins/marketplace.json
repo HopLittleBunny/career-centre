@@ -1,0 +1,20 @@
+{
+  "name": "career-command-centre",
+  "interface": {
+    "displayName": "Career Centre"
+  },
+  "plugins": [
+    {
+      "name": "career-command-centre",
+      "source": {
+        "source": "local",
+        "path": "./plugins/career-command-centre"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

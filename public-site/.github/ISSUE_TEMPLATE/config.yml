@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Privacy information
+    url: https://hoplittlebunny.github.io/career-centre/privacy.html
+    about: Read how Career Centre handles career data.
+  - name: Installation guide
+    url: https://hoplittlebunny.github.io/career-centre/install.html
+    about: Check the personal skill installation steps.

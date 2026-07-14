@@ -1,0 +1,42 @@
+{
+  "name": "career-command-centre",
+  "version": "4.0.0-beta.1",
+  "description": "An evidence-safe career decision agent for selective job search, reusable CV bases, reference-format CVs, Word application packs and application follow-through.",
+  "author": {
+    "name": "Amit Sharma"
+  },
+  "license": "Apache-2.0",
+  "keywords": [
+    "career",
+    "job-search",
+    "resume",
+    "cv",
+    "cover-letter",
+    "applications"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Career Centre",
+    "shortDescription": "Find roles worth your time and build evidence-safe application packs.",
+    "longDescription": "Upload a CV, describe what matters, and receive selective role recommendations with exact links, salary context, honest risks, reusable CV bases and polished Word application packs. An explicitly supplied reference CV can guide safe visual formatting without contributing claims. Career Centre keeps evidence and application history coherent without auto-applying or sending data to a publisher-operated backend. Optional ChatGPT browser schedules are disclosed snapshot-backed alerts; deterministic cross-run memory is never implied without verified persistence.",
+    "developerName": "Amit Sharma",
+    "category": "Productivity",
+    "websiteURL": "https://hoplittlebunny.github.io/career-centre/",
+    "privacyPolicyURL": "https://hoplittlebunny.github.io/career-centre/privacy.html",
+    "termsOfServiceURL": "https://hoplittlebunny.github.io/career-centre/terms.html",
+    "capabilities": [
+      "Research",
+      "Document Creation",
+      "Application Tracking",
+      "Scheduled Work"
+    ],
+    "defaultPrompt": [
+      "Help me find my next role.",
+      "Check whether this job is worth applying for.",
+      "Create a reusable CV base using this Word CV as my visual format."
+    ],
+    "brandColor": "#17324D",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/logo.png"
+  }
+}
