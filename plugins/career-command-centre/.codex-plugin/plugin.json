@@ -1,6 +1,6 @@
 {
   "name": "career-command-centre",
-  "version": "4.0.0-beta.1",
+  "version": "4.0.0-beta.2",
   "description": "An evidence-safe career decision agent for selective job search, reusable CV bases, reference-format CVs, Word application packs and application follow-through.",
   "author": {
     "name": "Amit Sharma"

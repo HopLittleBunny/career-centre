@@ -638,6 +638,31 @@ def career_passport() -> dict[str, Any]:
         "schema_version": "4.0",
         "profile": copy.deepcopy(persona["profile"]),
         "preferences": copy.deepcopy(persona["preferences"]),
+        "source_documents": [
+            {
+                "source_id": "SRC-P01-PRIMARY",
+                "name": "Synthetic senior transformation CV",
+                "source_type": "current_cv",
+                "target_directions": ["Enterprise transformation", "Operating model leadership"],
+                "is_primary": True,
+                "version_date": "2026-07-14",
+                "content_fingerprint": "sha256:synthetic-cv-p01",
+                "notes": ["Synthetic evaluation fixture."],
+                "ingested_at": "2026-07-14T09:30:00+08:00"
+            }
+        ],
+        "document_versions": [
+            {
+                "version_id": "DOC-P01-BASE-001",
+                "document_type": "cv_base",
+                "role_id": None,
+                "file_name": "Synthetic_Senior_Transformation_CV_Base.docx",
+                "source_document_ids": ["SRC-P01-PRIMARY"],
+                "created_at": "2026-07-14T09:30:00+08:00",
+                "status": "ready",
+                "change_summary": ["Registered the synthetic reusable CV base for version-history testing."]
+            }
+        ],
         "evidence": copy.deepcopy(persona["evidence"]),
         "role_history": [],
         "application_events": [],

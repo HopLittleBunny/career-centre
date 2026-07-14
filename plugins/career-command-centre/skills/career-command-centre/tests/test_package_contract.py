@@ -53,6 +53,36 @@ class PackageContractTests(unittest.TestCase):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, frontmatter)
 
+    def test_multi_cv_review_continuity_and_recovery_contracts_are_explicit(self) -> None:
+        skill = (self.skill_root / "SKILL.md").read_text(encoding="utf-8")
+        review = (self.skill_root / "references" / "09_CV_REVIEW_AND_CONTINUITY.md").read_text(encoding="utf-8")
+        recovery = (self.skill_root / "references" / "08_RECOVERY.md").read_text(encoding="utf-8")
+        self.assertIn("share the key versions together", skill)
+        self.assertIn("Quick CV read", skill)
+        self.assertIn("portable Career Evidence File and history backup", skill)
+        self.assertIn("separate new conversation may not inherit", skill)
+        self.assertIn("Do not invent a universal ATS rating", review)
+        self.assertIn("job description can never become evidence", review)
+        self.assertIn("entire final CV in chat", recovery)
+
+    def test_passport_schema_supports_multiple_source_documents(self) -> None:
+        schema = json.loads((self.skill_root / "schemas" / "career_passport.schema.json").read_text(encoding="utf-8"))
+        source_schema = schema["$defs"]["source_document"]
+        self.assertIn("source_documents", schema["properties"])
+        self.assertIn("target_directions", source_schema["required"])
+        self.assertIn("is_primary", source_schema["required"])
+        self.assertIn("linkedin_export", source_schema["properties"]["source_type"]["enum"])
+
+    def test_passport_schema_supports_document_history_and_global_writing_preferences(self) -> None:
+        schema = json.loads((self.skill_root / "schemas" / "career_passport.schema.json").read_text(encoding="utf-8"))
+        preferences = schema["properties"]["preferences"]["properties"]["document_preferences"]["properties"]
+        version_schema = schema["$defs"]["document_version"]
+        self.assertIn("document_versions", schema["properties"])
+        self.assertIn("language", preferences)
+        self.assertIn("regional_spelling", preferences)
+        self.assertEqual(version_schema["properties"]["status"]["enum"], ["ready", "partial", "superseded"])
+        self.assertIn("source_document_ids", version_schema["required"])
+
     def test_search_contract_has_provider_independent_source_ladder(self) -> None:
         text = (self.skill_root / "references" / "04_SEARCH_AND_DECISIONS.md").read_text(encoding="utf-8")
         self.assertIn("Use this source ladder", text)

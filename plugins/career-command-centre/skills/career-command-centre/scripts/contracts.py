@@ -18,6 +18,12 @@ SOURCE_TYPES = {
     "current_cv", "historical_cv", "user_confirmed",
     "uploaded_evidence", "external_source",
 }
+SOURCE_DOCUMENT_TYPES = {
+    "current_cv", "historical_cv", "linkedin_export", "career_passport",
+    "uploaded_evidence", "pasted_text",
+}
+DOCUMENT_TYPES = {"cv_base", "tailored_cv", "cover_letter"}
+DOCUMENT_STATUSES = {"ready", "partial", "superseded"}
 CONFIDENCE = {"source_only", "user_confirmed", "externally_corroborated"}
 GENERIC_PATHS = {
     "", "/", "/careers", "/careers/", "/jobs", "/jobs/",
@@ -234,6 +240,12 @@ def validate_career_passport(data: Any) -> list[str]:
     _enum(document_preferences, "cover_letter_mode", {"paired", "cv_only", "ask_each_time"}, "passport.preferences.document_preferences", errors)
     for key in ("section_order", "additional_sections", "omitted_sections", "style_notes"):
         _sequence(document_preferences.get(key), f"passport.preferences.document_preferences.{key}", errors)
+    language = document_preferences.get("language")
+    if language is not None and (not isinstance(language, str) or len(language.strip()) < 2):
+        _error(errors, "passport.preferences.document_preferences.language", "must be a language code or name with at least two characters")
+    regional_spelling = document_preferences.get("regional_spelling")
+    if regional_spelling is not None and (not isinstance(regional_spelling, str) or not regional_spelling.strip()):
+        _error(errors, "passport.preferences.document_preferences.regional_spelling", "must be null or non-empty text")
     field_preferences_raw = document_preferences.get("field_preferences")
     if field_preferences_raw is not None:
         field_preferences = _mapping(field_preferences_raw, "passport.preferences.document_preferences.field_preferences", errors)
@@ -259,6 +271,66 @@ def validate_career_passport(data: Any) -> list[str]:
     salary_minimum = preferences.get("salary_minimum")
     if salary_minimum is not None and (not isinstance(salary_minimum, (int, float)) or isinstance(salary_minimum, bool) or salary_minimum < 0):
         _error(errors, "passport.preferences.salary_minimum", "must be null or a non-negative number")
+
+    source_documents = _sequence(root.get("source_documents", []), "passport.source_documents", errors)
+    source_ids: list[str] = []
+    for index, raw in enumerate(source_documents):
+        item_path = f"passport.source_documents[{index}]"
+        item = _mapping(raw, item_path, errors)
+        source_id = _required_text(item, "source_id", item_path, errors)
+        if source_id:
+            source_ids.append(source_id)
+            if not source_id.startswith("SRC-"):
+                _error(errors, f"{item_path}.source_id", "must start with SRC-")
+        _required_text(item, "name", item_path, errors)
+        _enum(item, "source_type", SOURCE_DOCUMENT_TYPES, item_path, errors)
+        target_directions = _sequence(item.get("target_directions"), f"{item_path}.target_directions", errors)
+        for direction_index, direction in enumerate(target_directions):
+            if not isinstance(direction, str) or not direction.strip():
+                _error(errors, f"{item_path}.target_directions[{direction_index}]", "must be non-empty text")
+        if not isinstance(item.get("is_primary"), bool):
+            _error(errors, f"{item_path}.is_primary", "must be true or false")
+        _required_text(item, "ingested_at", item_path, errors)
+        notes = item.get("notes", [])
+        if notes is not None:
+            note_items = _sequence(notes, f"{item_path}.notes", errors)
+            for note_index, note in enumerate(note_items):
+                if not isinstance(note, str) or not note.strip():
+                    _error(errors, f"{item_path}.notes[{note_index}]", "must be non-empty text")
+    _unique(source_ids, "passport.source_documents.source_id", errors)
+
+    document_versions = _sequence(root.get("document_versions", []), "passport.document_versions", errors)
+    version_ids: list[str] = []
+    known_source_ids = set(source_ids)
+    for index, raw in enumerate(document_versions):
+        item_path = f"passport.document_versions[{index}]"
+        item = _mapping(raw, item_path, errors)
+        version_id = _required_text(item, "version_id", item_path, errors)
+        if version_id:
+            version_ids.append(version_id)
+            if not version_id.startswith("DOC-"):
+                _error(errors, f"{item_path}.version_id", "must start with DOC-")
+        document_type = _enum(item, "document_type", DOCUMENT_TYPES, item_path, errors)
+        _enum(item, "status", DOCUMENT_STATUSES, item_path, errors)
+        _required_text(item, "file_name", item_path, errors)
+        _required_text(item, "created_at", item_path, errors)
+        role_id = item.get("role_id")
+        if document_type in {"tailored_cv", "cover_letter"} and (not isinstance(role_id, str) or not role_id.strip()):
+            _error(errors, f"{item_path}.role_id", "is required for a tailored CV or cover letter")
+        if document_type == "cv_base" and role_id is not None:
+            _error(errors, f"{item_path}.role_id", "must be null for a CV base")
+        source_refs = _sequence(item.get("source_document_ids"), f"{item_path}.source_document_ids", errors)
+        if not source_refs:
+            _error(errors, f"{item_path}.source_document_ids", "at least one source document is required")
+        unknown_sources = sorted({str(source_id) for source_id in source_refs if str(source_id) not in known_source_ids})
+        if unknown_sources:
+            _error(errors, f"{item_path}.source_document_ids", "unknown source document ID(s): " + ", ".join(unknown_sources))
+        summaries = _sequence(item.get("change_summary"), f"{item_path}.change_summary", errors)
+        for summary_index, summary in enumerate(summaries):
+            if not isinstance(summary, str) or not summary.strip():
+                _error(errors, f"{item_path}.change_summary[{summary_index}]", "must be non-empty text")
+    _unique(version_ids, "passport.document_versions.version_id", errors)
+
     evidence_errors, _ = validate_evidence(root.get("evidence"), path="passport.evidence")
     errors.extend(evidence_errors)
 

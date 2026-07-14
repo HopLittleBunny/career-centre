@@ -164,6 +164,7 @@ def build_ready_message(passport: dict[str, Any]) -> str:
         [
             "",
             "These defaults work for most people; say “change my advanced preferences” at any time if you want different sources, sections, page strategy or formatting.",
+            "For reliable continuity, keep one main Career Centre conversation and save the latest Career Passport; a separate new conversation may not inherit your CV, evidence or history.",
         ]
     )
     return "\n".join(rendered)

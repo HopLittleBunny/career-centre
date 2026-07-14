@@ -8,13 +8,13 @@ The plugins are intentionally backend-free. Amit Sharma does not operate a model
 
 ## The user experience
 
-Say **“Help me find my next role”** and share a CV. Career Centre reads the CV first, reflects back what it understood, asks only the few preference questions that could change the result, and then acts as a continuing career thought partner.
+Say **“Help me find my next role”** and share one CV—or the key CVs used for different role directions. Career Centre reads every supplied version first, gives a compact qualitative review, reflects back what it understood, asks only the few preference questions that could change the result, and then acts as a continuing career thought partner.
 
 There are no setup cards, commands, projects or state files for the user to maintain.
 
 ## Product promise
 
-1. Upload a CV.
+1. Upload one CV or several role-specific CVs.
 2. Answer one compact set of missing high-impact questions.
 3. Receive a small number of verified roles worth considering.
 4. Ask for an application pack in ordinary language.
@@ -26,7 +26,7 @@ After setup, the plugin says **“Your Career Centre is ready”** and shows the
 
 Users can say “change my advanced preferences” to change markets, role sources, search breadth, salary, employment types, CV length, section order, optional sections, visible CV fields, headline/date display, tone, cover-letter behaviour or formatting. A supplied reference Word CV can be used as a visual model while its content and personal data are stripped.
 
-Preferences, corrections, document feedback and application outcomes are retained in a portable Career Passport in the continuing task/local workspace. This creates a transparent learning loop without a publisher-operated memory service.
+Source CVs, approved evidence, preferences, generated-document versions, corrections, document feedback and application outcomes are retained in a portable Career Passport in the continuing task/local workspace. This creates a transparent learning loop without a publisher-operated memory service. Users should keep one main Career Centre conversation and save the latest Passport because a separate conversation may not inherit earlier files or history.
 
 ## What it will not do
 
@@ -69,7 +69,7 @@ Anthropic documents custom plugin upload and GitHub marketplaces for paid plans.
 
 ## Current status
 
-Current rating: **9.2/10 core functional beta; 9.3/10 ChatGPT public-beta readiness; 9.1/10 Claude installation and conversation readiness; 8.8/10 full Claude feature parity**. Version `4.0.0-beta.1` runs the same 45 automated tests successfully in both provider packages. Personal ChatGPT Pro web has passed installed multi-turn journeys, a portable-bullet two-page Word pack, natural reference-CV format copying with evidence isolation, lifecycle continuity, schedule creation and live scheduled execution. A two-run browser test proved that ChatGPT launches isolated result tasks and does not carry the prior result's printed Passport into the next run; the product therefore labels browser schedules as snapshot-backed alerts instead of claiming cross-run memory. Claude Max web has passed custom-plugin upload, automatic invocation, mentor-quality career reflection, compact follow-up questions and the global seven-line readiness receipt. The no-cost public site, downloads, checksums, support identity, source repository and tagged beta release are live. Remaining external gates are OpenAI and Anthropic directory review, broader-plan compatibility, and Claude role/document/reference/schedule parity tests. See `docs/PRODUCT_REVIEW_V4.md`, `docs/ROADMAP.md`, `docs/CLAUDE_COMPATIBILITY.md` and `docs/PUBLIC_RELEASE_RUNBOOK.md`.
+Current rating: **9.2/10 core functional beta; 9.3/10 ChatGPT public-beta readiness; 9.1/10 Claude installation and conversation readiness; 8.8/10 full Claude feature parity**. Version `4.0.0-beta.2` runs the same 56 automated tests successfully in both provider packages. Personal ChatGPT Pro web has passed installed multi-turn journeys, a portable-bullet two-page Word pack, natural reference-CV format copying with evidence isolation, lifecycle continuity, schedule creation and live scheduled execution. A two-run browser test proved that ChatGPT launches isolated result tasks and does not carry the prior result's printed Passport into the next run; the product therefore labels browser schedules as snapshot-backed alerts instead of claiming cross-run memory. Claude Max web has passed custom-plugin upload, automatic invocation, mentor-quality career reflection, compact follow-up questions and the global seven-line readiness receipt on the preceding package; the beta.2 replacement upload is a release gate before submission. The no-cost public site, support identity and source repository are live. Remaining external gates are final beta.2 browser replacement tests, OpenAI and Anthropic directory review, broader-plan compatibility, and Claude role/document/reference/schedule parity tests. See `docs/PRODUCT_REVIEW_V4.md`, `docs/ROADMAP.md`, `docs/CLAUDE_COMPATIBILITY.md`, `docs/OPEN_SOURCE_REPO_AUDIT.md` and `docs/PUBLIC_RELEASE_RUNBOOK.md`.
 
 The dated job-source, competitor, mentor-voice, submission and website assessment is in `docs/ECOSYSTEM_BENCHMARK.md`.
 

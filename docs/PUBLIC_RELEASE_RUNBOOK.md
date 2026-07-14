@@ -8,7 +8,7 @@ This runbook closes the remaining zero-cost public release gates without adding 
 - ChatGPT public-beta readiness: 9.3/10.
 - Claude installation and conversation readiness: 9.1/10.
 - Personal ChatGPT Pro web and Claude Max web: passed for their documented acceptance journeys.
-- Automated tests: 45/45 passing in each provider package.
+- Automated tests: 56/56 passing in each provider package.
 - Draft release validation: passing.
 - Direct skill ZIP: accepted by ChatGPT and included in `public-site/downloads/`.
 - Static site: live at <https://hoplittlebunny.github.io/career-centre/> and browser-verified at desktop and mobile widths.
@@ -32,8 +32,8 @@ The public repository, GitHub Pages deployment and issue-based support route are
    - `/release-notes.html`
    - `/downloads/career-centre-chatgpt-skill.zip`
    - `/downloads/career-centre-claude-plugin.zip`
-2. Confirm the ChatGPT download checksum is `7a553dc61a6f0e93697c5468da1d67e5a6fdef00919778b10f6655fa5db0f268`.
-3. Confirm the Claude download checksum is `896e27aa6fddbf179bd8c92f6ae169e130e907f893e5e0aae0b24c07dd464a46`.
+2. Confirm the ChatGPT download checksum is `c72b099f55ec62cb5f654a101bf2191d670048e92a2bd23d80acf16ca1f01cf2`.
+3. Confirm the Claude download checksum is `b4e014125f7268947e3ba26f6b287e851b74e053198eff30fb4dc7fd9d5847f9`.
 
 A custom domain is optional. The free `github.io` URL is sufficient for a first public release.
 
@@ -61,7 +61,7 @@ The command must return `passed: true` with no warnings.
 Public URL changes modify the plugin manifest, so the directory plugin ZIP must be rebuilt after those edits.
 
 1. Bump the prerelease version.
-2. Run both 45-test suites.
+2. Run both 56-test suites.
 3. Run draft and submission-ready validation.
 4. Run `python3 scripts/package_release.py` and `python3 scripts/package_claude_release.py`.
 5. Confirm `release/LATEST.json` and `release/CLAUDE_LATEST.json` match the new ZIP checksums.

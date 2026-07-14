@@ -1,5 +1,15 @@
 # Changelog
 
+## 4.0.0-beta.2 — 14 July 2026
+
+- Added multi-CV source registration, cross-version consistency guidance and a constructive first CV review.
+- Added an independent qualitative CV diagnostic with impact-ranked extraction, structure, chronology, repetition and writing findings; it never presents a universal ATS score.
+- Expanded the Career Passport into one portable Career Evidence File with generated-document version history and source-document provenance.
+- Added optional document-language and regional-spelling preferences without adding setup questions.
+- Added a complete in-chat CV fallback when Word creation is unavailable, clearly labelled partial.
+- Completed an architecture and licence audit of nine supplied open-source CV/writing projects plus the enrichment pack; no third-party code or runtime dependency was imported.
+- Expanded both provider suites to 56/56 passing tests.
+
 ## 4.0.0-beta.1 — 14 July 2026
 
 - Renamed the public product and installed skill to **Career Centre** while retaining the legacy plugin package ID for compatibility.

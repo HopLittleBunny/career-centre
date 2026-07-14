@@ -5,8 +5,8 @@
 - [x] Native `.claude-plugin/plugin.json` is present in the Claude package.
 - [x] Website, support, privacy and terms pages are live over HTTPS.
 - [x] Claude ZIP is downloadable and its checksum matches `release/CLAUDE_LATEST.json`.
-- [x] Package has passed 45/45 automated tests.
-- [x] Final ZIP has passed Claude Max web replacement upload.
+- [x] Package has passed 56/56 automated tests.
+- [ ] Final beta.2 ZIP has passed Claude Max web replacement upload.
 - [x] Natural auto-routing, mentor reflection and readiness receipt pass.
 - [x] Explicit setup-only/no-search/no-files boundary passes.
 - [ ] Run `claude plugin validate` with the current official developer tooling if available.

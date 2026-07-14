@@ -1,12 +1,12 @@
 {
-  "version": "4.0.0-beta.1",
+  "version": "4.0.0-beta.2",
   "status": "submission",
   "plugin": {
-    "file": "career-centre-4.0.0-beta.1-submission-plugin.zip",
-    "sha256": "1814cb0073c1daaca80357b9590614bc571c1ce461d012bd6f2d28356e49e5b5"
+    "file": "career-centre-4.0.0-beta.2-submission-plugin.zip",
+    "sha256": "1a136c371838a1143f842ee8d1a293eb3d12ffde85bc68d62891f3aa8c623bdc"
   },
   "skill": {
-    "file": "career-centre-4.0.0-beta.1-submission-skill.zip",
-    "sha256": "7a553dc61a6f0e93697c5468da1d67e5a6fdef00919778b10f6655fa5db0f268"
+    "file": "career-centre-4.0.0-beta.2-submission-skill.zip",
+    "sha256": "c72b099f55ec62cb5f654a101bf2191d670048e92a2bd23d80acf16ca1f01cf2"
   }
 }

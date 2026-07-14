@@ -150,6 +150,9 @@ def validate(*, submission_ready: bool) -> tuple[list[str], list[str]]:
         return [f"Plugin manifest cannot be read: {exc}"], warnings
     if manifest.get("name") != PLUGIN.name:
         errors.append("Plugin manifest name must match its folder name.")
+    version = manifest.get("version")
+    if not isinstance(version, str) or not version:
+        errors.append("Plugin manifest must declare a version.")
     skill_path = PLUGIN / str(manifest.get("skills", ""))
     if not skill_path.exists():
         errors.append("Manifest skills path does not exist.")
@@ -173,6 +176,8 @@ def validate(*, submission_ready: bool) -> tuple[list[str], list[str]]:
         errors.append("Claude plugin manifest must use the career-centre identity.")
     if claude_manifest.get("displayName") != "Career Centre":
         errors.append("Claude plugin must display the Career Centre name.")
+    if claude_manifest.get("version") != version:
+        errors.append("ChatGPT and Claude package versions must match.")
     if not (CLAUDE_SKILL / "SKILL.md").is_file():
         errors.append("Claude Career Centre skill is missing.")
 
@@ -186,6 +191,21 @@ def validate(*, submission_ready: bool) -> tuple[list[str], list[str]]:
         errors.append("Claude marketplace identity is invalid.")
     if len(entries) != 1 or entries[0].get("source") != "./plugins/claude-career-centre":
         errors.append("Claude marketplace must expose the native Career Centre plugin.")
+    elif entries[0].get("version") != version or marketplace.get("version") != version:
+        errors.append("Claude marketplace and plugin package versions must match.")
+
+    required_audit_files = [
+        ROOT / "THIRD_PARTY_NOTICES.md",
+        ROOT / "docs" / "OPEN_SOURCE_REPO_AUDIT.md",
+        ROOT / "docs" / "LICENSE_COMPATIBILITY.md",
+    ]
+    for path in required_audit_files:
+        if not path.is_file() or len(path.read_text(encoding="utf-8").split()) < 20:
+            errors.append(f"Open-source audit record is missing or too short: {path.relative_to(ROOT)}")
+    for skill_root in (SKILL, CLAUDE_SKILL):
+        reviewer = skill_root / "scripts" / "review_cv_text.py"
+        if not reviewer.is_file():
+            errors.append(f"Qualitative CV diagnostic is missing: {reviewer.relative_to(ROOT)}")
 
     cases_path = ROOT / "submission" / "REVIEWER_TEST_CASES.json"
     try:

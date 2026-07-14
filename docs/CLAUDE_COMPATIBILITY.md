@@ -2,19 +2,19 @@
 
 ## Current status
 
-Career Centre now has a native Claude plugin at `plugins/claude-career-centre/` and a browser-upload ZIP at `release/career-centre-4.0.0-beta.1-claude-plugin.zip`.
+Career Centre now has a native Claude plugin at `plugins/claude-career-centre/` and a browser-upload ZIP at `release/career-centre-4.0.0-beta.2-claude-plugin.zip` after packaging.
 
-- Package version: `4.0.0-beta.1`
+- Package version: `4.0.0-beta.2`
 - Visible plugin and skill name: **Career Centre**
 - Manifest: `.claude-plugin/plugin.json`
 - Skill location: `skills/career-centre/SKILL.md`
 - Publisher backend: none
-- Automated core tests: 45/45 passing in the Claude package
+- Automated core tests: 56/56 passing in the Claude package
 - Paid-account browser upload: passed on Claude Max web
 - Natural skill auto-routing: passed in a normal web chat without a slash command
 - Mentor reflection and compact follow-up questions: passed with a synthetic US persona
 - Seven-line readiness receipt: passed
-- Explicit setup/no-search boundary: passed after replacement-uploading the final package
+- Explicit setup/no-search boundary: passed on beta.1; beta.2 replacement upload remains required before submission
 
 ## Why this route fits the product
 

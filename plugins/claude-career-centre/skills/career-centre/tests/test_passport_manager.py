@@ -102,6 +102,53 @@ class PassportManagerTests(unittest.TestCase):
             self.assertNotEqual(result.returncode, 0)
             self.assertEqual(json.loads(path.read_text(encoding="utf-8")), original)
 
+    def test_multiple_cv_sources_are_valid_and_duplicate_ids_fail(self) -> None:
+        passport = career_passport()
+        passport["source_documents"].append(
+            {
+                "source_id": "SRC-P01-AI",
+                "name": "Synthetic AI transformation CV",
+                "source_type": "current_cv",
+                "target_directions": ["AI transformation"],
+                "is_primary": True,
+                "version_date": "2026-07-13",
+                "content_fingerprint": "sha256:synthetic-cv-p01-ai",
+                "notes": [],
+                "ingested_at": "2026-07-14T09:31:00+08:00",
+            }
+        )
+        self.assertEqual(validate_career_passport(passport), [])
+        passport["source_documents"][1]["source_id"] = "SRC-P01-PRIMARY"
+        errors = validate_career_passport(passport)
+        self.assertTrue(any("duplicate value" in error for error in errors))
+
+    def test_document_versions_require_valid_source_provenance_and_role_identity(self) -> None:
+        passport = career_passport()
+        passport["document_versions"].append(
+            {
+                "version_id": "DOC-P01-TAILORED-001",
+                "document_type": "tailored_cv",
+                "role_id": "ROLE-SYNTH-001",
+                "file_name": "Maya_Patel_Atlas_Services_CV.docx",
+                "source_document_ids": ["SRC-P01-PRIMARY"],
+                "created_at": "2026-07-14T10:30:00+08:00",
+                "status": "ready",
+                "change_summary": ["Tailored the source CV to the verified role dossier."],
+            }
+        )
+        self.assertEqual(validate_career_passport(passport), [])
+        passport["document_versions"][-1]["source_document_ids"] = ["SRC-MISSING"]
+        errors = validate_career_passport(passport)
+        self.assertTrue(any("unknown source document" in error for error in errors))
+
+    def test_language_and_regional_spelling_are_optional_advanced_preferences(self) -> None:
+        passport = career_passport()
+        passport["preferences"]["document_preferences"]["language"] = "en-CA"
+        passport["preferences"]["document_preferences"]["regional_spelling"] = "Canadian English"
+        self.assertEqual(validate_career_passport(passport), [])
+        passport["preferences"]["document_preferences"]["language"] = "x"
+        self.assertTrue(any("language" in error for error in validate_career_passport(passport)))
+
 
 if __name__ == "__main__":
     unittest.main()
