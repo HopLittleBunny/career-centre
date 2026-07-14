@@ -3,10 +3,10 @@
   "status": "submission",
   "plugin": {
     "file": "career-centre-4.0.0-beta.2-submission-plugin.zip",
-    "sha256": "1a136c371838a1143f842ee8d1a293eb3d12ffde85bc68d62891f3aa8c623bdc"
+    "sha256": "c38734cc7918abbc2b84e380b005263489d6ea2636a8054b9b3db33501c5e241"
   },
   "skill": {
     "file": "career-centre-4.0.0-beta.2-submission-skill.zip",
-    "sha256": "c72b099f55ec62cb5f654a101bf2191d670048e92a2bd23d80acf16ca1f01cf2"
+    "sha256": "4c39969fb59611108dc1cd014cf3321e5c927da9c8b1282a1f2ddfaf49336e69"
   }
 }

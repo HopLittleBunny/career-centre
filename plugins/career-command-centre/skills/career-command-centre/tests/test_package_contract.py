@@ -20,6 +20,8 @@ class PackageContractTests(unittest.TestCase):
     def test_skill_has_simple_first_interaction_and_safety_boundaries(self) -> None:
         text = (self.skill_root / "SKILL.md").read_text(encoding="utf-8")
         self.assertIn("Ask for the latest CV in one warm sentence", text)
+        self.assertIn("do not inspect unrelated prior chats", text)
+        self.assertIn("If the CV is pasted into the current message, analyse that text directly", text)
         self.assertIn("maximum of four items", text)
         self.assertIn("Never auto-submit", text)
         self.assertIn("Default application pack is CV plus cover letter", text)

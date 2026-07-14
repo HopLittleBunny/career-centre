@@ -12,7 +12,7 @@ The inherited deep review rated the prototype unevenly: skill prototype 8.5, fir
 
 | Area | Weight | v4 score | Evidence and remaining deduction |
 | --- | ---: | ---: | --- |
-| First-use simplicity and conversation | 20 | 19.0 | Installed personal-Pro journeys passed: CV-first reading, at most four material questions, hard stop before search, exact seven-line readiness receipt and natural advanced-preference updates. Beta.2 adds multi-CV intake and a compact qualitative first review; replacement browser verification is pending. |
+| First-use simplicity and conversation | 20 | 19.0 | Installed personal-Pro and Claude Max journeys passed: CV-first reading, at most four material questions, hard stop before search, exact seven-line readiness receipt and natural advanced-preference updates. The exact beta.2 Claude package also passed multi-CV invitation, compact qualitative review and 390 px mobile rendering. |
 | Evidence safety and provenance | 15 | 15.0 | Evidence IDs, source confidence and restrictions are contract-enforced; unsupported claims block packs. |
 | Search, exact links and duplicate control | 15 | 12.0 | Live Canada and US tests respected the search budgets, refused closed roles and did not pad. Scheduled runs can suppress the embedded Passport snapshot and within-run aliases, but ChatGPT browser does not provide deterministic cross-run state. |
 | Role decision quality | 15 | 14.0 | Live exact-posting tests produced defensible Apply and Skip decisions with salary, employment, fit, shortlist chance, match, risk and CV angle. Probabilities are not yet calibrated from real outcomes. |

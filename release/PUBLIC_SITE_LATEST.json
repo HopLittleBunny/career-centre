@@ -3,9 +3,9 @@
   "version": "4.0.0-beta.2",
   "status": "submission",
   "file": "career-centre-public-site-20260714.zip",
-  "sha256": "5ea413ac49465e4456e62f61aa885265383c36131b6073f120f555c725fcc38d",
+  "sha256": "026e534efad651c5e5a7f00c5aaf66ca860410074aeaee2f5e00935830013dcb",
   "downloads": {
-    "chatgpt_skill_sha256": "c72b099f55ec62cb5f654a101bf2191d670048e92a2bd23d80acf16ca1f01cf2",
-    "claude_plugin_sha256": "b4e014125f7268947e3ba26f6b287e851b74e053198eff30fb4dc7fd9d5847f9"
+    "chatgpt_skill_sha256": "4c39969fb59611108dc1cd014cf3321e5c927da9c8b1282a1f2ddfaf49336e69",
+    "claude_plugin_sha256": "b28d0938cfbd58b93e72d7efc627e76e1f1102d2e68d15ed71651e927c5de687"
   }
 }

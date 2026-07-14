@@ -58,6 +58,12 @@ def _validate_public_site(
         text = path.read_text(encoding="utf-8")
         if "<meta name=\"viewport\"" not in text:
             errors.append(f"Static page lacks a viewport declaration: {path.relative_to(ROOT)}")
+        if text.count('class="skip-link"') != 1 or 'href="#main-content"' not in text:
+            errors.append(f"Static page lacks one keyboard skip link: {path.relative_to(ROOT)}")
+        if 'id="main-content"' not in text:
+            errors.append(f"Static page lacks a main-content target: {path.relative_to(ROOT)}")
+        if 'class="brand"' in text and 'aria-label="Career Centre home"' not in text:
+            errors.append(f"Static page has an unnamed mobile home link: {path.relative_to(ROOT)}")
         if "PUBLIC_" in text:
             errors.append(f"Static page contains a public placeholder: {path.relative_to(ROOT)}")
         if "—" in text or "–" in text:
@@ -82,13 +88,33 @@ def _validate_public_site(
     required_copy = [
         "Your Career Centre is ready",
         "advanced preferences",
+        "Quick CV review",
+        "Share your CVs",
         "Reference CV formatting",
+        "Career Passport",
         "saved snapshot",
         "No automatic applications",
+        "Install Career Centre",
     ]
     for phrase in required_copy:
         if phrase.casefold() not in homepage.casefold():
             errors.append(f"Static homepage is missing required product copy: {phrase}")
+
+    readiness_labels = re.findall(r"<dt>([^<]+)</dt>", homepage)
+    expected_readiness_labels = [
+        "Target",
+        "Geography",
+        "Sources",
+        "Compensation",
+        "CV",
+        "Sections",
+        "Application pack",
+    ]
+    if readiness_labels != expected_readiness_labels:
+        errors.append(
+            "Static homepage readiness labels must be exactly "
+            f"{expected_readiness_labels}; got {readiness_labels}."
+        )
 
     download = PUBLIC_SITE / "downloads" / "career-centre-chatgpt-skill.zip"
     latest_path = ROOT / "release" / "LATEST.json"

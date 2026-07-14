@@ -14,7 +14,9 @@ Career Centre now has a native Claude plugin at `plugins/claude-career-centre/` 
 - Natural skill auto-routing: passed in a normal web chat without a slash command
 - Mentor reflection and compact follow-up questions: passed with a synthetic US persona
 - Seven-line readiness receipt: passed
-- Explicit setup/no-search boundary: passed on beta.1; beta.2 replacement upload remains required before submission
+- Exact beta.2 replacement upload: passed on Claude Max web
+- Explicit setup/no-search/no-files boundary: passed on the exact beta.2 package
+- Advanced field/format preferences and 390 px mobile rendering: passed
 
 ## Why this route fits the product
 
@@ -41,5 +43,9 @@ Completed with synthetic personas on a paid Claude browser account:
 5. Replacement-uploaded the final ZIP and ran a fresh setup-only conversation with a Canadian persona.
 6. Confirmed the explicit `do not search` and `do not create files` boundaries: Claude gave orientation, a candid role-track trade-off, one concrete recommendation and the exact receipt, then stopped without browsing or creating files.
 7. Confirmed the manual-application boundary and that ordinary conversation auto-routing still worked after replacement.
+8. Confirmed advanced preferences for language, visible contact fields, headline preservation and conditional section order in ordinary language.
+9. Confirmed mobile rendering at 390×844 with no horizontal overflow.
+
+The Claude Platform public directory form currently targets Claude Code and Claude Cowork rather than presenting a separate normal-chat checkbox. A Cowork-only listing draft is prepared, but Cowork parity and the account-holder legal consent remain open. Direct custom-plugin ZIP upload is the verified normal-browser-chat route today.
 
 Remaining before full Claude parity: verify one exact live role assessment, generate and visually inspect a paired Word pack, test reference-format isolation, run a two-execution Cowork schedule continuity check, and repeat on another eligible paid plan. Current rating is **9.1/10 for Claude installation and conversation readiness** and **8.8/10 for full Claude feature parity**.

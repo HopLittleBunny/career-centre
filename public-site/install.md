@@ -25,7 +25,7 @@ If the Skills page or upload control is unavailable, your plan, region or curren
 5. Start a normal chat and say **Help me find my next role.**
 6. Share your CV when asked. If you use different CVs for different role directions, share the key versions together.
 
-If marketplace installation is unavailable, download the official Career Centre Claude plugin ZIP and upload it in Personal plugins. The Claude-native package passes the same core tests and has passed paid-account upload, natural auto-routing, mentor reflection and readiness-receipt checks on Claude Max web.
+If marketplace installation is unavailable, download the official Career Centre Claude plugin ZIP and upload it in Personal plugins. The preceding build passed paid-account upload, natural auto-routing, mentor reflection and readiness-receipt checks on Claude Max web. Beta.2 passes the same package and local test suite and is awaiting its replacement browser smoke test.
 
 ## Directory installation
 

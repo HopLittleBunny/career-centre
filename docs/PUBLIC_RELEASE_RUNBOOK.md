@@ -32,8 +32,8 @@ The public repository, GitHub Pages deployment and issue-based support route are
    - `/release-notes.html`
    - `/downloads/career-centre-chatgpt-skill.zip`
    - `/downloads/career-centre-claude-plugin.zip`
-2. Confirm the ChatGPT download checksum is `c72b099f55ec62cb5f654a101bf2191d670048e92a2bd23d80acf16ca1f01cf2`.
-3. Confirm the Claude download checksum is `b4e014125f7268947e3ba26f6b287e851b74e053198eff30fb4dc7fd9d5847f9`.
+2. Confirm the ChatGPT skill download checksum is `4c39969fb59611108dc1cd014cf3321e5c927da9c8b1282a1f2ddfaf49336e69`.
+3. Confirm the Claude download checksum is `b28d0938cfbd58b93e72d7efc627e76e1f1102d2e68d15ed71651e927c5de687`.
 
 A custom domain is optional. The free `github.io` URL is sufficient for a first public release.
 
@@ -85,7 +85,7 @@ The final submission action includes publisher representations and attestations.
 
 ## Anthropic directory submission
 
-The repository includes a native Claude package, the root `.claude-plugin/marketplace.json` manifest and a browser-tested ZIP. Use Anthropic's public [plugin submission form](https://claude.ai/settings/plugins/submit) with either the public repository or ZIP. Run `claude plugin validate` if the current Claude developer tooling is available, review all developer attestations with the account holder and obtain explicit confirmation before the final submission action.
+The repository includes a native Claude package, the root `.claude-plugin/marketplace.json` manifest and a locally validated beta.2 ZIP. The exact beta.2 ZIP has passed replacement upload and the guided Max-web journey. The current Platform directory form targets Claude Code and Claude Cowork; keep the prepared Cowork-only draft unsubmitted until Cowork parity is separately exercised and the account holder accepts the Privacy Policy and Software Directory Terms. Run `claude plugin validate` if the current Claude developer tooling becomes available.
 
 ## Personal Plus acceptance
 

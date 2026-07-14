@@ -9,13 +9,14 @@
   <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header">
     <div class="shell nav">
-      <a class="brand" href="index.html"><img src="assets/icon.png" alt=""><span>Career Centre</span></a>
+      <a class="brand" href="index.html" aria-label="Career Centre home"><img src="assets/icon.png" alt=""><span>Career Centre</span></a>
       <nav class="nav-links" aria-label="Primary navigation"><a href="index.html#how-it-works">How it works</a><a href="privacy.html">Privacy</a><a href="support.html">Support</a><a class="nav-install" href="install.html" aria-current="page">Install</a></nav>
     </div>
   </header>
-  <main>
+  <main id="main-content">
     <section class="shell page-hero">
       <h1>Install in ChatGPT or Claude.</h1>
       <p>Choose the ZIP for the AI service you already use. There is no API key or separate Career Centre account.</p>
@@ -23,18 +24,18 @@
     <article class="shell prose">
       <div class="install-grid">
         <section class="download-box">
-          <p class="eyebrow">Browser tested</p>
+          <p class="eyebrow">Functional beta</p>
           <h2>ChatGPT</h2>
           <p>Personal Skill build: 4.0.0-beta.2</p>
           <p><a class="button" href="downloads/career-centre-chatgpt-skill.zip" download>Download ChatGPT ZIP</a></p>
-          <span class="checksum">SHA-256: c72b099f55ec62cb5f654a101bf2191d670048e92a2bd23d80acf16ca1f01cf2</span>
+          <span class="checksum">SHA-256: 188a51af50ec3a3ea844ae61eb6b5efd2a48bc9df8aecacd8ac3ee0bcfd74c9c</span>
         </section>
         <section class="download-box">
-          <p class="eyebrow">Browser tested</p>
+          <p class="eyebrow">Functional beta</p>
           <h2>Claude</h2>
           <p>Paid-plan custom plugin build: 4.0.0-beta.2</p>
           <p><a class="button" href="downloads/career-centre-claude-plugin.zip" download>Download Claude ZIP</a></p>
-          <span class="checksum">SHA-256: b4e014125f7268947e3ba26f6b287e851b74e053198eff30fb4dc7fd9d5847f9</span>
+          <span class="checksum">SHA-256: 7116103f8fedcb941a856f98b4fab2a3739b0df4c1a14d35a6afc88fb8148b04</span>
         </section>
       </div>
 
@@ -62,7 +63,7 @@
         <li>Share your CV when asked. If you use different CVs for different role directions, share the key versions together.</li>
       </ol>
       <div class="notice">
-        <strong>ZIP fallback:</strong> if adding a marketplace is unavailable, download the Claude ZIP above and upload it under Personal plugins. The package has passed paid-account upload, natural auto-routing, mentor reflection and readiness-receipt checks on Claude Max web.
+        <strong>ZIP fallback:</strong> if adding a marketplace is unavailable, download the Claude ZIP above and upload it under Personal plugins. The preceding build passed paid-account upload, natural auto-routing, mentor reflection and readiness-receipt checks on Claude Max web; beta.2 has passed the package and local test suite and is awaiting its replacement browser smoke test.
       </div>
 
       <h2>What happens first</h2>

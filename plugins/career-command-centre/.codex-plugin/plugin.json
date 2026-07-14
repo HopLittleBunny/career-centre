@@ -3,8 +3,11 @@
   "version": "4.0.0-beta.2",
   "description": "An evidence-safe career decision agent for selective job search, reusable CV bases, reference-format CVs, Word application packs and application follow-through.",
   "author": {
-    "name": "Amit Sharma"
+    "name": "Amit Sharma",
+    "url": "https://github.com/HopLittleBunny"
   },
+  "homepage": "https://hoplittlebunny.github.io/career-centre/",
+  "repository": "https://github.com/HopLittleBunny/career-centre",
   "license": "Apache-2.0",
   "keywords": [
     "career",

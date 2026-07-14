@@ -6,13 +6,13 @@
 - [x] Website, support, privacy and terms pages are live over HTTPS.
 - [x] Claude ZIP is downloadable and its checksum matches `release/CLAUDE_LATEST.json`.
 - [x] Package has passed 56/56 automated tests.
-- [ ] Final beta.2 ZIP has passed Claude Max web replacement upload.
+- [x] Final beta.2 ZIP has passed Claude Max web replacement upload.
 - [x] Natural auto-routing, mentor reflection and readiness receipt pass.
 - [x] Explicit setup-only/no-search/no-files boundary passes.
 - [ ] Run `claude plugin validate` with the current official developer tooling if available.
-- [ ] Account holder confirms the developer identity and public contact fields.
+- [x] Account holder identity and public contact fields are visible in the signed-in Platform form.
 - [ ] Account holder reviews every policy, ownership and privacy attestation.
 - [ ] Account holder explicitly approves the final **Submit** action.
 - [ ] Directory outcome is recorded without claiming Anthropic Verified status unless separately granted.
 
-Live portal result: the consumer submission route redirects the signed-in Max account to organization settings that require Team or Enterprise; the Claude Platform route requires a separate Platform sign-in. See `SUBMISSION_STATUS.md`.
+Live portal result: the signed-in Claude Platform form is populated as a Cowork-only draft. The legal consent checkbox remains untouched, Cowork parity is not yet separately proven, and **Submit for review** has not been pressed. See `SUBMISSION_STATUS.md`.
