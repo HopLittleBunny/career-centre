@@ -12,14 +12,16 @@ from pathlib import Path
 from validate_release import PLUGIN, ROOT, SKILL, validate
 
 
-def _zip_tree(source: Path, destination: Path, prefix: str) -> None:
+def _zip_tree(source: Path, destination: Path, prefix: str | None) -> None:
     with zipfile.ZipFile(destination, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
         for path in sorted(source.rglob("*")):
             if not path.is_file():
                 continue
             if path.suffix.casefold() in {".pyc", ".pyo"} or "__pycache__" in path.parts:
                 continue
-            info = zipfile.ZipInfo(str(Path(prefix) / path.relative_to(source)))
+            relative_path = path.relative_to(source)
+            archive_path = Path(prefix) / relative_path if prefix else relative_path
+            info = zipfile.ZipInfo(archive_path.as_posix())
             info.date_time = (2026, 7, 14, 0, 0, 0)
             info.compress_type = zipfile.ZIP_DEFLATED
             info.external_attr = 0o644 << 16
@@ -48,13 +50,21 @@ def main() -> int:
     release.mkdir(exist_ok=True)
     suffix = "submission" if args.submission_ready else "draft"
     plugin_zip = release / f"career-centre-{version}-{suffix}-plugin.zip"
+    portal_zip = release / f"career-centre-{version}-{suffix}-openai-upload.zip"
     skill_zip = release / f"career-centre-{version}-{suffix}-skill.zip"
     _zip_tree(PLUGIN, plugin_zip, PLUGIN.name)
+    # Produce an unambiguous portal archive with the plugin entry point at the
+    # ZIP root. Keep the folder-prefixed archive for marketplace distribution.
+    _zip_tree(PLUGIN, portal_zip, None)
     _zip_tree(SKILL, skill_zip, SKILL.name)
+    with zipfile.ZipFile(portal_zip) as archive:
+        if ".codex-plugin/plugin.json" not in archive.namelist():
+            raise RuntimeError("OpenAI upload archive is missing its root plugin manifest")
     latest = {
         "version": version,
         "status": suffix,
         "plugin": {"file": plugin_zip.name, "sha256": _sha256(plugin_zip)},
+        "openai_upload": {"file": portal_zip.name, "sha256": _sha256(portal_zip)},
         "skill": {"file": skill_zip.name, "sha256": _sha256(skill_zip)},
     }
     latest_path = release / "LATEST.json"
@@ -65,9 +75,14 @@ def main() -> int:
                 "passed": True,
                 "submission_ready": args.submission_ready,
                 "plugin_zip": str(plugin_zip),
+                "openai_upload_zip": str(portal_zip),
                 "skill_zip": str(skill_zip),
                 "latest_manifest": str(latest_path),
-                "checksums": {"plugin": latest["plugin"]["sha256"], "skill": latest["skill"]["sha256"]},
+                "checksums": {
+                    "plugin": latest["plugin"]["sha256"],
+                    "openai_upload": latest["openai_upload"]["sha256"],
+                    "skill": latest["skill"]["sha256"],
+                },
                 "warnings": warnings,
             },
             indent=2,
