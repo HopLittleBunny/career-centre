@@ -52,4 +52,4 @@ After reading the CV, it shows a concise “Your Career Centre is ready” summa
 
 ## Availability recommendation
 
-Initial release: English-language markets where the publisher is ready to support the product. Do not select final countries until the public support process and legal pages are live.
+Initial release: global availability wherever the provider supports skills/plugins, with English-language conversation and documents in the first beta. The product has no Australian default; market, currency, work rights, compensation and sources follow the candidate.

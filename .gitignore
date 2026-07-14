@@ -5,6 +5,7 @@ __pycache__/
 release/*.zip
 !release/career-centre-4.0.0-beta.1-submission-plugin.zip
 !release/career-centre-4.0.0-beta.1-submission-skill.zip
+!release/career-centre-4.0.0-beta.1-claude-plugin.zip
 !release/career-centre-public-site-20260714.zip
 docs/test-runs/
 plugins/career-command-centre/skills/career-command-centre/evaluations/runs/

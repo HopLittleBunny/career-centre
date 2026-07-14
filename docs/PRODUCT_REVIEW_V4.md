@@ -4,7 +4,7 @@
 
 Career Centre v4 is now a credible, provider-neutral career workflow product rather than a large prompt pretending to be one. It has a simple CV-first shell, typed evidence and career state, deterministic Word generation, fail-closed QA, global market defaults, portable learning and a realistic no-publisher-backend distribution model.
 
-The current **ChatGPT functional-beta score is 9.2/10**. The separate **public-release readiness score is 8.9/10**. The installed skill has now passed CV-first setup, stop-turn behaviour, global defaults, advanced preferences, live open/closed-role gates, a returned paired Word pack, natural reference-CV format copying, browser-level Word inspection, portable lifecycle continuity and live scheduled execution. A second scheduled run falsified the assumption that ChatGPT carries printed Passport state across result tasks, so browser schedules are now explicitly snapshot-backed alerts rather than pretend persistent agents. Public readiness remains below 9 because the static legal/support URLs are not live, directory review is incomplete, and personal Plus compatibility is untested.
+The current **core functional-beta score is 9.2/10**, with **9.3/10 ChatGPT public-beta readiness**, **9.1/10 Claude installation and conversation readiness** and **8.8/10 full Claude feature parity**. ChatGPT has passed CV-first setup, stop-turn behaviour, global defaults, advanced preferences, live open/closed-role gates, a returned paired Word pack, natural reference-CV format copying, browser-level Word inspection, portable lifecycle continuity and live scheduled execution. Claude Max web has passed final-package upload, natural auto-routing, mentor-quality orientation, global readiness assumptions and an explicit setup-only/no-search boundary. The public site, support route, downloads, source repository and tagged release are live; provider-directory review, broader-plan verification and the remaining Claude parity journeys are still open.
 
 ## Rating movement
 
@@ -18,9 +18,9 @@ The inherited deep review rated the prototype unevenly: skill prototype 8.5, fir
 | Role decision quality | 15 | 14.0 | Live exact-posting tests produced defensible Apply and Skip decisions with salary, employment, fit, shortlist chance, match, risk and CV angle. Probabilities are not yet calibrated from real outcomes. |
 | Word application-pack quality | 15 | 15.0 | Installed ChatGPT Work journeys returned a two-page CV and one-page cover letter, then a separate reference-formatted two-page CV base. Independent preview exposed a private-use numbering defect; the validator and builder were fixed, and both later journeys passed with portable U+2022 bullets, minimum-font and density checks. |
 | State, feedback and lifecycle continuity | 10 | 8.5 | Portable Passport, corrections, feedback and immutable application events work. Cross-task continuity is portable, not invisible or guaranteed. |
-| Runtime integrity, recovery and tests | 7 | 6.5 | Forty-four automated tests, checksums, trigger-contract checks, active-numbering inspection, fail-closed run validation and explicit snapshot/verified-persistence scheduling modes pass. |
-| Privacy and distribution readiness | 3 | 2.0 | No Amit-operated data service or model bill; direct ZIP installation works on personal Pro. Public legal/support URLs, directory review and Plus testing are still pending. |
-| **Functional beta total** | **100** | **92.0** | **9.2/10 functional beta; public-release readiness remains 8.9/10** |
+| Runtime integrity, recovery and tests | 7 | 6.5 | Forty-five automated tests in each provider package, checksums, trigger-contract checks, active-numbering inspection, fail-closed run validation and explicit snapshot/verified-persistence scheduling modes pass. |
+| Privacy and distribution readiness | 3 | 3.0 | No Amit-operated data service or model bill; direct ZIP installation, public legal/support URLs, source repository and tagged release are live. Provider-directory review and broader-plan testing remain external gates. |
+| **Weighted public-beta total** | **100** | **93.0** | **9.3/10 ChatGPT public-beta readiness; 9.2/10 core functional quality** |
 
 The earlier product was strongest at positioning and weakest at tracker integrity, Word QA, recovery, longitudinal behaviour and agent capability use. v4 materially closes each of those gaps without requiring a server.
 
@@ -97,7 +97,7 @@ One rejection or one disliked draft does not silently become a permanent rule. R
 
 ## Engineering and document evidence
 
-Current automated suite: **44/44 passing**.
+Current automated suite: **45/45 passing in each provider package**.
 
 The test suite covers schema contracts, evidence provenance, exact-link safety, paired-document requirements, reference-format privacy, one/two-page settings, readiness messages, global isolation, Passport corrections, feedback, checksum tampering, missing covers, pending visual review and stray HTML.
 
@@ -127,19 +127,19 @@ The release now embeds a safe Passport snapshot in each schedule, discloses snap
 2. **Deterministic cross-chat memory:** ChatGPT Library/Memory can help, but the portable Passport is the only product-controlled continuity mechanism.
 3. **Background scheduled work:** creation and live execution are proven on personal Pro, but the host owns scheduling, limits, notifications and context availability. Browser schedules are snapshot-backed alerts; deterministic longitudinal deduplication remains in the main career task unless a persistence surface is positively verified.
 4. **Outcome calibration:** shortlist and fit estimates are principled but will improve only after users record interviews, rejections and offers.
-5. **Consumer availability:** direct v4 skill-ZIP upload and runtime are proven on this personal Pro account. Directory publication and a personal Plus test are still required before claiming broad consumer availability.
+5. **Consumer availability:** direct v4 ZIP upload and runtime are proven on personal ChatGPT Pro and Claude Max accounts. Directory publication, personal ChatGPT Plus and another eligible Claude-plan test are still required before claiming broad consumer availability.
 
 Adding an Amit-funded server would solve some persistence and telemetry problems, but it would violate the zero-cost and user-owned-credits strategy. The current design makes the right trade: transparent portability and human control over invisible publisher infrastructure.
 
 ## Public 9+ release bar
 
-The functional beta now exceeds 9. The public-release score can move above 9 only when the remaining launch gates are evidenced:
+The public product surface now exceeds 9 for ChatGPT beta readiness. General-availability claims still require these external gates:
 
-- public listing, legal/support URLs and publisher identity pass review;
+- provider directory listings and publisher identity pass review;
 - installation is tested on personal Plus as well as the already-passed personal Pro web surface;
 - no critical gate fails and the weighted score reaches at least 90/100.
 
-Until then, **9.2/10 is the honest functional-beta score and 8.9/10 is the honest public-release score**.
+Until then, the honest ratings are **9.2/10 core functional beta, 9.3/10 ChatGPT public-beta readiness, 9.1/10 Claude installation and conversation readiness, and 8.8/10 full Claude feature parity**.
 
 ## Platform sources
 

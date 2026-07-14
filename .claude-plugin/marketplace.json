@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "hoplittlebunny-career-tools",
+  "owner": {
+    "name": "Amit Sharma"
+  },
+  "description": "Free, evidence-safe career tools that run inside the user's own AI plan.",
+  "version": "4.0.0-beta.1",
+  "plugins": [
+    {
+      "name": "career-centre",
+      "source": "./plugins/claude-career-centre",
+      "description": "A candid career partner for selective role search, Word CVs, cover letters, application tracking and interview follow-through.",
+      "version": "4.0.0-beta.1",
+      "author": {
+        "name": "Amit Sharma"
+      },
+      "homepage": "https://hoplittlebunny.github.io/career-centre/",
+      "repository": "https://github.com/HopLittleBunny/career-centre",
+      "license": "Apache-2.0",
+      "category": "productivity",
+      "tags": [
+        "career",
+        "job-search",
+        "cv",
+        "resume",
+        "cover-letter"
+      ]
+    }
+  ]
+}

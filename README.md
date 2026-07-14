@@ -1,10 +1,10 @@
 # Career Centre
 
-Career Centre is a free, evidence-safe career decision agent packaged as a skills-only ChatGPT plugin. It helps a job seeker move from an uploaded CV and a few natural preferences to selective role recommendations, exact posting links, honest fit commentary, Word application packs and application follow-through.
+Career Centre is a free, evidence-safe career decision agent packaged for ChatGPT and Claude. It helps a job seeker move from an uploaded CV and a few natural preferences to selective role recommendations, exact posting links, honest fit commentary, Word application packs and application follow-through.
 
 [Visit the product site](https://hoplittlebunny.github.io/career-centre/) or [open the installation guide](https://hoplittlebunny.github.io/career-centre/install.html).
 
-The plugin is intentionally backend-free. Amit Sharma does not operate a model API, CV database or account system for it. The user's ChatGPT environment performs the reasoning and document work using the user's own plan and product limits.
+The plugins are intentionally backend-free. Amit Sharma does not operate a model API, CV database or account system for them. The user's ChatGPT or Claude environment performs the reasoning and document work using the user's own plan and product limits.
 
 ## The user experience
 
@@ -40,6 +40,8 @@ Preferences, corrections, document feedback and application outcomes are retaine
 
 - `plugins/career-command-centre/` — installable plugin.
 - `plugins/career-command-centre/skills/career-command-centre/` — provider-neutral workflow, contracts, scripts and evaluations.
+- `plugins/claude-career-centre/` — native Claude custom-plugin package using the same evidence-safe core.
+- `.claude-plugin/marketplace.json` — public Claude marketplace catalog for repository-based installation.
 - `.agents/plugins/marketplace.json` — local marketplace used for pre-release testing.
 - `docs/` — audit, release and evaluation records.
 - `submission/` — public-directory listing copy, reviewer cases and release notes.
@@ -59,15 +61,17 @@ The second command performs the repository-level release checks. OpenAI's local 
 
 ## Distribution model
 
-The intended public route is OpenAI's universal plugin directory as a **skills-only plugin**. This keeps the publisher's ongoing infrastructure cost at zero: there is no hosted MCP server or paid publisher-side model usage. A free static site can host the website, privacy, terms and support pages needed for review.
+The intended public routes are OpenAI's universal plugin directory and Claude's custom-plugin or marketplace flow. This keeps the publisher's ongoing infrastructure cost at zero: there is no hosted MCP server or paid publisher-side model usage. The free static site hosts the installers, privacy, terms and support pages.
 
 Directory visibility does not prove universal installation. OpenAI documents that plugin installation and invocation can depend on plan, workspace, surface, region and included capabilities. Personal Plus/Pro compatibility is therefore a required post-publication test, not a marketing assumption.
 
-The provider-neutral core is also designed for a later Claude plugin. Anthropic currently documents custom plugin upload for paid Pro, Max, Team and Enterprise plans; that packaging and its own 9+ evaluation begin only after the ChatGPT gate closes.
+Anthropic documents custom plugin upload and GitHub marketplaces for paid plans. The native Claude beta package has been installed on Claude Max web and auto-routed successfully in a normal conversation; ZIP and repository-marketplace installation paths are both included.
 
 ## Current status
 
-Current rating: **9.2/10 functional beta; 8.9/10 public-release readiness**. Version `4.0.0-beta.1` passes all 44 automated tests. Personal ChatGPT Pro web has passed installed multi-turn journeys, a portable-bullet two-page Word pack, natural reference-CV format copying with evidence isolation, lifecycle continuity, schedule creation and live scheduled execution. A two-run browser test proved that ChatGPT launches isolated result tasks and does not carry the prior result's printed Passport into the next run; the product therefore labels browser schedules as snapshot-backed alerts instead of claiming cross-run memory. The no-cost launch site, direct Skill ZIP, checksums, support identity and public source repository are prepared. Remaining external gates are OpenAI directory review and personal Plus compatibility. See `docs/PRODUCT_REVIEW_V4.md`, `docs/ROADMAP.md` and `docs/PUBLIC_RELEASE_RUNBOOK.md`.
+Current rating: **9.2/10 core functional beta; 9.3/10 ChatGPT public-beta readiness; 9.1/10 Claude installation and conversation readiness; 8.8/10 full Claude feature parity**. Version `4.0.0-beta.1` runs the same 45 automated tests successfully in both provider packages. Personal ChatGPT Pro web has passed installed multi-turn journeys, a portable-bullet two-page Word pack, natural reference-CV format copying with evidence isolation, lifecycle continuity, schedule creation and live scheduled execution. A two-run browser test proved that ChatGPT launches isolated result tasks and does not carry the prior result's printed Passport into the next run; the product therefore labels browser schedules as snapshot-backed alerts instead of claiming cross-run memory. Claude Max web has passed custom-plugin upload, automatic invocation, mentor-quality career reflection, compact follow-up questions and the global seven-line readiness receipt. The no-cost public site, downloads, checksums, support identity, source repository and tagged beta release are live. Remaining external gates are OpenAI and Anthropic directory review, broader-plan compatibility, and Claude role/document/reference/schedule parity tests. See `docs/PRODUCT_REVIEW_V4.md`, `docs/ROADMAP.md`, `docs/CLAUDE_COMPATIBILITY.md` and `docs/PUBLIC_RELEASE_RUNBOOK.md`.
+
+The dated job-source, competitor, mentor-voice, submission and website assessment is in `docs/ECOSYSTEM_BENCHMARK.md`.
 
 ## Safety boundary
 

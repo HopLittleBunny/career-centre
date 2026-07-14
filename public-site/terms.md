@@ -6,7 +6,7 @@ title: Terms — Career Centre
 
 Effective date: 14 July 2026
 
-Career Centre is provided by Amit Sharma as a free career-support workflow for use within ChatGPT.
+Career Centre is provided by Amit Sharma as a free career-support workflow for use within ChatGPT or Claude.
 
 ## Career support, not a guarantee
 

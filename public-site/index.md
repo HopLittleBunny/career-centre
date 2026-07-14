@@ -4,7 +4,7 @@ title: Career Centre
 
 # Career Centre
 
-Career Centre is a free ChatGPT career decision plugin by Amit Sharma. Share a CV, describe what matters, and use one continuing conversation to find roles worth your time, judge the real fit, create evidence-safe Word application packs and keep track of what happens next.
+Career Centre is a free career decision plugin by Amit Sharma for ChatGPT and Claude. Share a CV, describe what matters, and use one continuing conversation to find roles worth your time, judge the real fit, create evidence-safe Word application packs and keep track of what happens next.
 
 ## Simple by design
 
@@ -18,7 +18,7 @@ Before the first search, Career Centre shows exactly what it will assume: market
 
 The defaults work for most people. Anyone who wants more control can change advanced preferences in ordinary language or provide a reference Word CV to use as the visual model. Only the format is reused—the reference person's content and personal data are not.
 
-There are no separate accounts, commands, setup projects or publisher-operated CV database. The plugin uses the ChatGPT plan and product limits of the person who installs it.
+There are no separate Career Centre accounts, commands, setup projects or publisher-operated CV database. The plugin uses the ChatGPT or Claude plan and product limits of the person who installs it.
 
 Preferences, corrections, role feedback and application outcomes can be retained in a portable Career Passport inside the continuing task or local workspace. The plugin does not claim invisible cross-account memory.
 

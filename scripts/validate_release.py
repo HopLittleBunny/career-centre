@@ -16,6 +16,9 @@ from urllib.parse import unquote, urlsplit
 ROOT = Path(__file__).resolve().parent.parent
 PLUGIN = ROOT / "plugins" / "career-command-centre"
 SKILL = PLUGIN / "skills" / "career-command-centre"
+CLAUDE_PLUGIN = ROOT / "plugins" / "claude-career-centre"
+CLAUDE_SKILL = CLAUDE_PLUGIN / "skills" / "career-centre"
+CLAUDE_MARKETPLACE = ROOT / ".claude-plugin" / "marketplace.json"
 PUBLIC_SITE = ROOT / "public-site"
 PLACEHOLDER_PATTERN = re.compile(r"(?:PUBLIC_[A-Z_]+_REQUIRED|PUBLIC_SUPPORT_ROUTE_REQUIRED)")
 
@@ -97,6 +100,16 @@ def _validate_public_site(
     except Exception as exc:
         errors.append(f"Public skill download cannot be validated: {exc}")
 
+    claude_download = PUBLIC_SITE / "downloads" / "career-centre-claude-plugin.zip"
+    claude_latest_path = ROOT / "release" / "CLAUDE_LATEST.json"
+    try:
+        expected = json.loads(claude_latest_path.read_text(encoding="utf-8"))["sha256"]
+        actual = hashlib.sha256(claude_download.read_bytes()).hexdigest()
+        if actual != expected:
+            errors.append("Public Claude plugin download does not match release/CLAUDE_LATEST.json.")
+    except Exception as exc:
+        errors.append(f"Public Claude plugin download cannot be validated: {exc}")
+
     try:
         site_latest = json.loads((ROOT / "release" / "PUBLIC_SITE_LATEST.json").read_text(encoding="utf-8"))
         site_bundle = ROOT / "release" / str(site_latest["file"])
@@ -115,15 +128,16 @@ def _validate_public_site(
 
 
 def _run_tests(errors: list[str]) -> None:
-    process = subprocess.run(
-        [sys.executable, str(SKILL / "scripts" / "run_tests.py")],
-        cwd=ROOT,
-        capture_output=True,
-        text=True,
-        env={**__import__("os").environ, "PYTHONDONTWRITEBYTECODE": "1"},
-    )
-    if process.returncode:
-        errors.append("Unit/contract tests failed:\n" + process.stdout + process.stderr)
+    for label, skill_root in (("ChatGPT", SKILL), ("Claude", CLAUDE_SKILL)):
+        process = subprocess.run(
+            [sys.executable, str(skill_root / "scripts" / "run_tests.py")],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            env={**__import__("os").environ, "PYTHONDONTWRITEBYTECODE": "1"},
+        )
+        if process.returncode:
+            errors.append(f"{label} unit/contract tests failed:\n" + process.stdout + process.stderr)
 
 
 def validate(*, submission_ready: bool) -> tuple[list[str], list[str]]:
@@ -147,6 +161,31 @@ def validate(*, submission_ready: bool) -> tuple[list[str], list[str]]:
         value = interface.get(key)
         if not value or not (PLUGIN / str(value)).is_file():
             errors.append(f"Manifest interface.{key} must point to an existing file.")
+
+    try:
+        claude_manifest = json.loads(
+            (CLAUDE_PLUGIN / ".claude-plugin" / "plugin.json").read_text(encoding="utf-8")
+        )
+    except Exception as exc:
+        errors.append(f"Claude plugin manifest cannot be read: {exc}")
+        claude_manifest = {}
+    if claude_manifest.get("name") != "career-centre":
+        errors.append("Claude plugin manifest must use the career-centre identity.")
+    if claude_manifest.get("displayName") != "Career Centre":
+        errors.append("Claude plugin must display the Career Centre name.")
+    if not (CLAUDE_SKILL / "SKILL.md").is_file():
+        errors.append("Claude Career Centre skill is missing.")
+
+    try:
+        marketplace = json.loads(CLAUDE_MARKETPLACE.read_text(encoding="utf-8"))
+    except Exception as exc:
+        errors.append(f"Claude marketplace manifest cannot be read: {exc}")
+        marketplace = {}
+    entries = marketplace.get("plugins", [])
+    if marketplace.get("name") != "hoplittlebunny-career-tools":
+        errors.append("Claude marketplace identity is invalid.")
+    if len(entries) != 1 or entries[0].get("source") != "./plugins/claude-career-centre":
+        errors.append("Claude marketplace must expose the native Career Centre plugin.")
 
     cases_path = ROOT / "submission" / "REVIEWER_TEST_CASES.json"
     try:
@@ -172,7 +211,12 @@ def validate(*, submission_ready: bool) -> tuple[list[str], list[str]]:
         if not path.is_file() or len(path.read_text(encoding="utf-8").split()) < 20:
             errors.append(f"Public page is missing or too short: {path.relative_to(ROOT)}")
 
-    all_files = [path for path in PLUGIN.rglob("*") if path.is_file()]
+    all_files = [
+        path
+        for plugin_root in (PLUGIN, CLAUDE_PLUGIN)
+        for path in plugin_root.rglob("*")
+        if path.is_file()
+    ]
     forbidden = [
         path for path in all_files
         if path.suffix.casefold() in {".pyc", ".pyo", ".html", ".htm"} or "__pycache__" in path.parts

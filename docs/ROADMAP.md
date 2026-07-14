@@ -8,7 +8,7 @@ The commercial goal is reputation and adoption rather than charging users. The p
 
 ## Phase 0 — close the ChatGPT 9+ gate
 
-**Status on 14 July 2026:** the installed personal-Pro functional gate is substantially closed. CV-first setup, stop-turn behaviour, seven-line readiness, global isolation, natural advanced preferences, exact-role decisions, portable lifecycle state, a browser-verified Word pack, natural reference-Word-format copying and scheduled execution all pass. A controlled two-run scheduled test proved that separate ChatGPT Work result tasks do not inherit the preceding result's printed Passport. The corrected final build was then replacement-uploaded and passed a fresh natural-language receipt preview that exposed the saved snapshot, labelled continuity `Snapshot-backed`, warned about repeat risk and created nothing. The design reserves deterministic longitudinal state for the main continuing conversation or a positively verified persistence surface. Public URLs, directory review and personal Plus compatibility remain the distribution gates.
+**Status on 14 July 2026:** the installed personal-Pro functional gate is closed for the documented beta journeys. CV-first setup, stop-turn behaviour, seven-line readiness, global isolation, natural advanced preferences, exact-role decisions, portable lifecycle state, a browser-verified Word pack, natural reference-Word-format copying and scheduled execution all pass. A controlled two-run scheduled test proved that separate ChatGPT Work result tasks do not inherit the preceding result's printed Passport. The corrected final build was then replacement-uploaded and passed a fresh natural-language receipt preview that exposed the saved snapshot, labelled continuity `Snapshot-backed`, warned about repeat risk and created nothing. The public site, repository, support route, downloads and tagged beta release are live. Directory review and personal Plus compatibility remain the ChatGPT distribution gates.
 
 ### A. Final installed-plugin journeys
 
@@ -69,15 +69,15 @@ OpenAI currently documents scheduled tasks for Plus, Pro, Business and Enterpris
 
 ### C. Score and release decision
 
-The current functional-beta rubric is 92/100. Public-release readiness remains 8.9/10 until public URLs, directory review and Plus compatibility gates are complete. Any failed critical public gate caps the public score below 9 even if the functional arithmetic exceeds 90.
+The current core functional-beta rating is 9.2/10 and ChatGPT public-beta readiness is 9.3/10. Directory approval and Plus compatibility remain required before claiming general availability across paid plans.
 
 ## Phase 1 — public ChatGPT release
 
 ### A. Zero-cost public presence
 
-The static site is now built and locally browser-verified. It contains the product homepage, install flow, direct tested skill ZIP, checksum, synthetic Word-output proof, privacy, terms, support guidance and release notes. Desktop 1440 px and mobile 390 px QA pass. `scripts/validate_release.py` now validates local links, required copy, the public download checksum and the final support-route gate.
+The static site is live at <https://hoplittlebunny.github.io/career-centre/>. It contains the product homepage, dual-provider install flow, tested ZIPs, checksums, synthetic Word-output proof, privacy, terms, support guidance and release notes. Desktop 1440 px and mobile 390 px QA pass. `scripts/validate_release.py` validates local links, required copy, both public download checksums and the support route.
 
-Publish the prepared `public-site/` directory using GitHub Pages or another free static host:
+The free GitHub Pages release now provides:
 
 - product homepage;
 - privacy statement;
@@ -87,7 +87,7 @@ Publish the prepared `public-site/` directory using GitHub Pages or another free
 
 A custom domain is optional. The product can launch on a free hosted subdomain; a domain purchase is branding spend, not a technical requirement.
 
-Publication is deliberately paused because the currently authenticated GitHub account is `HopLittleBunny`, while the plugin publisher is Amit Sharma and the GitHub profile exposes no public name. The public repository and issue route must be created under an identity that Amit confirms matches the OpenAI developer identity. See `docs/PUBLIC_RELEASE_RUNBOOK.md`.
+The user approved `HopLittleBunny` as the public repository. OpenAI and Anthropic identity fields and attestations must still be completed accurately by the account holder during directory submission. See `docs/PUBLIC_RELEASE_RUNBOOK.md`.
 
 ### B. Publisher and review package
 
@@ -158,20 +158,20 @@ Examples:
 - repeated interviews in one role family may increase search priority, but not fabricate a higher qualification;
 - a rejection never proves the candidate lacks a skill unless the user confirms the reason.
 
-## Phase 4 — Claude packaging after ChatGPT reaches 9+
+## Phase 4 — Claude packaging and parity
 
 The current core already follows the open Agent Skills structure closely. Claude's current guidance supports custom skills for individual users and plugins for paid Pro, Max, Team and Enterprise plans; users can upload a custom plugin file and use bundled skills in Claude web, Desktop chat and Cowork.
 
-Claude work should begin only after the ChatGPT product contract is stable:
+**Status on 14 July 2026:** the native Claude plugin, GitHub marketplace manifest and release ZIP are complete. Claude Max web accepted the final replacement package, auto-routed from a normal conversation, gave mentor-quality orientation, produced the global seven-line receipt and obeyed explicit `do not search` and `do not create files` instructions. Installation and conversation readiness is 9.1/10; full feature parity is 8.8/10.
 
-1. Add the Claude plugin manifest and package layout without forking the core rules.
-2. Keep the same schemas, evidence contracts and document scripts.
-3. Adapt only host-specific scheduling, file paths and invocation instructions.
-4. Test natural invocation in Claude web and Desktop chat.
-5. Test Word creation with Claude's code-execution/file-creation environment.
-6. Test recurring or Cowork behaviour separately; do not assume ChatGPT task semantics.
-7. Run the same three personas, adversarial cases and visual QA thresholds.
-8. Publish only after Claude independently reaches 9+.
+Remaining work:
+
+1. Verify one exact live role assessment and canonical-posting decision.
+2. Generate and visually inspect a paired Word CV and cover letter in Claude.
+3. Test reference-Word-format evidence and metadata isolation.
+4. Run two Cowork schedule executions; do not assume ChatGPT task semantics.
+5. Repeat the acceptance journey on another eligible paid Claude plan.
+6. Submit the public repository or ZIP to Anthropic's plugin directory after the account holder reviews the attestations.
 
 This is an unusually favourable portability route: Claude explicitly supports paid-plan plugins and custom uploads, while the shared provider-neutral skill prevents two drifting products.
 

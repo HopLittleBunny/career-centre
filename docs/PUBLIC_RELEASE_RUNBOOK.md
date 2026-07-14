@@ -5,35 +5,25 @@ This runbook closes the remaining zero-cost public release gates without adding 
 ## Current release position
 
 - Functional beta: 9.2/10.
-- Public-release readiness: 8.9/10.
-- Personal ChatGPT Pro web: passed.
-- Automated tests: 44/44 passing.
+- ChatGPT public-beta readiness: 9.3/10.
+- Claude installation and conversation readiness: 9.1/10.
+- Personal ChatGPT Pro web and Claude Max web: passed for their documented acceptance journeys.
+- Automated tests: 45/45 passing in each provider package.
 - Draft release validation: passing.
 - Direct skill ZIP: accepted by ChatGPT and included in `public-site/downloads/`.
-- Static site: complete and browser-verified at desktop and mobile widths.
-- Still blocked: publisher-matched public hosting identity, live support route, OpenAI directory review and personal Plus verification.
+- Static site: live at <https://hoplittlebunny.github.io/career-centre/> and browser-verified at desktop and mobile widths.
+- Public repository, support route and tagged beta release: live at <https://github.com/HopLittleBunny/career-centre>.
+- Remaining external gates: OpenAI and Anthropic directory review, personal ChatGPT Plus verification, another eligible Claude plan and the remaining Claude parity journeys.
 
-## Publisher identity gate
+## Publisher identity
 
-The currently authenticated GitHub account is `HopLittleBunny`. Its public profile does not expose a name. The plugin manifest and listing identify the developer as Amit Sharma.
+The user approved `HopLittleBunny` as the public GitHub publisher. Product manifests, listing copy and the site identify Amit Sharma as the developer. OpenAI and Anthropic account-level identity or business-verification fields must still be completed accurately by the account holder; do not infer or attest to them automatically.
 
-Do not publish until one of these is deliberately selected:
+## Free GitHub Pages path — completed
 
-1. Use an Amit Sharma GitHub account or organisation that matches the OpenAI developer identity.
-2. Use `HopLittleBunny` only after Amit confirms that it is the intended publisher account and updates its public profile or organisation details so the relationship to Amit Sharma is clear.
+The public repository, GitHub Pages deployment and issue-based support route are live. Recheck these paths before each submission:
 
-This choice affects the public URL, support route, reviewer confidence and creator attribution. It must not be guessed.
-
-## Free GitHub Pages path
-
-Once the publisher account is correct:
-
-1. Create a public repository named `career-centre` under that account.
-2. Publish the repository and deploy the contents of `public-site/` with the bundled GitHub Pages workflow.
-3. Commit and push the static files.
-4. Enable GitHub Pages from the repository&apos;s main branch and root directory.
-5. Enable repository Issues.
-6. Confirm these pages return HTTP 200 over HTTPS:
+1. Confirm these pages return HTTP 200 over HTTPS:
    - `/`
    - `/install.html`
    - `/privacy.html`
@@ -41,7 +31,9 @@ Once the publisher account is correct:
    - `/support.html`
    - `/release-notes.html`
    - `/downloads/career-centre-chatgpt-skill.zip`
-7. Confirm the download checksum is `344b63f16aaa18c7d15cccc60ac29c998abb87f722764e0b2b43ac98d75b2545`.
+   - `/downloads/career-centre-claude-plugin.zip`
+2. Confirm the ChatGPT download checksum is `7a553dc61a6f0e93697c5468da1d67e5a6fdef00919778b10f6655fa5db0f268`.
+3. Confirm the Claude download checksum is `896e27aa6fddbf179bd8c92f6ae169e130e907f893e5e0aae0b24c07dd464a46`.
 
 A custom domain is optional. The free `github.io` URL is sufficient for a first public release.
 
@@ -69,13 +61,12 @@ The command must return `passed: true` with no warnings.
 Public URL changes modify the plugin manifest, so the directory plugin ZIP must be rebuilt after those edits.
 
 1. Bump the prerelease version.
-2. Run the 44-test suite.
+2. Run both 45-test suites.
 3. Run draft and submission-ready validation.
-4. Run `python3 scripts/package_release.py`.
-5. Confirm `release/LATEST.json` matches both new ZIP checksums.
-6. Reinstall the local plugin package.
-7. Replacement-upload the final skill ZIP to personal ChatGPT Pro.
-8. Repeat one natural CV-first smoke test and one side-effect-free schedule-receipt preview.
+4. Run `python3 scripts/package_release.py` and `python3 scripts/package_claude_release.py`.
+5. Confirm `release/LATEST.json` and `release/CLAUDE_LATEST.json` match the new ZIP checksums.
+6. Replacement-upload the final skill ZIP to personal ChatGPT Pro and the final plugin ZIP to Claude.
+7. Repeat one natural CV-first smoke test and one explicit setup-only/no-search preview on each provider.
 
 ## OpenAI directory submission
 
@@ -90,6 +81,12 @@ Use the prepared materials in:
 
 Keep the initial package skills-only. Do not add an MCP server, external authentication, model API or publisher CV database.
 
+The final submission action includes publisher representations and attestations. Populate and review the draft, but obtain the account holder's explicit confirmation before selecting **Submit for review**.
+
+## Anthropic directory submission
+
+The repository includes a native Claude package, the root `.claude-plugin/marketplace.json` manifest and a browser-tested ZIP. Use Anthropic's public [plugin submission form](https://claude.ai/settings/plugins/submit) with either the public repository or ZIP. Run `claude plugin validate` if the current Claude developer tooling is available, review all developer attestations with the account holder and obtain explicit confirmation before the final submission action.
+
 ## Personal Plus acceptance
 
 After the listing is available to another account:
@@ -103,6 +100,6 @@ After the listing is available to another account:
 7. Preview a schedule and confirm it says `Snapshot-backed` rather than claiming cross-run memory.
 8. Submit nothing and remove any temporary schedule after the account owner approves deletion.
 
-## Claude phase
+## Claude parity phase
 
-Start Claude packaging only after the ChatGPT public gate is closed. Reuse the provider-neutral career skill, schemas, references, fixtures and document scripts. Do not carry over ChatGPT-specific schedule or installation claims without separate Claude host tests.
+Packaging, upload, ordinary-chat auto-routing, mentor reflection, the seven-line receipt and the setup-only/no-search boundary pass on Claude Max web. Before claiming full parity, verify one exact live role assessment, a rendered paired Word pack, reference-format evidence isolation, two Cowork schedule executions and another eligible paid plan. Do not carry over ChatGPT-specific schedule or file claims without separate Claude evidence.

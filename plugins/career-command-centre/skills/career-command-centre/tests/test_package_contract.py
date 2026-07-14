@@ -36,6 +36,9 @@ class PackageContractTests(unittest.TestCase):
         self.assertIn("Create or refresh a CV base", text)
         self.assertIn("CV bases and reference-format documents", text)
         self.assertIn("Do not approve the document on the generic document capability's self-reported QA alone", text)
+        self.assertIn("explicit stop boundary", text)
+        self.assertIn("My recommendation", text)
+        self.assertIn("orientation -> tension or trade-off -> recommendation -> one concrete next move", text)
 
     def test_skill_description_routes_cv_base_and_reference_format_language(self) -> None:
         text = (self.skill_root / "SKILL.md").read_text(encoding="utf-8")
@@ -49,6 +52,12 @@ class PackageContractTests(unittest.TestCase):
         ):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, frontmatter)
+
+    def test_search_contract_has_provider_independent_source_ladder(self) -> None:
+        text = (self.skill_root / "references" / "04_SEARCH_AND_DECISIONS.md").read_text(encoding="utf-8")
+        self.assertIn("Use this source ladder", text)
+        self.assertIn("Do not require a LinkedIn, Indeed, SEEK or other job-site plugin", text)
+        self.assertIn("Do not scrape, bypass access controls", text)
 
     def test_release_tree_contains_no_compiled_or_html_artifacts(self) -> None:
         forbidden = [

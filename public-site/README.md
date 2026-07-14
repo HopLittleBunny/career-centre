@@ -1,6 +1,6 @@
 # Career Centre
 
-Career Centre is a free, evidence-safe career decision skill by Amit Sharma for everyday ChatGPT users.
+Career Centre is a free, evidence-safe career decision plugin by Amit Sharma for everyday ChatGPT and Claude users.
 
 Share a CV, set the preferences that matter, assess roles with exact posting links and salary context, and create polished Word CV and cover-letter packs. There is no publisher-operated CV database, no model API charge to the publisher and no automatic application submission.
 
@@ -16,10 +16,11 @@ Share a CV, set the preferences that matter, assess roles with exact posting lin
 
 - Version: `4.0.0-beta.1`
 - Personal ChatGPT Pro web: tested
-- Automated tests: 44/44 passing
+- Claude Max web: plugin upload, natural auto-routing, mentor reflection and readiness receipt tested
+- Automated tests: 45/45 passing in each provider package
 - Word pack and reference-format CV journeys: browser verified
 - Scheduled alerts: snapshot-backed, with repeat risk disclosed
-- Directory review and personal Plus verification: pending
+- OpenAI and Anthropic directory review and broader-plan verification: pending
 
 ## Privacy rule for issues
 
