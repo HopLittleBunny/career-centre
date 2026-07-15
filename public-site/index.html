@@ -3,217 +3,202 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A free career plugin for CV review, role search and tailored Word applications in ChatGPT or Claude.">
-  <title>Career Centre &mdash; Open Door</title>
+  <meta name="description" content="A free career partner for CV review, verified role search, tailored Word applications and recurring career searches in ChatGPT or Claude.">
+  <title>Career Centre | Your search, understood</title>
   <link rel="icon" href="assets/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
   <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/site.js" defer></script>
 </head>
-<body>
+<body class="warm-site">
   <a class="skip-link" href="#main-content">Skip to main content</a>
-  <header class="site-header">
+  <header class="site-header warm-header">
     <div class="shell nav">
-      <a class="brand" href="index.html" aria-label="Career Centre home">
+      <a class="brand warm-brand" href="index.html" aria-label="Career Centre home">
         <img src="assets/icon.png" alt="">
-        <span class="brand-lockup"><strong>Career Centre</strong><small>Open Door</small></span>
+        <span class="brand-lockup"><strong>Career Centre</strong><small>by Amit Sharma</small></span>
       </a>
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#how-it-works">How it works</a>
-        <a href="#safety">Boundaries</a>
-        <a href="privacy.html">Privacy</a>
-        <a class="nav-install" href="install.html">Install</a>
+      <nav class="nav-links warm-nav" aria-label="Primary navigation">
+        <a href="how-it-works.html">See how it works</a>
+        <a href="#application-pack">What you get</a>
+        <a href="#global">Global</a>
+        <a href="#trust">Trust</a>
+        <a href="#faq">FAQ</a>
+        <a class="nav-install warm-install" href="https://chatgpt.com/plugins/plugins_6a565bb471908191a969cffc4aa6296f" rel="noreferrer">Install free on ChatGPT <span aria-hidden="true">→</span></a>
       </nav>
     </div>
   </header>
 
   <main id="main-content">
-    <section class="shell hero">
-      <div>
-        <p class="eyebrow">Career Centre &mdash; Open Door</p>
-        <h1>Open the door to your next move.</h1>
-        <p class="hero-copy"><strong>Career Centre is a free career plugin for the ChatGPT or Claude you already use.</strong> It reviews your CV, helps you find and judge roles, and creates tailored Word CVs and cover letters &mdash; without a separate Career Centre account.</p>
-        <div class="actions">
-          <a class="button" href="install.html">Install Career Centre</a>
-          <a class="button secondary" href="#how-it-works">See how it works</a>
+    <section class="warm-hero">
+      <div class="shell warm-hero-grid">
+        <div class="warm-hero-copy">
+          <p class="eyebrow warm-eyebrow">Career Centre · Open Door</p>
+          <h1>A career centre that gets to know <em>your search.</em></h1>
+          <p>Share your CVs and preferences once. Get honest feedback, better-matched roles, tailored Word applications and a rhythm you can keep.</p>
+          <div class="actions warm-actions">
+            <a class="button warm-primary" href="https://chatgpt.com/plugins/plugins_6a565bb471908191a969cffc4aa6296f" rel="noreferrer">Install free on ChatGPT <span aria-hidden="true">→</span></a>
+            <a class="button warm-secondary" href="downloads/career-centre-claude-plugin.zip" download>Get the Claude skill <span aria-hidden="true">→</span></a>
+          </div>
+          <p class="free-note"><span class="material-symbols-rounded" aria-hidden="true">verified_user</span> No separate subscription from us. Provider plan limits apply.</p>
+        </div>
+        <div class="product-hero" aria-label="Real Career Centre product screens">
+          <figure class="product-screen product-screen-main">
+            <img src="assets/product-chatgpt-plugin.png" alt="Career Centre plugin page in ChatGPT with starter prompts">
+          </figure>
+          <figure class="product-screen product-screen-float">
+            <img src="assets/product-chatgpt-review.png" alt="Career Centre role assessment in a real ChatGPT Work task">
+          </figure>
+          <span class="real-output-badge">Real product screens</span>
         </div>
       </div>
-      <figure class="hero-visual">
-        <img src="assets/synthetic-cv-example.png" alt="First page of a synthetic two-page Word CV created by Career Centre">
-        <figcaption>Synthetic product example. Every released CV is checked for evidence safety, Word structure, page count, font size and visible density.</figcaption>
-      </figure>
     </section>
 
-    <section class="trust-strip" aria-label="Product boundaries">
-      <div class="shell trust-grid">
-        <div class="trust-item">No separate fee or account</div>
-        <div class="trust-item">No publisher CV database</div>
-        <div class="trust-item">No automatic applications</div>
-        <div class="trust-item">Uses the user&apos;s AI plan</div>
-      </div>
-    </section>
-
-    <section class="journey" aria-labelledby="quick-start-heading">
-      <div class="shell journey-layout">
-        <div class="journey-intro">
-          <p class="eyebrow">Three simple steps</p>
-          <h2 id="quick-start-heading">Install it. Share your CV. Start talking.</h2>
-          <p>No technical setup, prompt pack or dashboard is required.</p>
+    <section class="warm-workflow" aria-labelledby="workflow-title">
+      <div class="shell">
+        <div class="section-heading centered">
+          <p class="eyebrow warm-eyebrow">One conversation, end to end</p>
+          <h2 id="workflow-title">How Career Centre works</h2>
         </div>
-        <ol class="journey-steps">
-          <li><span>1</span><div><strong>Install Career Centre</strong><small>Choose ChatGPT or Claude.</small></div></li>
-          <li><span>2</span><div><strong>Share one or more CVs</strong><small>It reviews what is strong and what may be underselling you.</small></div></li>
-          <li><span>3</span><div><strong>Say “Help me find my next role”</strong><small>Then refine preferences in normal conversation.</small></div></li>
+        <ol class="workflow-ribbon">
+          <li>
+            <span class="step-number">1</span><span class="material-symbols-rounded step-icon" aria-hidden="true">folder_shared</span>
+            <h3>Start with one or several CVs</h3><p>Upload your current CVs or share links. Add target roles, locations, salary and preferences.</p>
+          </li>
+          <li>
+            <span class="step-number">2</span><span class="material-symbols-rounded step-icon" aria-hidden="true">content_paste_search</span>
+            <h3>Receive a broad Quick CV review</h3><p>Honest feedback on your CV angle, evidence, role fit and next edit.</p>
+          </li>
+          <li>
+            <span class="step-number">3</span><span class="material-symbols-rounded step-icon" aria-hidden="true">fact_check</span>
+            <h3>Your Career Centre is ready</h3><p>A friendly receipt shows sources, geography, salary, CV length and sections.</p>
+          </li>
+          <li>
+            <span class="step-number">4</span><span class="material-symbols-rounded step-icon" aria-hidden="true">balance</span>
+            <h3>Decide with fit, salary and risk</h3><p>Live postings are checked with fit score, salary context and shortlist probability.</p>
+          </li>
+          <li>
+            <span class="step-number">5</span><span class="material-symbols-rounded step-icon" aria-hidden="true">contract_edit</span>
+            <h3>Get the polished Word application</h3><p>A tailored two-page CV and persuasive cover letter, ready to personalise.</p>
+          </li>
+          <li>
+            <span class="step-number">6</span><span class="material-symbols-rounded step-icon" aria-hidden="true">schedule_send</span>
+            <h3>Continue with a Scheduled task</h3><p>Track results, refine preferences, then schedule daily or weekday runs on an eligible provider plan.</p>
+          </li>
         </ol>
-      </div>
-    </section>
-
-    <section class="section" id="how-it-works">
-      <div class="shell">
-        <h2>Talk naturally. Keep the process selective.</h2>
-        <p class="section-lead">There are no setup projects, prompt packs or dashboards to maintain.</p>
-        <div class="workflow">
-          <article>
-            <h3>Share your CVs</h3>
-            <p>Share one CV, or the key versions you use for different role directions. The skill reads them before asking questions and keeps every claim tied to its source.</p>
-          </article>
-          <article>
-            <h3>Set the boundaries</h3>
-            <p>Choose role types, locations, work rights, salary, employment type and exclusions in ordinary language.</p>
-          </article>
-          <article>
-            <h3>Choose the roles</h3>
-            <p>Every displayed role includes a clickable exact posting, salary context, employment type, strongest match, main risk and a clear Apply, Maybe or Skip decision.</p>
-          </article>
-          <article>
-            <h3>Create the pack</h3>
-            <p>For roles you select, the skill creates a tailored Word CV and a persuasive Word cover letter. You review and submit manually.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section alt">
-      <div class="shell ready-layout">
-        <div>
-          <h2>You see the assumptions before the first search.</h2>
-          <p class="section-lead">Defaults work for most people. You can change any of them before or after setup.</p>
-        </div>
-        <div class="receipt" aria-label="Example readiness receipt">
-          <h3>Your Career Centre is ready</h3>
+        <p class="workflow-proof">Synthetic test candidate. Real product output.</p>
+        <aside class="ready-receipt" aria-labelledby="ready-receipt-title">
+          <div class="ready-receipt-heading"><span class="material-symbols-rounded" aria-hidden="true">fact_check</span><div><p class="eyebrow warm-eyebrow">Shown before the first search</p><h3 id="ready-receipt-title">Your Career Centre is ready</h3></div></div>
           <dl>
-            <dt>Target</dt>
-            <dd>Role tracks and seniority</dd>
-            <dt>Geography</dt>
-            <dd>Geography, remote preference and work rights</dd>
-            <dt>Sources</dt>
-            <dd>Employer postings first, then suitable local job boards</dd>
-            <dt>Compensation</dt>
-            <dd>Currency, salary floor and employment preference</dd>
-            <dt>CV</dt>
-            <dd>Page count, second-page density and minimum font size</dd>
-            <dt>Sections</dt>
-            <dd>The exact section plan for tailored CVs</dd>
-            <dt>Application pack</dt>
-            <dd>Word CV and cover letter, with manual submission</dd>
+            <dt>Target</dt><dd>Your confirmed role families and level</dd>
+            <dt>Geography</dt><dd>Locations, remote options and work rights</dd>
+            <dt>Sources</dt><dd>Local job boards, employer sites and authorised recruiters</dd>
+            <dt>Compensation</dt><dd>Currency, salary basis and practical minimum</dd>
+            <dt>CV</dt><dd>Default two-page Word CV, with page 2 at least 80% filled</dd>
+            <dt>Sections</dt><dd>Summary, role-match evidence, experience, skills, education and recognition</dd>
+            <dt>Application pack</dt><dd>Tailored Word CV and one-page Word cover letter</dd>
           </dl>
+        </aside>
+        <div class="center-action"><a class="text-link" href="how-it-works.html">See every step in ChatGPT and Claude <span aria-hidden="true">→</span></a></div>
+      </div>
+    </section>
+
+    <section class="application-band" id="application-pack" aria-labelledby="application-title">
+      <div class="shell application-grid">
+        <div class="application-copy">
+          <p class="eyebrow light-eyebrow">The deliverable</p>
+          <h2 id="application-title">Your application pack, ready to go</h2>
+          <ul class="tick-list">
+            <li><span class="material-symbols-rounded" aria-hidden="true">check_circle</span>Two-page Word CV tailored to the role</li>
+            <li><span class="material-symbols-rounded" aria-hidden="true">check_circle</span>Cover letter aligned to the posting</li>
+            <li><span class="material-symbols-rounded" aria-hidden="true">check_circle</span>Key achievements and impact highlighted</li>
+            <li><span class="material-symbols-rounded" aria-hidden="true">check_circle</span>ATS-friendly and easy to personalise</li>
+          </ul>
+          <p class="application-note">Every claim stays tied to the evidence you shared. Applications remain manual.</p>
+        </div>
+        <div class="document-stack" aria-label="Real synthetic Word application pack">
+          <figure class="doc doc-back"><img src="assets/product-word-cover-letter.png" alt="Synthetic one-page Word cover letter created by Career Centre"></figure>
+          <figure class="doc doc-middle"><img src="assets/product-word-cv-page-2.png" alt="Second page of a synthetic two-page Word CV"></figure>
+          <figure class="doc doc-front"><img src="assets/product-word-cv-page-1.png" alt="First page of a synthetic two-page Word CV"></figure>
+          <span class="word-badge"><span class="material-symbols-rounded" aria-hidden="true">description</span><strong>WORD</strong><small>format</small></span>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="global-section" id="global" aria-labelledby="global-title">
       <div class="shell">
-        <h2>Simple defaults, with deeper control when you want it.</h2>
-        <p class="section-lead">Say “change my advanced preferences” at any time. You never need to edit a configuration file.</p>
-        <div class="feature-list">
-          <article>
-            <h3>Quick CV review</h3>
-            <p>Get a plain-language overall-strength verdict, what already works, what may be underselling you and the one edit that matters most. Ask for the deeper review only when you want it.</p>
+        <div class="section-heading centered">
+          <p class="eyebrow warm-eyebrow">Local logic, global product</p>
+          <h2 id="global-title">Built for where you are</h2>
+          <p>Local sources, currency, work rights and CV conventions that fit your market.</p>
+        </div>
+        <div class="market-grid">
+          <article class="market-card india-card">
+            <span class="material-symbols-rounded market-icon" aria-hidden="true">temple_hindu</span>
+            <h3>India</h3><div class="market-facts"><p><strong>Sources</strong>Naukri, LinkedIn, Indeed India and company career sites</p><p><strong>Currency</strong>INR, with CTC and fixed pay kept distinct</p><p><strong>Work rights</strong>India work authorisation</p><p><strong>CV conventions</strong>Two-page preferred, achievements first, concise and impact-led</p><p><strong>Schedule example</strong>Weekdays at 9:00 AM IST</p></div>
           </article>
-          <article>
-            <h3>Global by design</h3>
-            <p>Market, currency, work-right rules, salary language and search sources follow the candidate. Australian assumptions do not leak into other countries.</p>
+          <article class="market-card us-card">
+            <span class="material-symbols-rounded market-icon" aria-hidden="true">location_city</span>
+            <h3>United States</h3><div class="market-facts"><p><strong>Sources</strong>Indeed, LinkedIn, Glassdoor and company career sites</p><p><strong>Currency</strong>USD</p><p><strong>Work rights</strong>US work authorisation required</p><p><strong>CV conventions</strong>One to two pages, results and metrics, concise and scannable</p><p><strong>Schedule example</strong>Weekdays at 8:00 AM Eastern time</p></div>
           </article>
-          <article>
-            <h3>Verified role sources</h3>
-            <p>Career Centre uses employer and authorised recruiter postings as the source of truth. Job boards help with discovery, but a role is recommended only after it is matched to a current, exact posting.</p>
+          <article class="market-card australia-card">
+            <span class="material-symbols-rounded market-icon" aria-hidden="true">sailing</span>
+            <h3>Australia</h3><div class="market-facts"><p><strong>Sources</strong>SEEK, LinkedIn, Indeed AU and company career sites</p><p><strong>Currency</strong>AUD</p><p><strong>Work rights</strong>Australian work authorisation</p><p><strong>CV conventions</strong>Two to three pages, impact and leadership, clear and direct</p><p><strong>Schedule example</strong>Weekdays at 8:00 AM local time</p></div>
           </article>
-          <article>
-            <h3>CV fields</h3>
-            <p>Show or hide contact fields, work rights, links and optional sections without changing the underlying evidence.</p>
-          </article>
-          <article>
-            <h3>Page strategy</h3>
-            <p>Experienced candidates default to two strong pages with page two at least 80% filled. Early-career candidates can use one strong page.</p>
-          </article>
-          <article>
-            <h3>Section order</h3>
-            <p>Change the section plan in ordinary language while keeping every claim tied to your real experience and the Word document professionally formatted.</p>
-          </article>
-          <article>
-            <h3>Reference CV formatting</h3>
-            <p>Supply a Word CV as a visual model. Layout and styling can be reused, but the reference person&apos;s claims, links, metadata and private details are excluded.</p>
-          </article>
+        </div>
+        <div class="advanced-strip"><span class="material-symbols-rounded" aria-hidden="true">settings</span><p><strong>Advanced preferences are optional.</strong> Defaults work for most people. Change fields, section order and language only when you want to. Reference CV formatting is also available when you explicitly provide a permitted Word example.</p></div>
+      </div>
+    </section>
+
+    <section class="indeed-section" aria-labelledby="indeed-title">
+      <div class="shell indeed-grid">
+        <figure class="indeed-shot"><img src="assets/product-indeed-plugin.png" alt="Official Indeed plugin page in ChatGPT"></figure>
+        <div>
+          <p class="eyebrow warm-eyebrow">Optional discovery extension</p>
+          <h2 id="indeed-title">Find more with Indeed</h2>
+          <p>After your first Career Centre run, ChatGPT users can install the official Indeed plugin to expand discovery.</p>
+          <div class="prompt-chip"><span class="material-symbols-rounded" aria-hidden="true">alternate_email</span>Indeed find me roles matching [target titles] in [location]</div>
+          <p class="small-copy">Career Centre then verifies exact links and fit, checks salary and work rights, and brings only the strongest matches forward.</p>
         </div>
       </div>
     </section>
 
-    <section class="section alt">
-      <div class="shell memory-layout">
-        <div>
-          <h2>Memory that stays visible and portable.</h2>
-          <p class="section-lead">The Career Passport is a portable Career Evidence File and history backup containing source CVs, approved evidence, generated-document versions, preferences, corrections, role decisions and outcomes.</p>
-        </div>
-        <div>
-          <div class="content-card">
-            <h3>One main conversation</h3>
-            <p>Keep one Career Centre conversation for the active search. A separate new conversation may not inherit the CV or history, so save and re-upload the latest Passport when moving.</p>
-          </div>
-          <div class="content-card">
-            <h3>Learning with boundaries</h3>
-            <p>Confirmed corrections, search preferences, role decisions and document feedback improve later work. Job descriptions never become evidence about the candidate.</p>
-          </div>
-          <div class="content-card">
-            <h3>Scheduled alerts</h3>
-            <p>After your first completed search with a verified role, automation becomes the next action. In ChatGPT Work, Career Centre can create the Scheduled task after you give the cadence, time and timezone. In Claude, it hands the calibrated prompt to Cowork&apos;s /schedule flow. Nothing is scheduled until you accept.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="safety">
+    <section class="trust-section" id="trust" aria-labelledby="trust-title">
       <div class="shell">
-        <h2>Honest boundaries are part of the product.</h2>
-        <div class="boundary-grid">
-          <div><strong>No invented evidence</strong>Employers, metrics, tools, qualifications and achievements cannot be added without support.</div>
-          <div><strong>No generic Apply decision</strong>An exact, open posting and enough evidence are required before a role can be marked Apply.</div>
-          <div><strong>No silent reference copying</strong>A reference CV is a visual source only. Its content and private data are not candidate evidence.</div>
-          <div><strong>No outcome guarantees</strong>Fit and shortlist estimates are decision support, not promises of interviews or offers.</div>
-          <div><strong>No empty file failure</strong>If Word creation is unavailable, the complete CV is returned in chat as a clearly labelled partial fallback.</div>
+        <div class="section-heading centered compact-heading"><p class="eyebrow warm-eyebrow">No hidden machinery</p><h2 id="trust-title">Trust is part of the product</h2></div>
+        <div class="trust-pairs">
+          <article><span class="material-symbols-rounded trust-icon" aria-hidden="true">handshake</span><div><h3>Plain-language trust</h3><p><strong>Evidence-safe:</strong> your files stay within the provider plan you use. <strong>Private by design:</strong> we run no separate CV backend. <strong>Transparent:</strong> you see sources, postings and reasoning.</p></div></article>
+          <article><span class="material-symbols-rounded trust-icon orange" aria-hidden="true">edit_document</span><div><h3>No automatic applications</h3><p>Career Centre prepares you well. You apply manually on employer sites. We do not auto-apply and never share your data without you.</p></div></article>
         </div>
       </div>
     </section>
 
-    <section class="cta">
-      <div class="shell">
-        <div>
-          <h2>Start with one sentence and your CV.</h2>
-          <p>Install the plugin in ChatGPT or Claude, open a normal conversation, and say “Help me find my next role.” Share the key CV versions together if you use more than one.</p>
+    <section class="faq-section" id="faq" aria-labelledby="faq-title">
+      <div class="shell faq-grid">
+        <div><p class="eyebrow warm-eyebrow">Questions, answered</p><h2 id="faq-title">Before you install</h2><p>It should feel like adding a capable career partner, not setting up software.</p></div>
+        <div class="faq-list">
+          <details><summary>Is Career Centre really free?</summary><p>There is no separate Career Centre subscription. You use your own ChatGPT or Claude plan, so provider plan and usage limits still apply.</p></details>
+          <details><summary>Is automatic scheduling included on every plan?</summary><p>No. Career Centre always offers the next step, but recurring Scheduled tasks require a provider plan and account that supports them. One-off searches still work without scheduling.</p></details>
+          <details><summary>Why can the ChatGPT and Claude icons look different?</summary><p>The ChatGPT package includes the Open Door directory and composer images. Claude's personal plugin ZIP currently shows its own plugin presentation and does not take a separate image asset from this package.</p></details>
+          <details><summary>Does it remember everything forever?</summary><p>Keep one main conversation and save the generated Career Passport. A new chat may not inherit earlier context, so re-upload the Passport when moving.</p></details>
+          <details><summary>Will it apply to jobs automatically?</summary><p>No. It finds, assesses and prepares. You make the decision and submit each application manually.</p></details>
+          <details><summary>Can I use my own Word CV template?</summary><p>Yes, when you ask. Career Centre can reuse the visual system of a permitted reference Word CV without copying that person’s content or metadata.</p></details>
         </div>
-        <a class="button" href="install.html">Install Career Centre</a>
+      </div>
+    </section>
+
+    <section class="warm-cta">
+      <div class="shell warm-cta-grid">
+        <div><p class="eyebrow light-eyebrow">Ready when you are</p><h2>Install Career Centre and get to know your search.</h2><p>Install once, Share your CVs and start with: “Help me find my next role.”</p></div>
+        <div class="actions warm-actions"><a class="button warm-primary" href="https://chatgpt.com/plugins/plugins_6a565bb471908191a969cffc4aa6296f" rel="noreferrer">Install free on ChatGPT <span aria-hidden="true">→</span></a><a class="button footer-claude" href="downloads/career-centre-claude-plugin.zip" download>Get the Claude skill <span aria-hidden="true">→</span></a></div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="shell footer-layout">
-      <div>Career Centre &mdash; Open Door is a free skills-only workflow by Amit Sharma.</div>
-      <nav class="footer-links" aria-label="Footer navigation">
-        <a href="install.html">Install</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-        <a href="support.html">Support</a>
-        <a href="release-notes.html">Release notes</a>
-      </nav>
-    </div>
+  <footer class="site-footer warm-footer">
+    <div class="shell footer-layout"><div>Career Centre · Open Door is a free skills-only workflow by Amit Sharma.</div><nav class="footer-links" aria-label="Footer navigation"><a href="how-it-works.html">See how it works</a><a href="install.html">Install</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="support.html">Support</a><a href="release-notes.html">Release notes</a></nav></div>
   </footer>
 </body>
 </html>
