@@ -53,7 +53,7 @@ def main() -> int:
     manifest = {
         "date": "2026-07-15",
         "version": latest["version"],
-        "status": "submission",
+        "status": "published",
         "file": destination.name,
         "sha256": sha256(destination),
         "downloads": {

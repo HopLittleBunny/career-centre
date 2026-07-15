@@ -7,6 +7,7 @@ Share one CV or several role-specific versions, set the preferences that matter,
 ## Start here
 
 - [Product site](https://hoplittlebunny.github.io/career-centre/)
+- [See how it works](https://hoplittlebunny.github.io/career-centre/how-it-works.html)
 - [Install guide](https://hoplittlebunny.github.io/career-centre/install.html)
 - [Privacy](https://hoplittlebunny.github.io/career-centre/privacy.html)
 - [Terms](https://hoplittlebunny.github.io/career-centre/terms.html)
@@ -14,13 +15,13 @@ Share one CV or several role-specific versions, set the preferences that matter,
 
 ## Current status
 
-- Version: `4.0.0-beta.4` submission candidate; published ChatGPT beta.3 remains live until the update is reviewed
+- Version: `4.0.0-beta.4`; published in the ChatGPT Plugins directory
 - Personal ChatGPT Pro web: tested
 - Claude Max web: plugin upload, natural auto-routing, mentor reflection and readiness receipt tested
 - Automated tests: 62/62 passing in each provider package
 - Word pack and reference-format CV journeys: browser verified
 - Scheduled work: same-task context preferred in ChatGPT Work; Cowork schedule for Claude; snapshot fallback disclosed
-- OpenAI beta.3 published; beta.4 automation and Open Door update is being prepared; Claude directory review remains pending
+- OpenAI beta.4 published with the automation and Open Door update; Claude directory review remains pending
 
 ## Privacy rule for issues
 
