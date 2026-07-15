@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Career Centre — Open Door</title>
+  <desc id="desc">A softly rounded doorway opens onto a golden path, representing a welcoming route to a new opportunity.</desc>
+  <rect width="512" height="512" rx="118" fill="#28524B"/>
+  <path d="M143 395V238C143 154 194 103 256 103S369 154 369 238v157" fill="none" stroke="#FFF3DF" stroke-width="48" stroke-linecap="round"/>
+  <path d="M205 395V244c0-35 20-64 51-64s51 29 51 64v151" fill="#E66F5A"/>
+  <circle cx="256" cy="242" r="25" fill="#F5C55B"/>
+  <path d="M256 276C239 317 225 352 208 409h96c-17-57-31-92-48-133Z" fill="#FFF3DF"/>
+  <path d="M181 409h150" stroke="#F5C55B" stroke-width="24" stroke-linecap="round"/>
+</svg>

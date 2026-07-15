@@ -33,6 +33,8 @@ A reviewed role needs:
 - employment type and duration when applicable;
 - role-history comparison.
 
+The exact posting is a release gate, not a label. Always show both `Exact posting: Employer — Role` and a separate visible `Exact posting URL: https://...` line copied from the resolved role page. The host can turn the visible URL into a clickable link. A hidden citation, the words `Posting details`, a plain-text role name, a careers-home page, a search-results page or an external job ID without its URL does not satisfy this field. Immediately before sending the shortlist, silently verify that every displayed role contains a visible URL beginning with `http://` or `https://`. If it is missing, write `Exact posting link: missing - not reviewed`, keep the role out of Apply and do not present it as one of the user's reviewed recommendations.
+
 Create stable role identity in this order: exact employer posting identity or external job ID; otherwise canonical employer plus normalised title; then material description similarity. Normalise case, punctuation, common employer suffixes and remote labels. Do not put mutable location text such as `Americas` versus `Remote Americas` into the primary identity key. Treat an employer posting and a job-board mirror as aliases of the same role when employer, title and substantive description match. Location remains a hard-gate fact, but it is secondary evidence for deduplication.
 
 Reject aggregator links when the employer or authorised recruiter posting is available. A company careers home page is not an exact role URL.

@@ -80,7 +80,14 @@ def build_schedule_prompt(passport: dict[str, Any]) -> str:
         sort_keys=True,
     )
     continuity_mode = automation.get("continuity_mode", "snapshot_only")
-    if continuity_mode == "verified_persistent":
+    if continuity_mode == "task_context":
+        continuity_instruction = (
+            "Continuity mode: current-task context. Create this schedule from the existing Career Centre task and return each run "
+            "to that task. Use the task's existing conversation context, uploaded files, installed Career Centre plugin and latest "
+            "Career Passport available there. Reconcile role fingerprints and application history before browsing. State which "
+            "continuity inputs were available; never claim cross-account or unrelated-task memory. "
+        )
+    elif continuity_mode == "verified_persistent":
         continuity_instruction = (
             "Continuity mode: verified-persistent. Before browsing, load the latest valid Career Passport from the configured "
             "persistent source and confirm its updated_at value. Reconcile its role fingerprints and application history, then save "
@@ -90,7 +97,7 @@ def build_schedule_prompt(passport: dict[str, Any]) -> str:
     else:
         continuity_instruction = (
             "Continuity mode: snapshot-only. Begin every result with: ‘Continuity: snapshot-backed alert. I used the Career Passport "
-            "captured when this schedule was created plus this run's results. ChatGPT did not supply an updated Passport from earlier "
+            "captured when this schedule was created plus this run's results. The host did not supply an updated Passport from earlier "
             "scheduled runs, so a role may repeat in a later alert.’ Suppress duplicates against the embedded role_history and within "
             "this run. Use employer posting identity/external job ID first, then canonical employer plus normalised title and material "
             "description similarity; do not use mutable remote/location wording as the primary key. Prefer roles explicitly posted or "
@@ -98,7 +105,7 @@ def build_schedule_prompt(passport: dict[str, Any]) -> str:
             "cross-run deduplication, say the Passport was updated, or call a role new since the prior run. "
         )
     return (
-        f"Run {timing}. Use this embedded evidence-safe Career Passport snapshot as the candidate and history source: {snapshot}. "
+        f"Run {timing}. Invoke Career Centre explicitly. Use this embedded evidence-safe Career Passport snapshot as the candidate and history source: {snapshot}. "
         f"{continuity_instruction}"
         f"Search for {directions} in {locations}. Reconcile role fingerprints and application history before browsing. "
         f"Return at most {automation['max_displayed_roles']} verified roles; every displayed role needs an exact open posting URL, "

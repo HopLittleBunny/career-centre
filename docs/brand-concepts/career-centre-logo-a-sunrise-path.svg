@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Career Centre — Sunrise Path</title>
+  <desc id="desc">A coral open C surrounds a gently rising path and golden sun on a warm cream field.</desc>
+  <rect width="512" height="512" rx="118" fill="#FFF4E3"/>
+  <path d="M371 143A164 164 0 1 0 371 369" fill="none" stroke="#C94F45" stroke-width="62" stroke-linecap="round"/>
+  <path d="M190 337C225 319 244 285 260 252C278 216 301 188 341 174" fill="none" stroke="#244A45" stroke-width="30" stroke-linecap="round"/>
+  <circle cx="353" cy="164" r="30" fill="#F2B84B"/>
+  <path d="M301 216l-36 2 20 29" fill="none" stroke="#244A45" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

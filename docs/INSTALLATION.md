@@ -9,13 +9,14 @@ Where the Skills page is available:
 3. Select the ZIP and accept it only after ChatGPT's safety scan passes.
 4. Turn the skill on if ChatGPT does not enable it automatically.
 5. Start a normal new chat and say: **Help me find my next role.**
-6. Share a CV when asked. Word, PDF, LinkedIn export or pasted text works.
+6. Share one CV when asked—or the key CVs used for different role directions. Word, PDF, LinkedIn export or pasted text works.
 
 That is the entire user setup. There is no project, repository, tracker, API key, publisher account or MCP server.
 
 The first useful flow should be:
 
 - the skill reads the CV;
+- it gives a compact qualitative review without pretending there is one universal ATS score;
 - it reflects back what it understood;
 - it asks one compact set of only the decisions that are still missing;
 - it shows **Your Career Centre is ready** with the active assumptions;
@@ -37,6 +38,8 @@ The public listing route removes the ZIP step. It still uses the user's ChatGPT 
 ## Updating
 
 Until the public directory provides automatic updates, install a newer version only from Amit's official release page. Review the release notes, then replace or update the existing skill through the Skills page. Keep a downloaded Career Passport if you are moving to a new task or account.
+
+For the most reliable continuity, keep one main Career Centre conversation and save the latest Career Passport. A separate new conversation may not inherit earlier CVs, files or application history; upload the Passport there and say **Continue my Career Centre from this Passport.**
 
 ## Privacy check before use
 

@@ -10,7 +10,9 @@ Use the current conversation and uploaded CV to make progress. Ask for a prior p
 
 ## DOCX builder fails
 
-Preserve the validated structured input and report `PARTIAL`. Do not substitute a plain-text file while calling the application pack complete.
+Preserve the validated structured input and report `PARTIAL`. In the same response, provide the entire final CV in chat with every section and bullet in ready-to-copy order. If a cover letter was requested and safely available, provide its complete text too. State exactly which Word deliverable or QA step remains unavailable and offer to retry it later. Do not create a misleading `.txt` file, do not call the application pack complete, and do not reduce the fallback to an outline, sample section or promise.
+
+If the host cannot create files at all, use the same full-in-chat fallback immediately after content validation. The user should still receive usable content even though layout, pagination, hyperlinks and rendered-density checks remain pending.
 
 ## Rendering unavailable
 

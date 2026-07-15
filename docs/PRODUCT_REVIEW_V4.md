@@ -12,13 +12,13 @@ The inherited deep review rated the prototype unevenly: skill prototype 8.5, fir
 
 | Area | Weight | v4 score | Evidence and remaining deduction |
 | --- | ---: | ---: | --- |
-| First-use simplicity and conversation | 20 | 19.0 | Installed personal-Pro journeys passed: CV-first reading, at most four material questions, hard stop before search, exact seven-line readiness receipt and natural advanced-preference updates. |
+| First-use simplicity and conversation | 20 | 19.0 | Installed personal-Pro and Claude Max journeys passed: CV-first reading, at most four material questions, hard stop before search, exact seven-line readiness receipt and natural advanced-preference updates. The exact beta.2 Claude package also passed multi-CV invitation, compact qualitative review and 390 px mobile rendering. |
 | Evidence safety and provenance | 15 | 15.0 | Evidence IDs, source confidence and restrictions are contract-enforced; unsupported claims block packs. |
 | Search, exact links and duplicate control | 15 | 12.0 | Live Canada and US tests respected the search budgets, refused closed roles and did not pad. Scheduled runs can suppress the embedded Passport snapshot and within-run aliases, but ChatGPT browser does not provide deterministic cross-run state. |
 | Role decision quality | 15 | 14.0 | Live exact-posting tests produced defensible Apply and Skip decisions with salary, employment, fit, shortlist chance, match, risk and CV angle. Probabilities are not yet calibrated from real outcomes. |
 | Word application-pack quality | 15 | 15.0 | Installed ChatGPT Work journeys returned a two-page CV and one-page cover letter, then a separate reference-formatted two-page CV base. Independent preview exposed a private-use numbering defect; the validator and builder were fixed, and both later journeys passed with portable U+2022 bullets, minimum-font and density checks. |
-| State, feedback and lifecycle continuity | 10 | 8.5 | Portable Passport, corrections, feedback and immutable application events work. Cross-task continuity is portable, not invisible or guaranteed. |
-| Runtime integrity, recovery and tests | 7 | 6.5 | Forty-five automated tests in each provider package, checksums, trigger-contract checks, active-numbering inspection, fail-closed run validation and explicit snapshot/verified-persistence scheduling modes pass. |
+| State, feedback and lifecycle continuity | 10 | 8.5 | Portable Passport, source documents, generated-document versions, corrections, feedback and immutable application events work. Cross-task continuity is portable, not invisible or guaranteed. |
+| Runtime integrity, recovery and tests | 7 | 6.5 | Fifty-six automated tests in each provider package, checksums, trigger-contract checks, qualitative CV diagnostics, active-numbering inspection, fail-closed run validation and explicit snapshot/verified-persistence scheduling modes pass. |
 | Privacy and distribution readiness | 3 | 3.0 | No Amit-operated data service or model bill; direct ZIP installation, public legal/support URLs, source repository and tagged release are live. Provider-directory review and broader-plan testing remain external gates. |
 | **Weighted public-beta total** | **100** | **93.0** | **9.3/10 ChatGPT public-beta readiness; 9.2/10 core functional quality** |
 
@@ -69,6 +69,7 @@ Experienced candidates default to two pages, with page 1 at least 65% filled and
 | Evidence-led standard section order | “Put projects above experience” or “Remove certifications” |
 | Smart professional visual format | “Use this Word CV as the formatting reference” |
 | CV plus cover letter | “CV only from now on” or “Ask me each time” |
+| CV language inferred from the source/market | “Use Canadian English” or “Prepare the document in Spanish” |
 
 Format personalisation is intentionally bounded. A reference Word CV can supply page geometry, typeface, hierarchy, colour and spacing when safe. Its body text, personal details, hidden data, comments, tracked changes, headers, footers and author metadata are stripped. Evidence still comes only from the user's own sources.
 
@@ -91,13 +92,16 @@ The learning layer is a portable `Career_Passport.json`, not a hidden publisher 
 - role identities, fingerprints and dispositions;
 - application-stage events;
 - document, search, role and workflow feedback;
+- supplied-source and generated-document version history;
 - whether a feedback pattern is merely observed or explicitly confirmed.
 
 One rejection or one disliked draft does not silently become a permanent rule. Repeated feedback is proposed as a pattern until the user confirms it. Within a continuing task the Passport is updated quietly; when moving accounts or tasks it can be reused from ChatGPT Library or uploaded as a small portability backup. ChatGPT may also use its own Memory and Library features under the user's settings, but the plugin does not claim deterministic cross-chat memory that it cannot control.
 
 ## Engineering and document evidence
 
-Current automated suite: **45/45 passing in each provider package**.
+Current automated suite: **56/56 passing in each provider package**.
+
+The beta.2 open-source enrichment review inspected Resume Matcher, JSON Resume, OpenResume, pyresparser, Reactive Resume, proselint, write-good, retext and Vale. The product adopted portable provenance, document-version history, round-trip text diagnostics and impact-ranked writing feedback. It did not import any third-party code, binary, trained asset or runtime dependency, and it does not present a universal ATS score. Full decisions and archive fingerprints are in `docs/OPEN_SOURCE_REPO_AUDIT.md`.
 
 The test suite covers schema contracts, evidence provenance, exact-link safety, paired-document requirements, reference-format privacy, one/two-page settings, readiness messages, global isolation, Passport corrections, feedback, checksum tampering, missing covers, pending visual review and stray HTML.
 

@@ -5,13 +5,13 @@
     "name": "Amit Sharma"
   },
   "description": "Free, evidence-safe career tools that run inside the user's own AI plan.",
-  "version": "4.0.0-beta.1",
+  "version": "4.0.0-beta.3",
   "plugins": [
     {
       "name": "career-centre",
       "source": "./plugins/claude-career-centre",
-      "description": "A candid career partner for selective role search, Word CVs, cover letters, application tracking and interview follow-through.",
-      "version": "4.0.0-beta.1",
+      "description": "A free career partner for selective role search, CV review, Word CVs, cover letters, application tracking and interview follow-through using the user's Claude plan.",
+      "version": "4.0.0-beta.3",
       "author": {
         "name": "Amit Sharma"
       },

@@ -1,6 +1,8 @@
-# Career Centre
+# Career Centre — Open Door
 
-Career Centre is a free, evidence-safe career decision agent packaged for ChatGPT and Claude. It helps a job seeker move from an uploaded CV and a few natural preferences to selective role recommendations, exact posting links, honest fit commentary, Word application packs and application follow-through.
+Career Centre is created by Amit Sharma and published through his `HopLittleBunny` GitHub account.
+
+Career Centre is a free, evidence-safe career decision agent packaged for ChatGPT and Claude. “Free” means there is no separate Career Centre subscription, API key or publisher-operated backend; the user still needs an eligible ChatGPT or Claude plan and uses that plan's allowance. It helps a job seeker move from an uploaded CV and a few natural preferences to selective role recommendations, exact posting links, honest fit commentary, Word application packs and application follow-through.
 
 [Visit the product site](https://hoplittlebunny.github.io/career-centre/) or [open the installation guide](https://hoplittlebunny.github.io/career-centre/install.html).
 
@@ -8,13 +10,13 @@ The plugins are intentionally backend-free. Amit Sharma does not operate a model
 
 ## The user experience
 
-Say **“Help me find my next role”** and share a CV. Career Centre reads the CV first, reflects back what it understood, asks only the few preference questions that could change the result, and then acts as a continuing career thought partner.
+Say **“Help me find my next role”** and share one CV—or the key CVs used for different role directions. Career Centre reads every supplied version first, gives a broad overall-strength verdict and compact qualitative review, reflects back what it understood, asks only the few preference questions that could change the result, and then acts as a continuing career thought partner. A deeper review is optional.
 
 There are no setup cards, commands, projects or state files for the user to maintain.
 
 ## Product promise
 
-1. Upload a CV.
+1. Upload one CV or several role-specific CVs.
 2. Answer one compact set of missing high-impact questions.
 3. Receive a small number of verified roles worth considering.
 4. Ask for an application pack in ordinary language.
@@ -26,7 +28,9 @@ After setup, the plugin says **“Your Career Centre is ready”** and shows the
 
 Users can say “change my advanced preferences” to change markets, role sources, search breadth, salary, employment types, CV length, section order, optional sections, visible CV fields, headline/date display, tone, cover-letter behaviour or formatting. A supplied reference Word CV can be used as a visual model while its content and personal data are stripped.
 
-Preferences, corrections, document feedback and application outcomes are retained in a portable Career Passport in the continuing task/local workspace. This creates a transparent learning loop without a publisher-operated memory service.
+Source CVs, approved evidence, preferences, generated-document versions, corrections, document feedback and application outcomes are retained in a portable Career Passport in the continuing task/local workspace. The first Passport is prepared automatically after setup. This creates a transparent learning loop without a publisher-operated memory service. Users should keep one main Career Centre conversation and save the latest Passport because a separate conversation may not inherit earlier files or history. The plugin package is installed once; it is not uploaded every day.
+
+After the first completed manual role search containing a verified role, Career Centre offers to repeat the calibrated search daily or on weekdays. The offer still appears when the user says not to create a schedule, because nothing is created until the user accepts and provides a time and timezone. ChatGPT Work schedules should return to the same task and use its context; Claude recurring work uses Cowork. Application packs remain on request and application submission remains manual.
 
 ## What it will not do
 
@@ -69,7 +73,7 @@ Anthropic documents custom plugin upload and GitHub marketplaces for paid plans.
 
 ## Current status
 
-Current rating: **9.2/10 core functional beta; 9.3/10 ChatGPT public-beta readiness; 9.1/10 Claude installation and conversation readiness; 8.8/10 full Claude feature parity**. Version `4.0.0-beta.1` runs the same 45 automated tests successfully in both provider packages. Personal ChatGPT Pro web has passed installed multi-turn journeys, a portable-bullet two-page Word pack, natural reference-CV format copying with evidence isolation, lifecycle continuity, schedule creation and live scheduled execution. A two-run browser test proved that ChatGPT launches isolated result tasks and does not carry the prior result's printed Passport into the next run; the product therefore labels browser schedules as snapshot-backed alerts instead of claiming cross-run memory. Claude Max web has passed custom-plugin upload, automatic invocation, mentor-quality career reflection, compact follow-up questions and the global seven-line readiness receipt. The no-cost public site, downloads, checksums, support identity, source repository and tagged beta release are live. Remaining external gates are OpenAI and Anthropic directory review, broader-plan compatibility, and Claude role/document/reference/schedule parity tests. See `docs/PRODUCT_REVIEW_V4.md`, `docs/ROADMAP.md`, `docs/CLAUDE_COMPATIBILITY.md` and `docs/PUBLIC_RELEASE_RUNBOOK.md`.
+Current honest rating after the first real application audit and fresh fictional India, Australia and US browser journeys: **8.9/10 for global setup and selective search; 8.8/10 overall product beta**. The approved ChatGPT beta.2 is strong on evidence safety, exact-role decisions, continuity and Word mechanics, but the live DOSCEL stretch pack exposed weak first-review surfacing, repeated CV content and insufficient role-specific writing. That individual CV rated **7.1/10 overall** despite passing openability, bullet, page-count and density checks. Version `4.0.0-beta.3` addresses the surfaced product gaps with a broad intake verdict, automatic Passport handoff, market-localisation rules, explicit compensation basis, post-generation quality ratings, clickable exact-posting release gates and a proactive same-task scheduling offer. The Open Door identity and screenshot-led install guide replace the generic beta presentation. The ChatGPT package passes 61 tests and the Claude package passes 62; submission-ready validation passes with zero errors or warnings. An independent Claude package audit executed the real application-pack pipeline, adversarial validation, final contact-link regression and real-DOCX reference-format/privacy tests, then rated the final Claude build **9.5/10 with a high-confidence Submit recommendation and no regression**. Beta.3 remains an update candidate rather than a submitted public replacement. See `docs/CLAUDE_INDEPENDENT_PACKAGE_AUDIT_2026-07-15.md`, `docs/GLOBAL_PROVIDER_TESTS_2026-07-15.md`, `docs/GLOBAL_BETA_TEST_RESULTS_2026-07-15.md`, `docs/PRODUCT_REVIEW_V4.md`, `docs/ROADMAP.md`, `docs/CLAUDE_COMPATIBILITY.md`, `docs/OPEN_SOURCE_REPO_AUDIT.md` and `docs/PUBLIC_RELEASE_RUNBOOK.md`.
 
 The dated job-source, competitor, mentor-voice, submission and website assessment is in `docs/ECOSYSTEM_BENCHMARK.md`.
 

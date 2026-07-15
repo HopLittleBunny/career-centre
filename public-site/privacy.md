@@ -10,7 +10,7 @@ Career Centre is a skills-only plugin for ChatGPT and Claude, published by Amit 
 
 ## Information used
 
-The plugin can work with information a user chooses to provide in ChatGPT or Claude, including a CV, career preferences, role links, application updates and interview context. It can also use public job-posting information found through the provider's available browsing, search or optional connector capabilities.
+The plugin can work with information a user chooses to provide in ChatGPT or Claude, including one or more CVs, career preferences, role links, application updates and interview context. It can also use public job-posting information found through the provider's available browsing, search or optional connector capabilities.
 
 ## Where processing happens
 
@@ -20,7 +20,7 @@ Following a job link or using a third-party site is subject to that site's own p
 
 ## Files and continuity
 
-Career Passport, role dossier and application-pack files may be created inside the user's provider conversation or connected workspace when the host supports file creation. The user controls where exported files are saved and shared. Users should avoid including sensitive identifiers that are not needed for career support.
+Career Passport, role dossier and application-pack files may be created inside the user's provider conversation or connected workspace when the host supports file creation. The Career Passport can contain source-document names, evidence excerpts, preferences, corrections and application history. The user controls where exported files are saved and shared. A separate conversation may not inherit those files, so the user can save and re-upload the Passport for continuity. Users should avoid including sensitive identifiers that are not needed for career support.
 
 ## Retention and deletion
 

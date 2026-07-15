@@ -1,6 +1,6 @@
 {
-  "version": "4.0.0-beta.1",
-  "status": "browser-tested-setup",
-  "file": "career-centre-4.0.0-beta.1-claude-plugin.zip",
-  "sha256": "896e27aa6fddbf179bd8c92f6ae169e130e907f893e5e0aae0b24c07dd464a46"
+  "version": "4.0.0-beta.3",
+  "status": "submission-candidate",
+  "file": "career-centre-4.0.0-beta.3-claude-plugin.zip",
+  "sha256": "511998731e8bea0a67496628830c2ea3f67c8973dc919a387443f077b807327c"
 }

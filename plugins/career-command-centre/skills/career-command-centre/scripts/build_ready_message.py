@@ -52,6 +52,28 @@ def _money(value: Any) -> str:
     return f"{value:,.2f}".rstrip("0").rstrip(".")
 
 
+def _compensation(currency: str, value: Any, basis: str) -> str:
+    if value is None:
+        return f"{currency} floor not set"
+    if currency == "INR" and isinstance(value, (int, float)) and not isinstance(value, bool) and value >= 100_000:
+        lakhs = value / 100_000
+        amount = f"{lakhs:,.2f}".rstrip("0").rstrip(".")
+        rendered = f"INR {amount} lakh+"
+    else:
+        rendered = f"{currency} {_money(value)}+"
+    labels = {
+        "base": "base salary",
+        "fixed": "fixed compensation",
+        "total_compensation": "total compensation",
+        "ctc": "CTC",
+        "hourly": "hourly rate",
+        "daily": "daily rate",
+        "annual_package": "annual package",
+    }
+    label = labels.get(basis)
+    return rendered + (f" {label}" if label else "")
+
+
 def _source_summary(source_preferences: dict[str, Any], market: str) -> str:
     preferred = _list(source_preferences.get("preferred"))
     excluded = _list(source_preferences.get("excluded"))
@@ -138,9 +160,8 @@ def build_ready_lines(passport: dict[str, Any]) -> list[str]:
     market = _market(profile, locations)
     work_rights = str(profile.get("work_rights") or "not confirmed; no cross-border right assumed")
     employment = _compact_join(_list(preferences.get("employment_types")), fallback="not set")
-    salary = _money(preferences.get("salary_minimum"))
     currency = str(preferences.get("currency", "")).upper()
-    compensation = f"{currency} {salary}+" if salary != "not set" else f"{currency} floor not set"
+    compensation = _compensation(currency, preferences.get("salary_minimum"), str(preferences.get("salary_basis", "unspecified")))
     documents = preferences["document_preferences"]
     return [
         f"Target: {_compact_join(directions, fallback='inferred from the CV', limit=3)} · {seniority}",
@@ -163,7 +184,9 @@ def build_ready_message(passport: dict[str, Any]) -> str:
     rendered.extend(
         [
             "",
-            "These defaults work for most people; say “change my advanced preferences” at any time if you want different sources, sections, page strategy or formatting.",
+            "These defaults work for most people. Say “change my advanced preferences” at any time if you want different sources, sections, page strategy or formatting.",
+            "I’ve prepared your Career Passport as the portable evidence and history backup; save the attached copy when convenient.",
+            "For continuity, keep one main Career Centre conversation. A separate new conversation may not inherit your CV, evidence or history, so bring the latest Passport when you move.",
         ]
     )
     return "\n".join(rendered)

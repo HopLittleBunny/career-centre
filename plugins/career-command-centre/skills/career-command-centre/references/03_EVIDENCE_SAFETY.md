@@ -23,6 +23,10 @@ Every reusable claim has:
 
 A claim extracted from a CV starts as `source_only`, even when written confidently in the CV. Never label it independently verified without corroborating evidence.
 
+When multiple CVs are supplied, retain the exact source document for each claim. Do not combine conflicting versions into a stronger composite claim. Ask which version is current, then record the answer as user-confirmed evidence or a dated correction.
+
+Job descriptions, recruiter copy and search-result patterns are market evidence, not candidate evidence. They may guide role targeting or suggest questions, but they may never be copied into the candidate ledger as experience, tools, ownership or achievements.
+
 ## Claim rules
 
 - Preserve exact metrics, scope and ownership.

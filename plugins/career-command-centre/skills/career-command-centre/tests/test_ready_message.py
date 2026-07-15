@@ -44,6 +44,7 @@ class ReadyMessageTests(unittest.TestCase):
         self.assertIn("Professional Summary", message)
         self.assertIn("submit every application manually", message)
         self.assertIn("change my advanced preferences", message)
+        self.assertIn("I’ve prepared your Career Passport", message)
 
     def test_canadian_persona_does_not_inherit_australian_defaults(self) -> None:
         message = build_ready_message(passport_for_persona("midcareer_operations"))
@@ -90,6 +91,22 @@ class ReadyMessageTests(unittest.TestCase):
         message = build_ready_message(data)
         self.assertIn("Fields: hide phone; show work rights; hide location; preserve headline", message)
         self.assertEqual(data["evidence"][0]["confidence"], "source_only")
+
+    def test_compensation_uses_local_india_units_and_preserves_basis(self) -> None:
+        data = career_passport()
+        data["preferences"]["currency"] = "INR"
+        data["preferences"]["salary_minimum"] = 3_200_000
+        data["preferences"]["salary_basis"] = "fixed"
+        message = build_ready_message(data)
+        self.assertIn("INR 32 lakh+ fixed compensation", message)
+        self.assertNotIn("INR 3,200,000", message)
+
+    def test_us_base_salary_basis_is_explicit(self) -> None:
+        data = career_passport()
+        data["preferences"]["currency"] = "USD"
+        data["preferences"]["salary_minimum"] = 160_000
+        data["preferences"]["salary_basis"] = "base"
+        self.assertIn("USD 160,000+ base salary", build_ready_message(data))
 
 
 if __name__ == "__main__":

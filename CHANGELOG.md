@@ -1,5 +1,29 @@
 # Changelog
 
+## 4.0.0-beta.3 — 15 July 2026
+
+- Added an explicit overall CV-strength verdict and optional deeper review during intake.
+- Made the first Career Passport an automatic setup output and clarified that the plugin ZIP is installed once.
+- Added transparent post-generation CV quality ratings with a revision threshold separate from ATS scoring.
+- Added market-localisation contracts for Australia, the United States and India.
+- Added explicit compensation-basis storage and local INR lakh rendering after live India testing.
+- Passed fresh fictional India and US setup/search journeys, including India portal selection, exact-role verification, honest no-filler behaviour and proactive automation offers.
+- Changed ChatGPT scheduling to prefer the existing Work task and its context; kept a disclosed standalone snapshot fallback.
+- Added a proactive daily or weekday automation offer after the first successful manual search and documented Claude Cowork scheduling.
+- Kept reference-template support available only after an explicit user request.
+- Clarified the free positioning: no separate Career Centre subscription, with provider plan and usage limits still applying.
+- Expanded both provider suites to 60/60 passing tests.
+
+## 4.0.0-beta.2 — 14 July 2026
+
+- Added multi-CV source registration, cross-version consistency guidance and a constructive first CV review.
+- Added an independent qualitative CV diagnostic with impact-ranked extraction, structure, chronology, repetition and writing findings; it never presents a universal ATS score.
+- Expanded the Career Passport into one portable Career Evidence File with generated-document version history and source-document provenance.
+- Added optional document-language and regional-spelling preferences without adding setup questions.
+- Added a complete in-chat CV fallback when Word creation is unavailable, clearly labelled partial.
+- Completed an architecture and licence audit of nine supplied open-source CV/writing projects plus the enrichment pack; no third-party code or runtime dependency was imported.
+- Expanded both provider suites to 56/56 passing tests.
+
 ## 4.0.0-beta.1 — 14 July 2026
 
 - Renamed the public product and installed skill to **Career Centre** while retaining the legacy plugin package ID for compatibility.

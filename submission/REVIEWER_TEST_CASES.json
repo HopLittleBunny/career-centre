@@ -5,14 +5,14 @@
       "id": "P1-cv-first-onboarding",
       "prompt": "Help me find my next role.",
       "fixture": "No attachment on the first message.",
-      "expected_behavior": "Ask only for the latest CV in one warm sentence and accept Word, PDF, LinkedIn export or pasted text. Do not ask preference questions until the CV is read.",
+      "expected_behavior": "Ask only for the latest CV in one warm sentence and accept Word, PDF, LinkedIn export or pasted text. Invite the key CV versions together when the user targets different role directions. Do not ask preference questions until the CVs are read.",
       "expected_result_shape": "One short conversational request for the CV; no cards, commands, schema or setup form."
     },
     {
       "id": "P2-focused-search",
       "prompt": "Use this CV. I want permanent roles in Australia at AUD 140k or more. Avoid pure sales and heavy coding.",
       "fixture": "Use evaluations/fixtures/Reviewer_CV_Maya_Patel.txt.",
-      "expected_behavior": "Summarize what was understood, ask only for any remaining high-impact decision, then search if none remains. Show no more than five selective roles and deduplicate them.",
+      "expected_behavior": "Summarize what was understood, give a short qualitative CV read covering strengths, likely underselling and one priority edit, ask only for any remaining high-impact decision, then search if none remains. Show no more than five selective roles and deduplicate them.",
       "expected_result_shape": "Each displayed role includes Apply/Maybe/Skip, fit, shortlist estimate, salary and basis, employment type, exact posting URL, match, risk and CV angle."
     },
     {

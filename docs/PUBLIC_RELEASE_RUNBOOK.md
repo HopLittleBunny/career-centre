@@ -8,7 +8,7 @@ This runbook closes the remaining zero-cost public release gates without adding 
 - ChatGPT public-beta readiness: 9.3/10.
 - Claude installation and conversation readiness: 9.1/10.
 - Personal ChatGPT Pro web and Claude Max web: passed for their documented acceptance journeys.
-- Automated tests: 45/45 passing in each provider package.
+- Automated tests: 56/56 passing in each provider package.
 - Draft release validation: passing.
 - Direct skill ZIP: accepted by ChatGPT and included in `public-site/downloads/`.
 - Static site: live at <https://hoplittlebunny.github.io/career-centre/> and browser-verified at desktop and mobile widths.
@@ -32,8 +32,8 @@ The public repository, GitHub Pages deployment and issue-based support route are
    - `/release-notes.html`
    - `/downloads/career-centre-chatgpt-skill.zip`
    - `/downloads/career-centre-claude-plugin.zip`
-2. Confirm the ChatGPT download checksum is `7a553dc61a6f0e93697c5468da1d67e5a6fdef00919778b10f6655fa5db0f268`.
-3. Confirm the Claude download checksum is `896e27aa6fddbf179bd8c92f6ae169e130e907f893e5e0aae0b24c07dd464a46`.
+2. Confirm the ChatGPT skill download checksum is `4c39969fb59611108dc1cd014cf3321e5c927da9c8b1282a1f2ddfaf49336e69`.
+3. Confirm the Claude download checksum is `b28d0938cfbd58b93e72d7efc627e76e1f1102d2e68d15ed71651e927c5de687`.
 
 A custom domain is optional. The free `github.io` URL is sufficient for a first public release.
 
@@ -61,7 +61,7 @@ The command must return `passed: true` with no warnings.
 Public URL changes modify the plugin manifest, so the directory plugin ZIP must be rebuilt after those edits.
 
 1. Bump the prerelease version.
-2. Run both 45-test suites.
+2. Run both 56-test suites.
 3. Run draft and submission-ready validation.
 4. Run `python3 scripts/package_release.py` and `python3 scripts/package_claude_release.py`.
 5. Confirm `release/LATEST.json` and `release/CLAUDE_LATEST.json` match the new ZIP checksums.
@@ -85,7 +85,7 @@ The final submission action includes publisher representations and attestations.
 
 ## Anthropic directory submission
 
-The repository includes a native Claude package, the root `.claude-plugin/marketplace.json` manifest and a browser-tested ZIP. Use Anthropic's public [plugin submission form](https://claude.ai/settings/plugins/submit) with either the public repository or ZIP. Run `claude plugin validate` if the current Claude developer tooling is available, review all developer attestations with the account holder and obtain explicit confirmation before the final submission action.
+The repository includes a native Claude package, the root `.claude-plugin/marketplace.json` manifest and a locally validated beta.2 ZIP. The exact beta.2 ZIP has passed replacement upload and the guided Max-web journey. The current Platform directory form targets Claude Code and Claude Cowork; keep the prepared Cowork-only draft unsubmitted until Cowork parity is separately exercised and the account holder accepts the Privacy Policy and Software Directory Terms. Run `claude plugin validate` if the current Claude developer tooling becomes available.
 
 ## Personal Plus acceptance
 

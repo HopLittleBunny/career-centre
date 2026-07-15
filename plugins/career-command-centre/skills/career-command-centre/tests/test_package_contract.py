@@ -20,6 +20,8 @@ class PackageContractTests(unittest.TestCase):
     def test_skill_has_simple_first_interaction_and_safety_boundaries(self) -> None:
         text = (self.skill_root / "SKILL.md").read_text(encoding="utf-8")
         self.assertIn("Ask for the latest CV in one warm sentence", text)
+        self.assertIn("do not inspect unrelated prior chats", text)
+        self.assertIn("If the CV is pasted into the current message, analyse that text directly", text)
         self.assertIn("maximum of four items", text)
         self.assertIn("Never auto-submit", text)
         self.assertIn("Default application pack is CV plus cover letter", text)
@@ -53,11 +55,71 @@ class PackageContractTests(unittest.TestCase):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, frontmatter)
 
+    def test_multi_cv_review_continuity_and_recovery_contracts_are_explicit(self) -> None:
+        skill = (self.skill_root / "SKILL.md").read_text(encoding="utf-8")
+        review = (self.skill_root / "references" / "09_CV_REVIEW_AND_CONTINUITY.md").read_text(encoding="utf-8")
+        recovery = (self.skill_root / "references" / "08_RECOVERY.md").read_text(encoding="utf-8")
+        self.assertIn("share the key versions together", skill)
+        self.assertIn("Quick CV read", skill)
+        self.assertIn("Overall CV strength", skill)
+        self.assertIn("If you want, I can give you the deeper review after setup", review)
+        self.assertIn("CV quality rating out of 10", skill)
+        self.assertIn("Do not proactively suggest a reference template", skill)
+        self.assertIn("portable Career Evidence File and history backup", skill)
+        self.assertIn("separate new conversation may not inherit", skill)
+        self.assertIn("Do not invent a universal ATS rating", review)
+        self.assertIn("job description can never become evidence", review)
+        self.assertIn("entire final CV in chat", recovery)
+
+    def test_global_localisation_contract_covers_india_and_us_without_personal_data_defaults(self) -> None:
+        skill = (self.skill_root / "SKILL.md").read_text(encoding="utf-8")
+        text = (self.skill_root / "references" / "10_MARKET_LOCALISATION.md").read_text(encoding="utf-8")
+        self.assertIn("Name the recognisable primary boards", skill)
+        self.assertIn("## United States", text)
+        self.assertIn("## India", text)
+        self.assertIn("current CTC, expected CTC", text)
+        self.assertIn("state/local pay-transparency", text)
+        self.assertIn("Do not add a photograph", text)
+        for source in ("LinkedIn India", "Naukri", "foundit", "iimjobs"):
+            self.assertIn(source, text)
+        for source in ("LinkedIn", "Indeed", "Built In", "USAJOBS"):
+            self.assertIn(source, text)
+
+    def test_passport_schema_supports_multiple_source_documents(self) -> None:
+        schema = json.loads((self.skill_root / "schemas" / "career_passport.schema.json").read_text(encoding="utf-8"))
+        source_schema = schema["$defs"]["source_document"]
+        self.assertIn("source_documents", schema["properties"])
+        self.assertIn("target_directions", source_schema["required"])
+        self.assertIn("is_primary", source_schema["required"])
+        self.assertIn("linkedin_export", source_schema["properties"]["source_type"]["enum"])
+
+    def test_passport_schema_supports_document_history_and_global_writing_preferences(self) -> None:
+        schema = json.loads((self.skill_root / "schemas" / "career_passport.schema.json").read_text(encoding="utf-8"))
+        preferences = schema["properties"]["preferences"]["properties"]["document_preferences"]["properties"]
+        version_schema = schema["$defs"]["document_version"]
+        self.assertIn("document_versions", schema["properties"])
+        self.assertIn("language", preferences)
+        self.assertIn("regional_spelling", preferences)
+        self.assertEqual(version_schema["properties"]["status"]["enum"], ["ready", "partial", "superseded"])
+        self.assertIn("source_document_ids", version_schema["required"])
+
     def test_search_contract_has_provider_independent_source_ladder(self) -> None:
         text = (self.skill_root / "references" / "04_SEARCH_AND_DECISIONS.md").read_text(encoding="utf-8")
         self.assertIn("Use this source ladder", text)
         self.assertIn("Do not require a LinkedIn, Indeed, SEEK or other job-site plugin", text)
         self.assertIn("Do not scrape, bypass access controls", text)
+        self.assertIn("Exact posting URL: https://", text)
+        self.assertIn("external job ID without its URL does not satisfy", text)
+
+    def test_first_completed_search_must_offer_recurring_run_without_creating_it(self) -> None:
+        skill = (self.skill_root / "SKILL.md").read_text(encoding="utf-8")
+        scheduling = (self.skill_root / "references" / "06_SCHEDULING.md").read_text(encoding="utf-8")
+        self.assertIn("at the end of the first completed manual search", skill)
+        self.assertIn("Live-search response release gate", skill)
+        self.assertIn("Would you like me to run this calibrated search daily or on weekdays", skill)
+        self.assertIn("Do not create a schedule", scheduling)
+        self.assertIn("does not suppress this invitation", scheduling)
+        self.assertIn("verify that the invitation is present once", scheduling)
 
     def test_release_tree_contains_no_compiled_or_html_artifacts(self) -> None:
         forbidden = [

@@ -4,39 +4,61 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Release notes for Career Centre.">
-  <title>Release notes | Career Centre</title>
+  <title>Release notes | Career Centre &mdash; Open Door</title>
   <link rel="icon" href="assets/icon.png">
   <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
-  <header class="site-header"><div class="shell nav"><a class="brand" href="index.html"><img src="assets/icon.png" alt=""><span>Career Centre</span></a><nav class="nav-links" aria-label="Primary navigation"><a href="index.html#how-it-works">How it works</a><a href="privacy.html">Privacy</a><a href="support.html">Support</a><a class="nav-install" href="install.html">Install</a></nav></div></header>
-  <main>
-    <section class="shell page-hero"><h1>Release notes</h1><p>Functional beta, tested on personal ChatGPT Pro web and Claude Max web on 14 July 2026.</p></section>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header"><div class="shell nav"><a class="brand" href="index.html" aria-label="Career Centre home"><img src="assets/icon.png" alt=""><span class="brand-lockup"><strong>Career Centre</strong><small>Open Door</small></span></a><nav class="nav-links" aria-label="Primary navigation"><a href="index.html#how-it-works">How it works</a><a href="privacy.html">Privacy</a><a href="support.html">Support</a><a class="nav-install" href="install.html">Install</a></nav></div></header>
+  <main id="main-content">
+    <section class="shell page-hero"><h1>Release notes</h1><p>Functional beta. The approved beta.2 remains available while beta.3 packages the improvements found in the first real end-to-end application test.</p></section>
     <article class="shell prose">
       <h2>Current build</h2>
-      <p><strong>4.0.0-beta.1</strong></p>
+      <p><strong>4.0.0-beta.3</strong></p>
       <ul>
-        <li>45 automated tests pass in each provider package.</li>
+        <li>61 ChatGPT tests and 62 Claude tests pass.</li>
+        <li>The new Open Door identity replaces the generic document icon in the beta.3 package and public site.</li>
+        <li>The installation page now uses provider-specific, screenshot-led steps for ChatGPT and Claude.</li>
+        <li>A broad CV-strength verdict and optional deeper review now appear during intake.</li>
+        <li>The first Career Passport is prepared automatically after setup.</li>
+        <li>Daily or weekday scheduling is offered after the first completed manual search with a verified role, even when the user asks not to create the schedule yet.</li>
+        <li>Every displayed exact posting is checked for a clickable role URL before release.</li>
+        <li>ChatGPT Work schedules prefer the existing task and its context; standalone fallback remains explicit.</li>
+        <li>India, United States and Australia localisation rules now cover salary language, work rights, document conventions and market sources.</li>
+        <li>Fresh fictional India and US setup/search journeys pass, including Naukri-aware source selection, exact posting checks and honest no-filler results.</li>
+        <li>Compensation floors now retain their basis and use local display, including INR lakh formatting.</li>
+        <li>Every generated CV receives a transparent quality rating and revision threshold, separate from ATS or shortlist scoring.</li>
+        <li>A reference Word template is supported only when the user explicitly requests it.</li>
+        <li>The listing now explains that Career Centre has no separate subscription and uses the user's provider plan.</li>
         <li>Natural CV-first setup and a seven-line readiness receipt pass.</li>
+        <li>Multi-CV intake, cross-version source mapping and qualitative first CV review pass.</li>
+        <li>The Career Passport now serves as the portable Career Evidence File and history backup.</li>
+        <li>Generated CV and cover-letter versions retain source provenance and ready, partial or superseded status.</li>
+        <li>A transparent CV diagnostic gives impact-ranked parseability and writing findings without a pretend universal ATS score.</li>
+        <li>Literal email addresses now remain visible and selectable in generated CV and cover-letter headers while retaining their hyperlinks.</li>
+        <li>Optional language and regional-spelling preferences remain hidden until requested.</li>
+        <li>Full CV content is returned in chat as a partial fallback when Word creation is unavailable.</li>
         <li>Global market isolation and advanced CV preferences pass.</li>
         <li>Paired Word CV and cover-letter generation passes rendered QA.</li>
         <li>Natural reference-CV formatting passes evidence and metadata isolation.</li>
-        <li>Scheduled alerts now disclose snapshot-backed continuity and repeat risk.</li>
+        <li>Standalone scheduled alerts disclose snapshot-backed continuity and repeat risk.</li>
         <li>Claude custom-plugin upload, normal-chat auto-routing, mentor reflection and readiness receipt pass.</li>
+        <li>An independent Claude audit executed the final ZIP and rated it 9.5/10 with a high-confidence Submit recommendation and no regression.</li>
         <li>A GitHub-backed Claude marketplace provides a simpler install route.</li>
         <li>No automatic application submission or external messaging.</li>
       </ul>
 
       <h2>Known release gates</h2>
-      <p>OpenAI and Anthropic directory review, broader-plan compatibility, and the remaining Claude role, document, reference-format and schedule parity journeys remain open.</p>
+      <p>The approved OpenAI beta.2 and submitted Claude build remain the public versions until beta.3 is submitted as an update. ChatGPT Work beta.3, broader-plan compatibility and a two-run Claude Cowork continuity test remain open.</p>
 
       <h2>Checksums</h2>
       <p>The downloadable ChatGPT skill ZIP has SHA-256 checksum:</p>
-      <span class="checksum">7a553dc61a6f0e93697c5468da1d67e5a6fdef00919778b10f6655fa5db0f268</span>
+      <span class="checksum">bc9ad68a8384a34fecd89801e15604eabdd7fafe7a438f5ade7705de2756ccf3</span>
       <p>The downloadable Claude plugin ZIP has SHA-256 checksum:</p>
-      <span class="checksum">896e27aa6fddbf179bd8c92f6ae169e130e907f893e5e0aae0b24c07dd464a46</span>
+      <span class="checksum">511998731e8bea0a67496628830c2ea3f67c8973dc919a387443f077b807327c</span>
     </article>
   </main>
-  <footer class="site-footer"><div class="shell footer-layout"><div>Career Centre by Amit Sharma.</div><nav class="footer-links" aria-label="Footer navigation"><a href="index.html">Home</a><a href="install.html">Install</a><a href="privacy.html">Privacy</a><a href="support.html">Support</a></nav></div></footer>
+  <footer class="site-footer"><div class="shell footer-layout"><div>Career Centre &mdash; Open Door by Amit Sharma.</div><nav class="footer-links" aria-label="Footer navigation"><a href="index.html">Home</a><a href="install.html">Install</a><a href="privacy.html">Privacy</a><a href="support.html">Support</a></nav></div></footer>
 </body>
 </html>

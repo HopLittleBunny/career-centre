@@ -53,6 +53,7 @@
         "locations": {"type": "array", "items": {"type": "string"}},
         "remote_preference": {"enum": ["remote", "hybrid", "onsite", "flexible", "unknown"]},
         "salary_minimum": {"type": ["number", "null"], "minimum": 0},
+        "salary_basis": {"enum": ["base", "fixed", "total_compensation", "ctc", "hourly", "daily", "annual_package", "unspecified"]},
         "currency": {"type": "string", "minLength": 3, "maxLength": 3},
         "employment_types": {
           "type": "array",
@@ -84,6 +85,8 @@
             "omitted_sections": {"type": "array", "items": {"type": "string"}},
             "cover_letter_mode": {"enum": ["paired", "cv_only", "ask_each_time"]},
             "style_notes": {"type": "array", "items": {"type": "string"}},
+            "language": {"type": "string", "minLength": 2},
+            "regional_spelling": {"type": ["string", "null"]},
             "field_preferences": {
               "type": "object",
               "additionalProperties": false,
@@ -105,6 +108,14 @@
           }
         }
       }
+    },
+    "source_documents": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/source_document"}
+    },
+    "document_versions": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/document_version"}
     },
     "evidence": {
       "type": "array",
@@ -175,12 +186,43 @@
         "max_displayed_roles": {"type": "integer", "minimum": 1, "maximum": 10},
         "application_pack_mode": {"enum": ["on_request", "apply_roles"]},
         "destination": {"enum": ["scheduled_result_task", "continuing_task"]},
-        "continuity_mode": {"enum": ["snapshot_only", "verified_persistent"]}
+        "continuity_mode": {"enum": ["task_context", "snapshot_only", "verified_persistent"]}
       }
     },
     "updated_at": {"type": "string"}
   },
   "$defs": {
+    "source_document": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "name", "source_type", "target_directions", "is_primary", "ingested_at"],
+      "properties": {
+        "source_id": {"type": "string", "pattern": "^SRC-[A-Z0-9-]+$"},
+        "name": {"type": "string", "minLength": 1},
+        "source_type": {"enum": ["current_cv", "historical_cv", "linkedin_export", "career_passport", "uploaded_evidence", "pasted_text"]},
+        "target_directions": {"type": "array", "items": {"type": "string"}},
+        "is_primary": {"type": "boolean"},
+        "version_date": {"type": ["string", "null"]},
+        "content_fingerprint": {"type": ["string", "null"]},
+        "notes": {"type": "array", "items": {"type": "string"}},
+        "ingested_at": {"type": "string"}
+      }
+    },
+    "document_version": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version_id", "document_type", "role_id", "file_name", "source_document_ids", "created_at", "status", "change_summary"],
+      "properties": {
+        "version_id": {"type": "string", "pattern": "^DOC-[A-Z0-9-]+$"},
+        "document_type": {"enum": ["cv_base", "tailored_cv", "cover_letter"]},
+        "role_id": {"type": ["string", "null"]},
+        "file_name": {"type": "string", "minLength": 1},
+        "source_document_ids": {"type": "array", "items": {"type": "string", "pattern": "^SRC-[A-Z0-9-]+$"}},
+        "created_at": {"type": "string"},
+        "status": {"enum": ["ready", "partial", "superseded"]},
+        "change_summary": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    },
     "contact": {
       "type": "object",
       "additionalProperties": false,

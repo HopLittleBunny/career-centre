@@ -35,6 +35,24 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: #f8fbff;
+  background: var(--navy-deep);
+  font-weight: 720;
+  transform: translateY(-160%);
+  transition: transform 120ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
 a {
   color: inherit;
   text-decoration-thickness: 0.08em;
@@ -83,6 +101,24 @@ img {
   text-decoration: none;
   letter-spacing: -0.02em;
   white-space: nowrap;
+}
+
+.brand-lockup {
+  display: grid;
+  gap: 1px;
+  line-height: 1.05;
+}
+
+.brand-lockup strong {
+  font: inherit;
+}
+
+.brand-lockup small {
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .brand img {
@@ -480,6 +516,38 @@ h1 {
   font-size: 1.15rem;
 }
 
+.page-hero .eyebrow {
+  margin-bottom: 16px;
+  font-size: 0.76rem;
+}
+
+.status-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.status-pill {
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  background: var(--surface-raised);
+  font-size: 0.82rem;
+  font-weight: 760;
+}
+
+.status-pill.live::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: #1c9b63;
+}
+
 .prose {
   max-width: 820px;
   padding: 0 0 110px;
@@ -530,6 +598,96 @@ h1 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
   margin: 32px 0 46px;
+}
+
+.install-path {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(360px, 1.18fr);
+  gap: 54px;
+  align-items: start;
+  margin: 24px 0 78px;
+  padding: clamp(28px, 5vw, 54px);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--surface-raised);
+  box-shadow: var(--shadow);
+}
+
+.install-path.claude-path {
+  margin-top: 78px;
+}
+
+.install-path h2 {
+  margin-top: 0;
+}
+
+.step-label {
+  margin: 0 0 10px;
+  color: var(--navy);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.steps {
+  margin: 28px 0 34px;
+  padding: 0 !important;
+  list-style: none;
+}
+
+.steps li {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+}
+
+.steps li > span {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--accent-ink);
+  background: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 850;
+}
+
+.install-shots {
+  display: grid;
+  gap: 22px;
+}
+
+.install-shots figure {
+  margin: 0;
+}
+
+.install-shots img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #f7f7f7;
+  box-shadow: 0 12px 28px rgba(23, 50, 77, 0.12);
+}
+
+.install-shots figcaption {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.compact-downloads {
+  margin-top: 22px;
+}
+
+.compact-downloads .download-box {
+  padding: 24px;
 }
 
 .install-grid .download-box {
@@ -600,7 +758,8 @@ h1 {
   .workflow,
   .feature-list,
   .boundary-grid,
-  .install-grid {
+  .install-grid,
+  .install-path {
     grid-template-columns: 1fr;
   }
 
@@ -640,7 +799,7 @@ h1 {
     font-size: 16px;
   }
 
-  .brand span {
+  .brand-lockup small {
     display: none;
   }
 

@@ -32,8 +32,10 @@ A general CV base or an explicitly requested reference-format CV is not a tailor
 1. Input contract validation.
 2. Successful DOCX open.
 3. Structural check: fonts, links, bullets, placeholders, comments, tracked changes and hidden text. Run `scripts/validate_docx.py`; it must inspect active numbering definitions as well as visible paragraph text. Treat any private-use glyph or Wingdings/Symbol numbering font as a failure.
-4. Evidence-ID integrity.
-5. Rendered page count and density where rendering is available. For an experienced-candidate two-page CV, require at least 65% fill on page 1 and 80% on page 2.
+4. Qualitative parseability and writing check. Run `scripts/review_cv_text.py` on the generated CV, then repair high-impact findings or document a defensible evidence-based exception. Never convert its findings into a universal ATS score.
+5. Evidence-ID integrity.
+6. Rendered page count and density where rendering is available. For an experienced-candidate two-page CV, require at least 65% fill on page 1 and 80% on page 2.
+7. Transparent Career Centre quality rating: overall out of 10 plus evidence safety, role specificity, writing impact and document execution. State the most important remaining limitation. This is not an ATS score. Revise below 8.5/10 unless missing candidate evidence creates the honest ceiling.
 
 ## Default and custom structure
 
@@ -47,11 +49,16 @@ Advanced field preferences may change which confirmed contact fields appear, whe
 
 When the user supplies a reference DOCX, treat it as a formatting source, not an evidence source. Reuse page geometry, font family, hierarchy, colour and spacing only where the resulting document remains openable, readable, ATS-safe and at least 9 pt. Strip body content, headers/footers containing personal data, comments, tracked changes, hidden text and metadata. Never carry facts or links from the reference person into the user's CV. Record the reference template name and any compromises in the change log.
 
+Enter this mode only after an explicit user request. Do not offer or request a reference template during ordinary onboarding.
+
 If the host invokes a generic document-creation capability for the physical DOCX, keep this document factory authoritative. Run `scripts/validate_docx.py` on the returned file and independently inspect the render. A self-reported “leakage check passed” or “rendered successfully” is not sufficient when the actual output contains private-use/Wingdings bullets, hollow boxes, generic sections or reference-person residue.
-6. Human visual inspection of every rendered page.
-7. Paired cover-letter check unless `cv_only=true`.
-8. Run-level manifest and checksum check.
+8. Human visual inspection of every rendered page.
+9. Paired cover-letter check unless `cv_only=true`.
+10. Document-version entry in the Career Passport with source-document IDs, status and change summary.
+11. Run-level manifest and checksum check.
 
 For the cover letter, the first narrative sentence must be a natural, role-specific reason or thesis. Openings beginning with “I am applying”, “I’m applying”, “I am excited to apply” or equivalent generic application language fail structural release checks. Do not approve visual QA when any bullet appears as a square, hollow box or missing glyph, even if text extraction succeeds.
 
 Any failing required step makes the pack incomplete. Do not hide the failure behind a successful conversational summary.
+
+Do not promise that a CV is “AI-undetectable” or optimise it to evade detection tools. Improve human credibility instead: candidate-specific evidence, natural syntax, selective detail, low repetition and a voice the candidate can comfortably defend in interview.

@@ -58,6 +58,12 @@ def _validate_public_site(
         text = path.read_text(encoding="utf-8")
         if "<meta name=\"viewport\"" not in text:
             errors.append(f"Static page lacks a viewport declaration: {path.relative_to(ROOT)}")
+        if text.count('class="skip-link"') != 1 or 'href="#main-content"' not in text:
+            errors.append(f"Static page lacks one keyboard skip link: {path.relative_to(ROOT)}")
+        if 'id="main-content"' not in text:
+            errors.append(f"Static page lacks a main-content target: {path.relative_to(ROOT)}")
+        if 'class="brand"' in text and 'aria-label="Career Centre home"' not in text:
+            errors.append(f"Static page has an unnamed mobile home link: {path.relative_to(ROOT)}")
         if "PUBLIC_" in text:
             errors.append(f"Static page contains a public placeholder: {path.relative_to(ROOT)}")
         if "—" in text or "–" in text:
@@ -82,13 +88,33 @@ def _validate_public_site(
     required_copy = [
         "Your Career Centre is ready",
         "advanced preferences",
+        "Quick CV review",
+        "Share your CVs",
         "Reference CV formatting",
+        "Career Passport",
         "saved snapshot",
         "No automatic applications",
+        "Install Career Centre",
     ]
     for phrase in required_copy:
         if phrase.casefold() not in homepage.casefold():
             errors.append(f"Static homepage is missing required product copy: {phrase}")
+
+    readiness_labels = re.findall(r"<dt>([^<]+)</dt>", homepage)
+    expected_readiness_labels = [
+        "Target",
+        "Geography",
+        "Sources",
+        "Compensation",
+        "CV",
+        "Sections",
+        "Application pack",
+    ]
+    if readiness_labels != expected_readiness_labels:
+        errors.append(
+            "Static homepage readiness labels must be exactly "
+            f"{expected_readiness_labels}; got {readiness_labels}."
+        )
 
     download = PUBLIC_SITE / "downloads" / "career-centre-chatgpt-skill.zip"
     latest_path = ROOT / "release" / "LATEST.json"
@@ -150,6 +176,9 @@ def validate(*, submission_ready: bool) -> tuple[list[str], list[str]]:
         return [f"Plugin manifest cannot be read: {exc}"], warnings
     if manifest.get("name") != PLUGIN.name:
         errors.append("Plugin manifest name must match its folder name.")
+    version = manifest.get("version")
+    if not isinstance(version, str) or not version:
+        errors.append("Plugin manifest must declare a version.")
     skill_path = PLUGIN / str(manifest.get("skills", ""))
     if not skill_path.exists():
         errors.append("Manifest skills path does not exist.")
@@ -173,6 +202,8 @@ def validate(*, submission_ready: bool) -> tuple[list[str], list[str]]:
         errors.append("Claude plugin manifest must use the career-centre identity.")
     if claude_manifest.get("displayName") != "Career Centre":
         errors.append("Claude plugin must display the Career Centre name.")
+    if claude_manifest.get("version") != version:
+        errors.append("ChatGPT and Claude package versions must match.")
     if not (CLAUDE_SKILL / "SKILL.md").is_file():
         errors.append("Claude Career Centre skill is missing.")
 
@@ -186,6 +217,21 @@ def validate(*, submission_ready: bool) -> tuple[list[str], list[str]]:
         errors.append("Claude marketplace identity is invalid.")
     if len(entries) != 1 or entries[0].get("source") != "./plugins/claude-career-centre":
         errors.append("Claude marketplace must expose the native Career Centre plugin.")
+    elif entries[0].get("version") != version or marketplace.get("version") != version:
+        errors.append("Claude marketplace and plugin package versions must match.")
+
+    required_audit_files = [
+        ROOT / "THIRD_PARTY_NOTICES.md",
+        ROOT / "docs" / "OPEN_SOURCE_REPO_AUDIT.md",
+        ROOT / "docs" / "LICENSE_COMPATIBILITY.md",
+    ]
+    for path in required_audit_files:
+        if not path.is_file() or len(path.read_text(encoding="utf-8").split()) < 20:
+            errors.append(f"Open-source audit record is missing or too short: {path.relative_to(ROOT)}")
+    for skill_root in (SKILL, CLAUDE_SKILL):
+        reviewer = skill_root / "scripts" / "review_cv_text.py"
+        if not reviewer.is_file():
+            errors.append(f"Qualitative CV diagnostic is missing: {reviewer.relative_to(ROOT)}")
 
     cases_path = ROOT / "submission" / "REVIEWER_TEST_CASES.json"
     try:
