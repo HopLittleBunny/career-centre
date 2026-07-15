@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Install Career Centre in ChatGPT or Claude.">
-  <title>Install | Career Centre</title>
+  <title>Install | Career Centre &mdash; Open Door</title>
   <link rel="icon" href="assets/icon.png">
   <link rel="stylesheet" href="assets/site.css">
 </head>
@@ -12,64 +12,98 @@
   <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header">
     <div class="shell nav">
-      <a class="brand" href="index.html" aria-label="Career Centre home"><img src="assets/icon.png" alt=""><span>Career Centre</span></a>
+      <a class="brand" href="index.html" aria-label="Career Centre home"><img src="assets/icon.png" alt=""><span class="brand-lockup"><strong>Career Centre</strong><small>Open Door</small></span></a>
       <nav class="nav-links" aria-label="Primary navigation"><a href="index.html#how-it-works">How it works</a><a href="privacy.html">Privacy</a><a href="support.html">Support</a><a class="nav-install" href="install.html" aria-current="page">Install</a></nav>
     </div>
   </header>
   <main id="main-content">
     <section class="shell page-hero">
-      <h1>Install in ChatGPT or Claude.</h1>
-      <p>Choose the ZIP for the AI service you already use. Career Centre has no separate fee, API key or account; your provider plan and usage limits still apply.</p>
+      <p class="eyebrow">Career Centre &mdash; Open Door</p>
+      <h1>Start in the AI you already use.</h1>
+      <p>ChatGPT is available from the plugin directory. Claude can use the personal plugin ZIP while public directory review is pending. There is no separate Career Centre fee, API key or account.</p>
+      <div class="status-row" aria-label="Provider availability">
+        <span class="status-pill live">ChatGPT: live</span>
+        <span class="status-pill">Claude: personal plugin</span>
+      </div>
     </section>
     <article class="shell prose">
-      <div class="install-grid">
-        <section class="download-box">
-          <p class="eyebrow">Functional beta</p>
-          <h2>ChatGPT</h2>
-          <p>Personal Skill build: 4.0.0-beta.3</p>
-          <p><a class="button" href="downloads/career-centre-chatgpt-skill.zip" download>Download ChatGPT ZIP</a></p>
-          <span class="checksum">SHA-256: fd51b4af14d66fa2dbcd51e5d9daf115a01b5f7ee5ec276b66a4b7e4c4eef185</span>
-        </section>
-        <section class="download-box">
-          <p class="eyebrow">Functional beta</p>
-          <h2>Claude</h2>
-          <p>Paid-plan custom plugin build: 4.0.0-beta.3</p>
-          <p><a class="button" href="downloads/career-centre-claude-plugin.zip" download>Download Claude ZIP</a></p>
-          <span class="checksum">SHA-256: dc323f66750eb7d52196984507c512c80e061b66620927c9e4cb950ca6462637</span>
-        </section>
-      </div>
-
-      <h2>Install in ChatGPT</h2>
-      <ol>
-        <li>Open ChatGPT on the web and select <strong>Work</strong>.</li>
-        <li>Open <strong>Plugins</strong>, search for <strong>Career Centre</strong> by Amit Sharma and select <strong>Install</strong>.</li>
-        <li>Start a new Work task and say <strong>@Career Centre Help me find my next role.</strong></li>
-        <li>Share your CV when asked. If you use different CVs for different role directions, share the key versions together.</li>
-      </ol>
+      <section class="install-path" aria-labelledby="chatgpt-install">
+        <div class="install-copy">
+          <p class="step-label">Recommended</p>
+          <h2 id="chatgpt-install">Install in ChatGPT</h2>
+          <ol class="steps">
+            <li><span>1</span><div>Open <strong>Plugins</strong> in ChatGPT and search for <strong>Career Centre</strong>.</div></li>
+            <li><span>2</span><div>Open the result by <strong>Amit Sharma</strong> and select <strong>Install</strong>. If it is already installed, you will see <strong>Try in chat</strong>.</div></li>
+            <li><span>3</span><div>Start a normal <strong>Work</strong> task and say <strong>@Career Centre Help me find my next role.</strong></div></li>
+            <li><span>4</span><div>Share one CV, or the key CVs you use for different directions. Career Centre reviews them before asking for anything missing.</div></li>
+          </ol>
+          <a class="button" href="https://chatgpt.com/plugins/plugins_6a565bb471908191a969cffc4aa6296f" rel="noreferrer">Open in ChatGPT</a>
+        </div>
+        <div class="install-shots">
+          <figure>
+            <img src="assets/install-chatgpt-search.jpg" alt="ChatGPT Plugins directory showing Career Centre in the career search results">
+            <figcaption>1. Search the Plugins directory.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/install-chatgpt-detail.jpg" alt="Career Centre plugin page in ChatGPT with the Try in chat button">
+            <figcaption>2. Install, or choose Try in chat if already installed.</figcaption>
+          </figure>
+        </div>
+      </section>
 
       <div class="notice">
         <strong>No Project is required.</strong> There is no API key, publisher account or manual tracker setup. After the first task, normal language is usually enough; use <strong>@Career Centre</strong> when you want to invoke it explicitly.
       </div>
 
-      <h2>Install in Claude</h2>
-      <ol>
-        <li>Open Claude on the web using a paid Pro, Max, Team or Enterprise plan.</li>
-        <li>Open <strong>Customize</strong> in the left sidebar, then open <strong>Plugins</strong>.</li>
-        <li>In Personal plugins, choose <strong>Add marketplace</strong>.</li>
-        <li>Enter <strong>HopLittleBunny/career-centre</strong> or the public GitHub repository URL.</li>
-        <li>Install <strong>Career Centre</strong>.</li>
-        <li>Start a normal chat and say <strong>Help me find my next role.</strong></li>
-        <li>Share your CV when asked. If you use different CVs for different role directions, share the key versions together.</li>
-      </ol>
+      <section class="install-path claude-path" aria-labelledby="claude-install">
+        <div class="install-copy">
+          <p class="step-label">Claude personal plugin</p>
+          <h2 id="claude-install">Install in Claude</h2>
+          <ol class="steps">
+            <li><span>1</span><div>Download the <strong>Claude plugin ZIP</strong> below. Do not unzip it.</div></li>
+            <li><span>2</span><div>In Claude, open <strong>Customize → Plugins</strong>.</div></li>
+            <li><span>3</span><div>Select <strong>Add → Upload plugin</strong>, choose the ZIP and enable Career Centre.</div></li>
+            <li><span>4</span><div>Start a normal chat, type <strong>/career-centre</strong>, and share your CV when asked.</div></li>
+          </ol>
+          <a class="button" href="downloads/career-centre-claude-plugin.zip" download>Download Claude plugin ZIP</a>
+          <span class="checksum">SHA-256: 55e2365d83f8c0d697a3840b6fe16c907247ea8e4c04afca4d611d9dc359d755</span>
+        </div>
+        <div class="install-shots">
+          <figure>
+            <img src="assets/install-claude-plugins.jpg" alt="Claude Customize settings with Plugins selected and Career Centre listed">
+            <figcaption>1. Open Customize, then Plugins.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/install-claude-add.jpg" alt="Claude Add plugin menu showing Upload plugin">
+            <figcaption>2. Choose Add, then Upload plugin.</figcaption>
+          </figure>
+        </div>
+      </section>
       <div class="notice">
-        <strong>ZIP fallback:</strong> if adding a marketplace is unavailable, download the Claude ZIP above and upload it under Personal plugins. The package is installed once; do not upload it every day. Use the latest Career Passport only when moving history to a new conversation.
+        <strong>Install once.</strong> Do not upload the plugin ZIP every day. Use the latest Career Passport only when moving your history to a new conversation.
+      </div>
+
+      <h2>Controlled beta downloads</h2>
+      <div class="install-grid compact-downloads">
+        <section class="download-box">
+          <h3>ChatGPT beta.3 skill</h3>
+          <p>For users whose ChatGPT account exposes personal skill upload.</p>
+          <p><a class="button secondary" href="downloads/career-centre-chatgpt-skill.zip" download>Download ChatGPT ZIP</a></p>
+          <span class="checksum">SHA-256: fca645bef0fe9dae01d0b26b504d67b1d30d10dadf52b58a74be43fa9e5fbf5e</span>
+        </section>
+        <section class="download-box">
+          <h3>Claude beta.3 plugin</h3>
+          <p>The same personal plugin used in the steps above.</p>
+          <p><a class="button secondary" href="downloads/career-centre-claude-plugin.zip" download>Download Claude ZIP</a></p>
+          <span class="checksum">SHA-256: 55e2365d83f8c0d697a3840b6fe16c907247ea8e4c04afca4d611d9dc359d755</span>
+        </section>
       </div>
 
       <h2>What happens first</h2>
       <p>The skill reads every supplied CV, gives a broad strength verdict plus a short review of what works and what may be underselling you, asks only for missing decisions that could change the result, and then shows <strong>Your Career Centre is ready</strong> with the active market, sources, salary, employment and CV assumptions. It also prepares the first portable Career Passport automatically.</p>
 
       <h2>Turn a good search into a daily run</h2>
-      <p>Test one search manually first. After a useful result, ask Career Centre to schedule the same calibrated search daily or on weekdays. ChatGPT Work can schedule from the existing task; Claude uses Cowork and its <strong>/schedule</strong> skill. The package itself is not re-uploaded for each run.</p>
+      <p>Test one search manually first. After the first completed search with a verified role, Career Centre offers to repeat the same calibrated search daily or on weekdays. Nothing is created until you accept and choose a time and timezone. ChatGPT Work can schedule from the existing task; Claude uses Cowork and its <strong>/schedule</strong> skill. The package itself is not re-uploaded for each run.</p>
 
       <h2>Keep your history</h2>
       <p>Use one main Career Centre conversation for the active search and save the latest Career Passport. If you move to a new conversation in ChatGPT or Claude, upload that Passport with any new CV or evidence so the source-mapped history can continue.</p>

@@ -3,14 +3,14 @@
   "status": "submission",
   "plugin": {
     "file": "career-centre-4.0.0-beta.3-submission-plugin.zip",
-    "sha256": "3e219a05c4f2ef2a6012665eb385325df0f4bc9a1dfd7f3b0be89a658be34c62"
+    "sha256": "a66d98416180e8726470eda9240d3d435d58666215b9c5be5cc943571f3a3250"
   },
   "openai_upload": {
     "file": "career-centre-4.0.0-beta.3-submission-openai-upload.zip",
-    "sha256": "5ae547a6637aefc6a868449effa563c975a4f64d0c9d07e1bfbc7bfc84c17c58"
+    "sha256": "8a418353699970151266783a6c3fc2aac62073f5d05cc64cf99a9d7d8166c793"
   },
   "skill": {
     "file": "career-centre-4.0.0-beta.3-submission-skill.zip",
-    "sha256": "6cd534ab09e89408d677c4fb0b7df3bbf28a415f10483e9eacfe3c249b064e37"
+    "sha256": "fca645bef0fe9dae01d0b26b504d67b1d30d10dadf52b58a74be43fa9e5fbf5e"
   }
 }

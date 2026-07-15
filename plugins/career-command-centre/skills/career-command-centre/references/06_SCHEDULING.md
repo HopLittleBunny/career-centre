@@ -1,6 +1,6 @@
 # Scheduling
 
-Test one manual search before scheduling it. After the first useful manual result, proactively ask one short question:
+Test one manual search before scheduling it. At the end of the first completed manual search that returns at least one verified role, proactively ask one short question in the same response—even when every role is Maybe or Skip:
 
 > Would you like me to run this calibrated search daily or on weekdays in this same Career Centre task? If yes, tell me the time and timezone; I will keep the current role limit unless you change it.
 
@@ -12,6 +12,8 @@ Do not ask about automation during first-time setup. If the user accepts, confir
 - application packs on request by default.
 
 Never auto-submit. Never tell the user to upload the plugin ZIP every day. It is installed once.
+
+`Do not create a schedule` means no schedule may be created; it does not suppress this invitation because the invitation changes no external state. Suppress the invitation only when the user explicitly says not to mention, offer or discuss recurring searches. Before sending the search response, silently verify that the invitation is present once, after the mentor verdict. Do not bury it inside role details.
 
 ## ChatGPT Work default: current-task context
 
