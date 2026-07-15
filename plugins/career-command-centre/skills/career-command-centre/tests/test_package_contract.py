@@ -72,7 +72,9 @@ class PackageContractTests(unittest.TestCase):
         self.assertIn("entire final CV in chat", recovery)
 
     def test_global_localisation_contract_covers_india_and_us_without_personal_data_defaults(self) -> None:
+        skill = (self.skill_root / "SKILL.md").read_text(encoding="utf-8")
         text = (self.skill_root / "references" / "10_MARKET_LOCALISATION.md").read_text(encoding="utf-8")
+        self.assertIn("Name the recognisable primary boards", skill)
         self.assertIn("## United States", text)
         self.assertIn("## India", text)
         self.assertIn("current CTC, expected CTC", text)

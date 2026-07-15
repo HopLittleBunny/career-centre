@@ -67,6 +67,8 @@ Once the CV and critical decisions are understood, give a short **“Your Career
 
 The seven labels must be `Target`, `Geography`, `Sources`, `Compensation`, `CV`, `Sections`, and `Application pack`. Put work rights inside `Geography` and employment type inside `Compensation`. Do not replace `CV` or `Sections` with a hard-exclusions, work-rights or applications line. The `CV` line must explicitly say `page 2 at least 80% filled` for an experienced candidate. The `Sections` line must name the included sections rather than saying only that the CV is tailored or executive-style. A compact rendering contract is:
 
+Name the recognisable primary boards for the selected market in `Sources` rather than saying only “major boards” (for example, SEEK and LinkedIn in Australia, LinkedIn and Naukri in India, or LinkedIn and Indeed in the United States). Keep employer career sites and exact employer/recruiter postings first, and name salary sources only when they are actually relevant to that market.
+
 > - Target: [direction and seniority]
 > - Geography: [locations] · Work rights: [known boundary]
 > - Sources: [employer sites, authorised recruiters, named/relevant major boards and salary sources]

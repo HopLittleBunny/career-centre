@@ -72,7 +72,9 @@ class PackageContractTests(unittest.TestCase):
         self.assertIn("entire final CV in chat", recovery)
 
     def test_global_localisation_contract_covers_india_and_us_without_personal_data_defaults(self) -> None:
+        skill = (self.skill_root / "SKILL.md").read_text(encoding="utf-8")
         text = (self.skill_root / "references" / "10_MARKET_LOCALISATION.md").read_text(encoding="utf-8")
+        self.assertIn("Name the recognisable primary boards", skill)
         self.assertIn("## United States", text)
         self.assertIn("## India", text)
         self.assertIn("current CTC, expected CTC", text)
@@ -106,6 +108,14 @@ class PackageContractTests(unittest.TestCase):
         self.assertIn("Use this source ladder", text)
         self.assertIn("Do not require a LinkedIn, Indeed, SEEK or other job-site plugin", text)
         self.assertIn("Do not scrape, bypass access controls", text)
+
+    def test_cowork_schedule_preserves_limit_and_snapshot_truth(self) -> None:
+        skill = (self.skill_root / "SKILL.md").read_text(encoding="utf-8")
+        scheduling = (self.skill_root / "references" / "06_SCHEDULING.md").read_text(encoding="utf-8")
+        self.assertIn("preserve the last confirmed role limit", skill)
+        self.assertIn("never replace a confirmed limit with five", scheduling)
+        self.assertIn("embedded Career Passport snapshot", scheduling)
+        self.assertIn("do not say a future run loads “the latest Passport”", scheduling)
 
     def test_release_tree_contains_no_compiled_or_html_artifacts(self) -> None:
         forbidden = [

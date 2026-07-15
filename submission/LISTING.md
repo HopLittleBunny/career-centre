@@ -18,7 +18,7 @@ Productivity
 
 ## Short description
 
-Free career partner for stronger roles and evidence-safe Word CVs.
+Find roles. Build better CVs.
 
 ## Long description
 
