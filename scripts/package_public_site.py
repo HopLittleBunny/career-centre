@@ -40,18 +40,18 @@ def main() -> int:
     if sha256(claude_target) != claude_latest["sha256"]:
         raise SystemExit("Public Claude download checksum mismatch after copy.")
 
-    destination = RELEASE / "career-centre-public-site-20260714.zip"
+    destination = RELEASE / "career-centre-public-site-20260715.zip"
     with zipfile.ZipFile(destination, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
         for path in sorted(PUBLIC_SITE.rglob("*")):
             if not path.is_file():
                 continue
             info = zipfile.ZipInfo(str(Path("career-centre") / path.relative_to(PUBLIC_SITE)))
-            info.date_time = (2026, 7, 14, 0, 0, 0)
+            info.date_time = (2026, 7, 15, 0, 0, 0)
             info.compress_type = zipfile.ZIP_DEFLATED
             info.external_attr = 0o644 << 16
             archive.writestr(info, path.read_bytes())
     manifest = {
-        "date": "2026-07-14",
+        "date": "2026-07-15",
         "version": latest["version"],
         "status": "submission",
         "file": destination.name,

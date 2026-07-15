@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Career Centre — Conversation Spark</title>
+  <desc id="desc">Two friendly rounded conversation shapes create an open C around a small golden spark.</desc>
+  <rect width="512" height="512" rx="118" fill="#F3E9F6"/>
+  <path d="M370 146C335 111 291 94 246 98C164 105 102 174 104 256C106 342 178 410 265 410C305 410 343 397 372 371" fill="none" stroke="#51334F" stroke-width="58" stroke-linecap="round"/>
+  <path d="M364 148h-79c-43 0-78 35-78 78v22c0 43 35 78 78 78h48l47 43-9-61c26-14 43-42 43-74v-36c0-28-23-50-50-50Z" fill="#E46B5A"/>
+  <path d="M310 193l13 35 35 13-35 13-13 35-13-35-35-13 35-13 13-35Z" fill="#FFD166"/>
+  <circle cx="310" cy="241" r="10" fill="#51334F"/>
+</svg>

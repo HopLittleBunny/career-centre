@@ -61,11 +61,27 @@ class PackageContractTests(unittest.TestCase):
         recovery = (self.skill_root / "references" / "08_RECOVERY.md").read_text(encoding="utf-8")
         self.assertIn("share the key versions together", skill)
         self.assertIn("Quick CV read", skill)
+        self.assertIn("Overall CV strength", skill)
+        self.assertIn("If you want, I can give you the deeper review after setup", review)
+        self.assertIn("CV quality rating out of 10", skill)
+        self.assertIn("Do not proactively suggest a reference template", skill)
         self.assertIn("portable Career Evidence File and history backup", skill)
         self.assertIn("separate new conversation may not inherit", skill)
         self.assertIn("Do not invent a universal ATS rating", review)
         self.assertIn("job description can never become evidence", review)
         self.assertIn("entire final CV in chat", recovery)
+
+    def test_global_localisation_contract_covers_india_and_us_without_personal_data_defaults(self) -> None:
+        text = (self.skill_root / "references" / "10_MARKET_LOCALISATION.md").read_text(encoding="utf-8")
+        self.assertIn("## United States", text)
+        self.assertIn("## India", text)
+        self.assertIn("current CTC, expected CTC", text)
+        self.assertIn("state/local pay-transparency", text)
+        self.assertIn("Do not add a photograph", text)
+        for source in ("LinkedIn India", "Naukri", "foundit", "iimjobs"):
+            self.assertIn(source, text)
+        for source in ("LinkedIn", "Indeed", "Built In", "USAJOBS"):
+            self.assertIn(source, text)
 
     def test_passport_schema_supports_multiple_source_documents(self) -> None:
         schema = json.loads((self.skill_root / "schemas" / "career_passport.schema.json").read_text(encoding="utf-8"))

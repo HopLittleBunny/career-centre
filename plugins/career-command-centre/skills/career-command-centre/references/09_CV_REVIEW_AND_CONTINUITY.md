@@ -14,10 +14,12 @@ Accept one CV or several role-track-specific CVs in the same setup. If several a
 
 Give an initial qualitative review before preference questions. Keep it compact enough that setup still feels conversational:
 
+- `Overall CV strength`: choose `Strong`, `Solid but under-positioned`, or `Needs rebuilding`, followed by one sentence explaining the judgement from the supplied evidence.
 - `What already works`: two to four specific strengths, grounded in the supplied evidence.
 - `What may be underselling you`: two to four high-value weaknesses or missed signals.
 - `Priority next edit`: the single change most likely to improve clarity or role direction.
 - With several CVs, add `Best base by direction` and `Cross-CV consistency` only when useful.
+- Close with `If you want, I can give you the deeper review after setup.` Do not force the longer critique into onboarding.
 
 Review these dimensions:
 
@@ -47,7 +49,7 @@ Use `Career_Passport.json` as the single portable Career Evidence File and histo
 
 Update it after confirmed facts or corrections, meaningful preference changes, reviewed-role decisions, application outcomes and document feedback. Treat repeated behaviour as a proposed pattern until the user confirms it. A search can calibrate directions, exclusions or sources, but a job description can never become evidence about the person.
 
-Offer an updated Passport after initial setup and meaningful milestones, not after every response. Preserve older source provenance rather than overwriting history.
+Create and attach an initial Passport after setup whenever file creation is available; do not wait for the user to discover or request it. Offer an updated Passport after meaningful milestones, not after every response. Preserve older source provenance rather than overwriting history.
 
 When a document is revised, keep the earlier entry and mark it `superseded`; do not overwrite history. A ready Word file is `ready`. A complete in-chat fallback or unrendered draft is `partial`, never `ready`.
 
@@ -58,5 +60,7 @@ The plugin does not control whether a provider carries files or skill state into
 1. Keep one main Career Centre conversation for the active search.
 2. Save the latest Career Passport as a local backup.
 3. In a new ChatGPT or Claude conversation, upload the latest Passport plus any new CV or evidence and say “Continue my Career Centre from this Passport.”
+
+The plugin or skill package is installed once. Never ask the user to re-upload the package for each search or each day; only the latest Passport is needed when continuity must move to a new conversation.
 
 Mention this once after setup or the first Passport handoff. Do not nag in the continuing conversation. If a new conversation arrives without a Passport, use the attached CV and current context, explain the history limitation briefly, and continue rather than blocking.

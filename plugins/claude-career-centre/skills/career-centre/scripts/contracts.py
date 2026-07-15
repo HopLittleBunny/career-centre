@@ -222,6 +222,8 @@ def validate_career_passport(data: Any) -> list[str]:
         _sequence(preferences.get(key), f"passport.preferences.{key}", errors)
     _enum(preferences, "selectivity", {"focused", "balanced", "explore"}, "passport.preferences", errors)
     _enum(preferences, "remote_preference", {"remote", "hybrid", "onsite", "flexible", "unknown"}, "passport.preferences", errors)
+    if preferences.get("salary_basis") is not None:
+        _enum(preferences, "salary_basis", {"base", "fixed", "total_compensation", "ctc", "hourly", "daily", "annual_package", "unspecified"}, "passport.preferences", errors)
     currency = preferences.get("currency")
     if not isinstance(currency, str) or len(currency) != 3 or not currency.isalpha() or currency != currency.upper():
         _error(errors, "passport.preferences.currency", "must be a three-letter uppercase currency code")
@@ -399,8 +401,8 @@ def validate_career_passport(data: Any) -> list[str]:
         _enum(automation, "application_pack_mode", {"on_request", "apply_roles"}, "passport.automation", errors)
         _enum(automation, "destination", {"scheduled_result_task", "continuing_task"}, "passport.automation", errors)
         continuity_mode = automation.get("continuity_mode")
-        if continuity_mode is not None and continuity_mode not in {"snapshot_only", "verified_persistent"}:
-            _error(errors, "passport.automation.continuity_mode", "must be snapshot_only or verified_persistent")
+        if continuity_mode is not None and continuity_mode not in {"task_context", "snapshot_only", "verified_persistent"}:
+            _error(errors, "passport.automation.continuity_mode", "must be task_context, snapshot_only or verified_persistent")
     _required_text(root, "updated_at", "passport", errors)
     return errors
 

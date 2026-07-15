@@ -136,7 +136,7 @@ def review_text(text: str, *, source: str = "supplied text", language: str = "en
     if outcome_signals >= 2:
         strengths.append("The CV includes observable scale or outcome signals; these should still be checked against source evidence.")
     if duplicate_bullets:
-        findings.append(_finding("repetition", "medium", f"{len(duplicate_bullets)} bullet statement(s) appear more than once.", "Keep the strongest version once and use the recovered space for distinct evidence.", duplicate_bullets[0]))
+        findings.append(_finding("repetition", "high", f"{len(duplicate_bullets)} bullet statement(s) appear more than once.", "Release-blocking duplication: keep the strongest version once and use the recovered space for distinct evidence.", duplicate_bullets[0]))
     if repeated_starters:
         findings.append(_finding("writing variety", "low", "Several bullets begin with the same word, which can make the evidence feel repetitive.", "Vary the opening only where it improves accuracy; do not replace precise verbs with inflated synonyms.", ", ".join(repeated_starters[:5])))
     if long_sentences:

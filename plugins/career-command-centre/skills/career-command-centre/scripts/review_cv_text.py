@@ -225,9 +225,9 @@ def review_text(text: str, *, source: str = "supplied text", language: str = "en
     if duplicate_bullets:
         findings.append(_finding(
             "repetition",
-            "medium",
+            "high",
             f"{len(duplicate_bullets)} bullet statement(s) appear more than once.",
-            "Keep the strongest version once and use the recovered space for distinct evidence.",
+            "Release-blocking duplication: keep the strongest version once and use the recovered space for distinct evidence.",
             duplicate_bullets[0],
         ))
     if repeated_starters:

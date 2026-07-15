@@ -1,34 +1,34 @@
 # Scheduling
 
-Use the host's scheduled-task feature only after confirming:
+Test one manual search before scheduling it. After the first useful manual result, proactively ask one short question:
+
+> Would you like me to run this calibrated search daily or on weekdays in this same Career Centre task? If yes, tell me the time and timezone; I will keep the current role limit unless you change it.
+
+Do not ask about automation during first-time setup. If the user accepts, confirm only missing details:
 
 - cadence and local timezone;
 - preferred run time;
-- maximum displayed roles;
-- whether application packs should be built automatically for Apply roles or only on request;
-- where the current Career Passport is available;
-- whether the host has proved persistent state across separate scheduled runs.
+- maximum displayed roles, default five;
+- application packs on request by default.
 
-## ChatGPT browser default: snapshot-backed alert
+Never auto-submit. Never tell the user to upload the plugin ZIP every day. It is installed once.
 
-ChatGPT Scheduled Tasks currently launches each `Run now` result as a separate Work task. A live two-run acceptance test showed that the second task did not inherit the first task's printed Passport state. Therefore, do not claim deterministic cross-run memory or deduplication on this surface.
+## ChatGPT Work default: current-task context
 
-The no-backend default is a snapshot-backed alert. Embed a compact, evidence-safe snapshot of the current profile, preferences, evidence and role history in the saved prompt. Suppress duplicates against that snapshot and within the current run. Prefer roles explicitly posted or updated within the schedule's latest interval. Every result must begin with this plain-language status:
+Create the schedule from the existing Career Centre Work task and return each run to that task. The task can use its existing conversation context, uploaded files, installed skills and plugins. Keep the latest Career Passport attached or otherwise available to the task and include durable search instructions in the scheduled prompt.
 
-> Continuity: snapshot-backed alert. I used the Career Passport captured when this schedule was created plus this run's results. ChatGPT did not supply an updated Passport from earlier scheduled runs, so a role may repeat in a later alert.
-
-Do not print a run number, say that the Passport was updated or claim a role is new since the prior run unless the prior run's updated Passport was actually supplied to this execution. A later-run instruction that merely says “reuse the previous output” is not proof that the state is available.
+Use `destination: continuing_task` and `continuity_mode: task_context` when this route is available. The prompt must invoke Career Centre explicitly, preserve exact-link, salary, evidence and no-submit rules, and reconcile the task's role history before browsing. Do not claim cross-account or unrelated-chat memory.
 
 Recommended default:
 
-> On weekdays at 7:30 AM local time, use the embedded Career Passport snapshot to search for suitable roles. Return at most five verified roles with exact links, salary context and Apply/Maybe/Skip decisions. De-duplicate against the embedded history and within this run. Prefer postings created or updated since the previous scheduled interval. Repeats across later alerts remain possible. Do not auto-submit or build application packs automatically.
+> On weekdays at 8:00 AM local time, use Career Centre in this task and the latest Career Passport available here to run the calibrated role search. Return at most five verified roles with exact links, salary context and Apply/Maybe/Skip decisions. Reconcile earlier reviewed and applied roles before browsing. Do not create application packs automatically and never submit an application.
+
+## Standalone fallback: snapshot-backed alert
+
+Use a standalone scheduled task only when the user wants independent runs or the host cannot return to the current task. Embed a compact, evidence-safe Passport snapshot, suppress duplicates against that snapshot and within the current run, and disclose that later standalone runs may repeat a role because they do not necessarily receive state written by an earlier run. Use `destination: scheduled_result_task` and `continuity_mode: snapshot_only`.
 
 ## Verified persistent mode
 
-Enable `verified_persistent` continuity only when the execution can demonstrably load the latest valid Passport at the start of every run and save an updated valid Passport where the next run will receive it. Examples may include a local automation workspace or an explicitly configured user-owned persistence connector. Do not infer this from ChatGPT Memory, Library, a Project, a prior result task or the text of the scheduled prompt.
+Use `verified_persistent` only when every run can demonstrably load the latest valid Passport and save the updated Passport where the next run will receive it. If either operation fails, return `BLOCKED` with one recovery action instead of silently resetting state.
 
-If `verified_persistent` mode is configured but the current run cannot load the latest Passport, return `BLOCKED` with one recovery action rather than falling back silently. Scheduled runs must never create unlimited documents or auto-submit applications.
-
-Store the confirmed schedule under the Career Passport's optional `automation` object. Use `continuity_mode: snapshot_only` for ChatGPT browser Scheduled Tasks. When code execution is available, run `python scripts/build_schedule_prompt.py <Career_Passport.json>` and save the resulting instruction in the host task. This keeps cadence, timezone, result limit, evidence boundary, current history snapshot and pack mode portable without asking the user to manage a separate project or prompt.
-
-After creation, show a short schedule receipt with cadence/timezone, result limit, document/submission boundary and continuity status. Keep scheduling optional and advanced; the ordinary career conversation remains the deterministic place for long-term role history, tailoring and application updates.
+Store confirmed schedule settings under the Passport's optional `automation` object. When code execution is available, run `python scripts/build_schedule_prompt.py <Career_Passport.json>` and save the output in the host schedule. After creation, show a short receipt with cadence/timezone, result limit, document/submission boundary and continuity mode. Review the first few runs and recalibrate sources or gates if results are weak.

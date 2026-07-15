@@ -53,6 +53,7 @@
         "locations": {"type": "array", "items": {"type": "string"}},
         "remote_preference": {"enum": ["remote", "hybrid", "onsite", "flexible", "unknown"]},
         "salary_minimum": {"type": ["number", "null"], "minimum": 0},
+        "salary_basis": {"enum": ["base", "fixed", "total_compensation", "ctc", "hourly", "daily", "annual_package", "unspecified"]},
         "currency": {"type": "string", "minLength": 3, "maxLength": 3},
         "employment_types": {
           "type": "array",
@@ -185,7 +186,7 @@
         "max_displayed_roles": {"type": "integer", "minimum": 1, "maximum": 10},
         "application_pack_mode": {"enum": ["on_request", "apply_roles"]},
         "destination": {"enum": ["scheduled_result_task", "continuing_task"]},
-        "continuity_mode": {"enum": ["snapshot_only", "verified_persistent"]}
+        "continuity_mode": {"enum": ["task_context", "snapshot_only", "verified_persistent"]}
       }
     },
     "updated_at": {"type": "string"}

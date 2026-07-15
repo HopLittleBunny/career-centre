@@ -58,6 +58,9 @@ Degree | 2019
         report = review_text(text)
         categories = {item["category"] for item in report["findings"]}
         self.assertTrue({"repetition", "specificity", "readability", "writing variety"}.issubset(categories))
+        repetition = next(item for item in report["findings"] if item["category"] == "repetition")
+        self.assertEqual(repetition["impact"], "high")
+        self.assertIn("Release-blocking duplication", repetition["recommendation"])
         self.assertEqual(report["status"], "needs_attention")
 
     def test_missing_selectable_contact_and_structure_are_high_impact(self) -> None:

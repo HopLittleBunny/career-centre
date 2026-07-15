@@ -62,6 +62,17 @@ class SchedulePromptTests(unittest.TestCase):
         self.assertIn("paired Word CV and cover-letter packs only after all document QA passes", prompt)
         self.assertIn("Never auto-submit", prompt)
 
+    def test_current_task_schedule_uses_existing_context_and_explicit_plugin(self) -> None:
+        data = automated_passport("midcareer_operations", timezone="America/Toronto")
+        data["automation"]["destination"] = "continuing_task"
+        data["automation"]["continuity_mode"] = "task_context"
+        prompt = build_schedule_prompt(data)
+        self.assertIn("Invoke Career Centre explicitly", prompt)
+        self.assertIn("Continuity mode: current-task context", prompt)
+        self.assertIn("existing conversation context", prompt)
+        self.assertIn("return each run to that task", prompt)
+        self.assertIn("never claim cross-account", prompt)
+
     def test_snapshot_schedule_embeds_existing_role_history_without_claiming_cross_run_memory(self) -> None:
         data = automated_passport("midcareer_operations", timezone="America/Toronto")
         data["role_history"] = [

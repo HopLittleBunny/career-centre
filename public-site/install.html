@@ -19,37 +19,36 @@
   <main id="main-content">
     <section class="shell page-hero">
       <h1>Install in ChatGPT or Claude.</h1>
-      <p>Choose the ZIP for the AI service you already use. There is no API key or separate Career Centre account.</p>
+      <p>Choose the ZIP for the AI service you already use. Career Centre has no separate fee, API key or account; your provider plan and usage limits still apply.</p>
     </section>
     <article class="shell prose">
       <div class="install-grid">
         <section class="download-box">
           <p class="eyebrow">Functional beta</p>
           <h2>ChatGPT</h2>
-          <p>Personal Skill build: 4.0.0-beta.2</p>
+          <p>Personal Skill build: 4.0.0-beta.3</p>
           <p><a class="button" href="downloads/career-centre-chatgpt-skill.zip" download>Download ChatGPT ZIP</a></p>
-          <span class="checksum">SHA-256: 188a51af50ec3a3ea844ae61eb6b5efd2a48bc9df8aecacd8ac3ee0bcfd74c9c</span>
+          <span class="checksum">SHA-256: fd51b4af14d66fa2dbcd51e5d9daf115a01b5f7ee5ec276b66a4b7e4c4eef185</span>
         </section>
         <section class="download-box">
           <p class="eyebrow">Functional beta</p>
           <h2>Claude</h2>
-          <p>Paid-plan custom plugin build: 4.0.0-beta.2</p>
+          <p>Paid-plan custom plugin build: 4.0.0-beta.3</p>
           <p><a class="button" href="downloads/career-centre-claude-plugin.zip" download>Download Claude ZIP</a></p>
-          <span class="checksum">SHA-256: 7116103f8fedcb941a856f98b4fab2a3739b0df4c1a14d35a6afc88fb8148b04</span>
+          <span class="checksum">SHA-256: dc323f66750eb7d52196984507c512c80e061b66620927c9e4cb950ca6462637</span>
         </section>
       </div>
 
       <h2>Install in ChatGPT</h2>
       <ol>
-        <li>Open ChatGPT on the web.</li>
-        <li>Open <strong>Profile, Skills, Create, Upload from your computer</strong>.</li>
-        <li>Select the downloaded ZIP and allow ChatGPT to scan it.</li>
-        <li>Open a normal new conversation and say <strong>Help me find my next role.</strong></li>
+        <li>Open ChatGPT on the web and select <strong>Work</strong>.</li>
+        <li>Open <strong>Plugins</strong>, search for <strong>Career Centre</strong> by Amit Sharma and select <strong>Install</strong>.</li>
+        <li>Start a new Work task and say <strong>@Career Centre Help me find my next role.</strong></li>
         <li>Share your CV when asked. If you use different CVs for different role directions, share the key versions together.</li>
       </ol>
 
       <div class="notice">
-        <strong>No Project is required.</strong> There is no API key, publisher account, manual tracker setup or prompt syntax.
+        <strong>No Project is required.</strong> There is no API key, publisher account or manual tracker setup. After the first task, normal language is usually enough; use <strong>@Career Centre</strong> when you want to invoke it explicitly.
       </div>
 
       <h2>Install in Claude</h2>
@@ -63,17 +62,20 @@
         <li>Share your CV when asked. If you use different CVs for different role directions, share the key versions together.</li>
       </ol>
       <div class="notice">
-        <strong>ZIP fallback:</strong> if adding a marketplace is unavailable, download the Claude ZIP above and upload it under Personal plugins. The preceding build passed paid-account upload, natural auto-routing, mentor reflection and readiness-receipt checks on Claude Max web; beta.2 has passed the package and local test suite and is awaiting its replacement browser smoke test.
+        <strong>ZIP fallback:</strong> if adding a marketplace is unavailable, download the Claude ZIP above and upload it under Personal plugins. The package is installed once; do not upload it every day. Use the latest Career Passport only when moving history to a new conversation.
       </div>
 
       <h2>What happens first</h2>
-      <p>The skill reads every supplied CV, gives a short review of what works and what may be underselling you, asks only for missing decisions that could change the result, and then shows <strong>Your Career Centre is ready</strong> with the active market, sources, salary, employment and CV assumptions.</p>
+      <p>The skill reads every supplied CV, gives a broad strength verdict plus a short review of what works and what may be underselling you, asks only for missing decisions that could change the result, and then shows <strong>Your Career Centre is ready</strong> with the active market, sources, salary, employment and CV assumptions. It also prepares the first portable Career Passport automatically.</p>
+
+      <h2>Turn a good search into a daily run</h2>
+      <p>Test one search manually first. After a useful result, ask Career Centre to schedule the same calibrated search daily or on weekdays. ChatGPT Work can schedule from the existing task; Claude uses Cowork and its <strong>/schedule</strong> skill. The package itself is not re-uploaded for each run.</p>
 
       <h2>Keep your history</h2>
       <p>Use one main Career Centre conversation for the active search and save the latest Career Passport. If you move to a new conversation in ChatGPT or Claude, upload that Passport with any new CV or evidence so the source-mapped history can continue.</p>
 
       <h2>If upload is unavailable</h2>
-      <p>Personal upload can depend on the user&apos;s plan, region, organization controls and current product rollout. Use the web interface first and check its Plugins or Skills area. Do not create a Project as a workaround.</p>
+      <p>Plugin availability can depend on the user&apos;s plan, region, organization controls and current product rollout. Use ChatGPT Work on the web first and check its Plugins area. The downloadable ChatGPT ZIP is for controlled beta or developer installation where personal skill upload is available. Do not create a Project as a workaround.</p>
 
       <h2>Directory installation</h2>
       <p>After public directory review, each provider can offer a simpler catalog route. Users will find Career Centre, select Install and start a normal conversation.</p>

@@ -2,8 +2,8 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "career-centre",
   "displayName": "Career Centre",
-  "version": "4.0.0-beta.2",
-  "description": "An evidence-safe career partner for selective role search, reusable CV bases, reference-format CVs, Word application packs and application follow-through.",
+  "version": "4.0.0-beta.3",
+  "description": "A free, evidence-safe career partner for selective role search, CV review, Word application packs and application follow-through using the user's own Claude plan.",
   "author": {
     "name": "Amit Sharma"
   },

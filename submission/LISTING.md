@@ -18,13 +18,13 @@ Productivity
 
 ## Short description
 
-Find roles worth your time and build evidence-safe Word application packs.
+Free career partner for stronger roles and evidence-safe Word CVs.
 
 ## Long description
 
-Career Centre turns one CV, or several CVs tailored to different role directions, into a selective continuing career conversation. It first gives a constructive review of what already works and what may be underselling the candidate, without pretending there is one universal ATS score. It can then find and assess roles, explain the strongest match and main risk, show exact posting links with salary and employment context, and create tailored Word CV and cover-letter packs grounded only in the user's evidence. It records application updates and helps prepare for follow-up and interviews. It never auto-submits an application and does not send CV data to an Amit-operated backend.
+Career Centre has no separate subscription: it runs inside the user's ChatGPT plan. It turns one CV, or several CVs tailored to different role directions, into a selective continuing career conversation. It first gives a constructive overall-strength verdict and compact review without pretending there is one universal ATS score. It can then find and assess roles, explain the strongest match and main risk, show exact posting links with salary and employment context, and create tailored Word CV and cover-letter packs grounded only in the user's evidence. It records application updates and helps prepare for follow-up and interviews. It never auto-submits an application and does not send CV data to an Amit-operated backend.
 
-After reading the CV, it shows a concise “Your Career Centre is ready” summary of the active market, source, salary/employment and document assumptions. Defaults work for most people; users can optionally change advanced preferences or supply a reference Word CV whose visual style is reused without copying its content.
+After reading the CV, it shows a concise “Your Career Centre is ready” summary of the active market, source, salary/employment and document assumptions and prepares a portable Career Passport. Defaults work for most people; advanced preferences stay optional. Reference Word formatting is used only when explicitly requested. After the first useful manual search, Career Centre offers to schedule the calibrated search daily or on weekdays from the same Work task.
 
 ## Capabilities
 
