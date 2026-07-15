@@ -291,6 +291,75 @@ h1 {
   border-left: 1px solid var(--line);
 }
 
+.journey {
+  padding: 62px 0;
+  background: var(--surface-raised);
+}
+
+.journey-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.78fr) minmax(0, 1.22fr);
+  gap: clamp(42px, 7vw, 86px);
+  align-items: center;
+}
+
+.journey-intro h2 {
+  max-width: 520px;
+  margin: 0;
+  font-size: clamp(2rem, 3.8vw, 3.25rem);
+}
+
+.journey-intro p:last-child {
+  margin: 18px 0 0;
+  color: var(--muted);
+}
+
+.journey-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.journey-steps li {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+}
+
+.journey-steps li:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.journey-steps li > span {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--accent-ink);
+  background: var(--accent);
+  font-weight: 850;
+}
+
+.journey-steps strong,
+.journey-steps small {
+  display: block;
+}
+
+.journey-steps strong {
+  color: var(--navy-deep);
+  font-size: 1.08rem;
+}
+
+.journey-steps small {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
 .section {
   padding: clamp(76px, 10vw, 132px) 0;
 }
@@ -553,6 +622,10 @@ h1 {
   padding: 0 0 110px;
 }
 
+.install-prose {
+  max-width: var(--content);
+}
+
 .prose h2 {
   margin: 58px 0 16px;
   font-size: clamp(1.65rem, 3vw, 2.35rem);
@@ -602,7 +675,7 @@ h1 {
 
 .install-path {
   display: grid;
-  grid-template-columns: minmax(0, 0.82fr) minmax(360px, 1.18fr);
+  grid-template-columns: minmax(280px, 0.82fr) minmax(0, 1.18fr);
   gap: 54px;
   align-items: start;
   margin: 24px 0 78px;
@@ -666,6 +739,11 @@ h1 {
   margin: 0;
 }
 
+.shot-link {
+  display: block;
+  border-radius: 14px;
+}
+
 .install-shots img {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -679,7 +757,98 @@ h1 {
 .install-shots figcaption {
   margin-top: 8px;
   color: var(--muted);
-  font-size: 0.8rem;
+  font-size: 0.86rem;
+}
+
+.after-install {
+  margin: 78px 0 34px;
+  padding: clamp(28px, 5vw, 52px);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--surface-soft);
+}
+
+.after-install h2 {
+  margin-top: 0;
+}
+
+.after-install > p:last-child {
+  max-width: 840px;
+  margin: 28px 0 0;
+}
+
+.after-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.after-grid div {
+  padding: 22px;
+  border-radius: 14px;
+  background: var(--surface-raised);
+}
+
+.after-grid strong,
+.after-grid span {
+  display: block;
+}
+
+.after-grid strong {
+  margin-bottom: 8px;
+  color: var(--navy-deep);
+}
+
+.after-grid span {
+  color: var(--muted);
+}
+
+.advanced-panel {
+  margin: 38px 0 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-raised);
+}
+
+.advanced-panel > summary,
+.checksum-panel > summary {
+  cursor: pointer;
+  color: var(--navy-deep);
+  font-weight: 760;
+}
+
+.advanced-panel > summary {
+  padding: 24px 28px;
+  font-size: 1.08rem;
+}
+
+.advanced-panel > summary:focus-visible,
+.checksum-panel > summary:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.advanced-content {
+  max-width: 860px;
+  padding: 0 28px 34px;
+}
+
+.advanced-content h2 {
+  margin-top: 38px;
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+}
+
+.advanced-content .download-box {
+  margin: 26px 0;
+}
+
+.checksum-panel {
+  margin-top: 34px;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface-soft);
 }
 
 .compact-downloads {
@@ -719,6 +888,7 @@ h1 {
   .hero,
   .ready-layout,
   .memory-layout,
+  .journey-layout,
   .cta .shell {
     grid-template-columns: 1fr;
   }
@@ -758,6 +928,7 @@ h1 {
   .workflow,
   .feature-list,
   .boundary-grid,
+  .after-grid,
   .install-grid,
   .install-path {
     grid-template-columns: 1fr;
