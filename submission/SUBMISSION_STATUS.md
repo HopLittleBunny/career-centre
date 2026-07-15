@@ -1,10 +1,11 @@
 # Live submission status
 
-Checked on 15 July 2026 after the beta.3 release validation, OpenAI beta.2 approval and Claude beta.3 directory resubmission.
+Checked on 15 July 2026 after the beta.3 release validation and publication to ChatGPT, plus Claude beta.3 directory resubmission.
 
 ## OpenAI
 
-- Career Centre version **4.0.0-beta.2** is **Approved** in the OpenAI Platform portal and visible in ChatGPT's Plugins directory.
+- Career Centre version **4.0.0-beta.3** is **Published** in the OpenAI Platform portal and visible in ChatGPT's Plugins directory.
+- The beta.3 portal submission passed skill validation, was approved, and was explicitly published on 15 July 2026. The previous beta.2 version now remains approved as the superseded version.
 - The signed-in OpenAI Platform organization settings previously showed verification as **Verified**.
 - The selected organization is **Amit Sharma**. People & Permissions confirms Amit Sharma is the **Owner** and the organization is the default organization.
 - OpenAI's submission documentation states that organization owners automatically have both `api.apps.write` and `api.apps.read`; creation of the real draft functionally confirms write access.
@@ -14,8 +15,8 @@ Checked on 15 July 2026 after the beta.3 release validation, OpenAI beta.2 appro
 - Client-side validation is working: an intentionally incomplete control returns precise missing-icon errors and a 24×24 SVG returns the precise 48×48 minimum-dimension error.
 - Historical clean-preflight attempts with both the full bundle and a four-file OpenAI-scaffolded control returned only `Plugin upload failed`, while the portal logged missing `org_id` scoping.
 - After the authenticated Help Center/support flow and a fresh Platform session, the unchanged production archive uploaded successfully and created a real **Career Centre** draft. This resolves the upload blocker without weakening the package.
-- The approved beta.2 listing contains the three prompts and the `career-centre` skill.
-- The final beta.3 OpenAI upload archive passes 61 tests and submission-ready validation. Resubmission is pending only because the current Platform browser token was invalidated and requires a fresh sign-in before the upload can be completed.
+- The published beta.3 listing contains the three prompts and the validated `career-centre` skill.
+- The final beta.3 OpenAI upload archive passes 61 tests and submission-ready validation. The earlier invalidated browser-token blocker was cleared by signing in again; no upload or identity blocker remains.
 
 ## Anthropic
 
