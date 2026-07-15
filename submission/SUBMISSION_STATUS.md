@@ -22,14 +22,14 @@ Checked on 15 July 2026 after beta.3 publication and the beta.4 automation-hando
 
 ## Anthropic
 
-- The beta.3 public-directory submission was sent through the signed-in Claude Platform form on 15 July 2026. The portal confirmed: **Plugin submitted for review**.
+- The beta.4 public-directory resubmission was sent through the signed-in Claude Platform form on 15 July 2026 after the automation-handoff fix was merged to `main`. The portal confirmed: **Plugin submitted for review**.
 - The submitted source is `https://github.com/HopLittleBunny/career-centre`, path `plugins/claude-career-centre`, with Claude Code and Claude Cowork selected.
 - The exact Claude beta.2 ZIP was replacement-uploaded on Max web and showed `Career Centre is installed and ready to use` with `Last updated: Just now`.
 - A fresh ordinary chat passed natural auto-routing, synthetic CV diagnosis, compact follow-up questions, explicit setup-only/no-search/no-files restraint, the exact seven-line readiness receipt, advanced field preferences and a 390 px mobile check.
 - The signed-in Claude Platform directory form is reachable and explicitly targets Claude Code and Claude Cowork.
 - The submission contains the repository, plugin subdirectory, homepage, description, examples, Apache-2.0 licence, privacy URL and account contact email.
 - Directory review outcome is pending unless Anthropic reports otherwise.
-- The plugin remains installable for normal Claude web chat through the GitHub marketplace `HopLittleBunny/career-centre` and the validated beta.3 ZIP.
-- A validated beta.4 Claude ZIP exists locally for the automation-handoff update; the public-directory resubmission status must not be changed until the portal confirms it.
+- The plugin remains installable for normal Claude web chat through the GitHub marketplace `HopLittleBunny/career-centre` and the validated beta.4 ZIP.
+- The beta.4 directory submission now advertises the Cowork `/schedule` handoff and application-pack recovery gate; approval and directory availability must not be claimed until Anthropic confirms them.
 
 These access gates do not change the product packages, public repository, marketplace manifest, website or direct-install availability.
