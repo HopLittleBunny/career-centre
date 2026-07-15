@@ -111,12 +111,19 @@ class PackageContractTests(unittest.TestCase):
         self.assertIn("Exact posting URL: https://", text)
         self.assertIn("external job ID without its URL does not satisfy", text)
 
-    def test_first_completed_search_must_offer_recurring_run_without_creating_it(self) -> None:
+    def test_automation_handoff_is_enforced_at_ready_search_pack_and_cowork_route(self) -> None:
         skill = (self.skill_root / "SKILL.md").read_text(encoding="utf-8")
         scheduling = (self.skill_root / "references" / "06_SCHEDULING.md").read_text(encoding="utf-8")
-        self.assertIn("at the end of the first completed manual search", skill)
+        self.assertIn("recurring-search handoff as a required product deliverable", skill)
+        self.assertIn("After this first search, I’ll ask whether you want me to make it a daily or weekday Cowork task", skill)
         self.assertIn("Live-search response release gate", skill)
-        self.assertIn("Would you like me to run this calibrated search daily or on weekdays", skill)
+        self.assertIn("Want me to make this search automatic?", skill)
+        self.assertIn("set up a daily or weekday Career Centre task in Cowork", skill)
+        self.assertIn("Application-pack automation recovery gate", skill)
+        self.assertIn("first completed application pack", skill)
+        self.assertIn("start the `/schedule` flow", scheduling)
+        self.assertIn("Open **Cowork**", scheduling)
+        self.assertIn("Scheduled tasks require an eligible Claude paid plan", scheduling)
         self.assertIn("Do not create a schedule", scheduling)
         self.assertIn("does not suppress this invitation", scheduling)
         self.assertIn("verify that the invitation is present once", scheduling)

@@ -1,6 +1,6 @@
 # Live submission status
 
-Checked on 15 July 2026 after the beta.3 release validation and publication to ChatGPT, plus Claude beta.3 directory resubmission.
+Checked on 15 July 2026 after beta.3 publication and the beta.4 automation-handoff remediation.
 
 ## OpenAI
 
@@ -17,6 +17,8 @@ Checked on 15 July 2026 after the beta.3 release validation and publication to C
 - After the authenticated Help Center/support flow and a fresh Platform session, the unchanged production archive uploaded successfully and created a real **Career Centre** draft. This resolves the upload blocker without weakening the package.
 - The published beta.3 listing contains the three prompts and the validated `career-centre` skill.
 - The final beta.3 OpenAI upload archive passes 61 tests and submission-ready validation. The earlier invalidated browser-token blocker was cleared by signing in again; no upload or identity blocker remains.
+- Beta.4 is the next update candidate. Its ChatGPT and Claude packages each pass 62 tests. The OpenAI update archive is `release/career-centre-4.0.0-beta.4-submission-openai-upload.zip`.
+- Beta.4 has not yet replaced beta.3. During its portal update, the Open Door PNG must be uploaded explicitly to every directory and composer icon slot and the automation recovery journey must be tested from the submitted build.
 
 ## Anthropic
 
@@ -28,5 +30,6 @@ Checked on 15 July 2026 after the beta.3 release validation and publication to C
 - The submission contains the repository, plugin subdirectory, homepage, description, examples, Apache-2.0 licence, privacy URL and account contact email.
 - Directory review outcome is pending unless Anthropic reports otherwise.
 - The plugin remains installable for normal Claude web chat through the GitHub marketplace `HopLittleBunny/career-centre` and the validated beta.3 ZIP.
+- A validated beta.4 Claude ZIP exists locally for the automation-handoff update; the public-directory resubmission status must not be changed until the portal confirms it.
 
 These access gates do not change the product packages, public repository, marketplace manifest, website or direct-install availability.

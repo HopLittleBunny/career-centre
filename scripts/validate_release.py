@@ -92,7 +92,7 @@ def _validate_public_site(
         "Share your CVs",
         "Reference CV formatting",
         "Career Passport",
-        "saved snapshot",
+        "Scheduled task",
         "No automatic applications",
         "Install Career Centre",
     ]
@@ -239,8 +239,8 @@ def validate(*, submission_ready: bool) -> tuple[list[str], list[str]]:
     except Exception as exc:
         errors.append(f"Reviewer cases cannot be read: {exc}")
         cases = {}
-    if len(cases.get("positive", [])) != 5:
-        errors.append("Submission must contain exactly five positive reviewer cases.")
+    if len(cases.get("positive", [])) != 7:
+        errors.append("Submission must contain exactly seven positive reviewer cases.")
     if len(cases.get("negative", [])) != 3:
         errors.append("Submission must contain exactly three negative reviewer cases.")
     identifiers = [case.get("id") for group in ("positive", "negative") for case in cases.get(group, [])]

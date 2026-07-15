@@ -36,7 +36,7 @@ def validate() -> list[str]:
         errors.append("Claude plugin name must be career-centre.")
     if manifest.get("displayName") != "Career Centre":
         errors.append("Claude plugin displayName must be Career Centre.")
-    if manifest.get("version") != "4.0.0-beta.3":
+    if manifest.get("version") != "4.0.0-beta.4":
         errors.append("Claude plugin version must match the public beta.")
     try:
         marketplace = json.loads(MARKETPLACE.read_text(encoding="utf-8"))
@@ -104,10 +104,10 @@ def main() -> int:
         return 1
     release = ROOT / "release"
     release.mkdir(exist_ok=True)
-    destination = release / "career-centre-4.0.0-beta.3-claude-plugin.zip"
+    destination = release / "career-centre-4.0.0-beta.4-claude-plugin.zip"
     build_zip(destination)
     latest = {
-        "version": "4.0.0-beta.3",
+        "version": "4.0.0-beta.4",
         "status": "submission-candidate",
         "file": destination.name,
         "sha256": sha256(destination),
