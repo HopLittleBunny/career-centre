@@ -4,36 +4,36 @@ title: Install Career Centre
 
 # Install in ChatGPT or Claude
 
-## Direct Skill ZIP
+Choose one provider, install once, and start a normal conversation with **Help me find my next role.** There is no separate Career Centre fee, API key or account. Availability can vary by plan, region and organisation settings.
 
-1. Download the latest official Career Centre Skill ZIP.
-2. Open **Profile → Skills → Create → Upload from your computer** in ChatGPT.
-3. Select the ZIP and let ChatGPT scan it.
-4. Start a normal new chat and say **Help me find my next role.**
-5. Share your CV when asked. If you use different CVs for different role directions, share the key versions together.
+## ChatGPT plugin directory
+
+1. Open **Plugins** in ChatGPT and search for **Career Centre**.
+2. Open the result by **Amit Sharma** and select **Install** or **Try in chat**.
+3. Start a normal chat or Work task and say **Help me find my next role.** If Career Centre does not start automatically, mention **@Career Centre** once.
+4. Share your CV when asked. If you use different CVs for different role directions, share the key versions together.
 
 No Project, API key, tracker setup, publisher account or separate chat structure is required. The skill uses your ChatGPT plan and its normal limits.
 
-If the Skills page or upload control is unavailable, your plan, region or current ChatGPT surface may not support personal skill upload yet. Try ChatGPT web and check the Plugins/Skills directory. Do not create a Project as a workaround.
+If Plugins is unavailable, try ChatGPT on the web. Your plan, region or organisation controls may not expose the directory yet. Do not create a Project as a workaround. A controlled Skill ZIP is available only for accounts that explicitly offer personal skill upload.
 
-## Claude marketplace
+## Claude personal plugin
 
-1. On a paid Claude plan, open **Customize → Plugins**.
-2. In **Personal plugins**, choose **Add marketplace**.
-3. Enter `HopLittleBunny/career-centre` or `https://github.com/HopLittleBunny/career-centre`.
-4. Install **Career Centre**.
-5. Start a normal chat and say **Help me find my next role.**
-6. Share your CV when asked. If you use different CVs for different role directions, share the key versions together.
+1. Download the official Claude plugin ZIP and do not unzip it.
+2. Open **Customize → Plugins** in Claude.
+3. Choose **Add → Upload plugin**, select the ZIP and enable **Career Centre**.
+4. Start a normal chat, type **/career-centre**, then say **Help me find my next role.**
+5. Share your CV when asked. If you use different CVs for different role directions, share the key versions together.
 
-If marketplace installation is unavailable, download the official Career Centre Claude plugin ZIP and upload it in Personal plugins. The preceding build passed paid-account upload, natural auto-routing, mentor reflection and readiness-receipt checks on Claude Max web. Beta.2 passes the same package and local test suite and is awaiting its replacement browser smoke test.
+The Claude public directory submission is under review. The personal plugin ZIP works now.
 
 ## Directory installation
 
-Career Centre is being prepared for both provider directories. Those routes reduce setup to finding the listing, selecting **Install**, and starting a normal chat.
+The ChatGPT directory listing is available. Claude public directory review is pending.
 
 ## Optional job-source connectors
 
-Career Centre does not require a job-board plugin. It starts with exact employer and authorised-recruiter postings, uses suitable market boards for discovery, and reconciles roles to a canonical posting before recommending Apply.
+Career Centre does not require a job-board plugin. It uses suitable local job boards for discovery, then verifies the current employer or authorised-recruiter posting before recommending Apply.
 
 Where available, Claude users may optionally connect the official Indeed connector after installing Career Centre. No official LinkedIn Jobs or SEEK connector surfaced in the signed-in provider directories during the 14 July 2026 release check. Availability can change; unrelated advertising, social-media or scraping tools are not substitutes for an official jobs connector.
 
