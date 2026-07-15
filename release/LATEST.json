@@ -1,16 +1,16 @@
 {
   "version": "4.0.0-beta.3",
-  "status": "submission",
+  "status": "draft",
   "plugin": {
-    "file": "career-centre-4.0.0-beta.3-submission-plugin.zip",
-    "sha256": "a66d98416180e8726470eda9240d3d435d58666215b9c5be5cc943571f3a3250"
+    "file": "career-centre-4.0.0-beta.3-draft-plugin.zip",
+    "sha256": "5ad2e08001ef4e87fc8c58b11e3fc0d002af847860da3c30a7419ce5af321e49"
   },
   "openai_upload": {
-    "file": "career-centre-4.0.0-beta.3-submission-openai-upload.zip",
-    "sha256": "8a418353699970151266783a6c3fc2aac62073f5d05cc64cf99a9d7d8166c793"
+    "file": "career-centre-4.0.0-beta.3-draft-openai-upload.zip",
+    "sha256": "55c33069cdcd1321efd5d54a61bf7a1aeb75a6fae22a6d08ab4e2cccde89ac9b"
   },
   "skill": {
-    "file": "career-centre-4.0.0-beta.3-submission-skill.zip",
-    "sha256": "fca645bef0fe9dae01d0b26b504d67b1d30d10dadf52b58a74be43fa9e5fbf5e"
+    "file": "career-centre-4.0.0-beta.3-draft-skill.zip",
+    "sha256": "bc9ad68a8384a34fecd89801e15604eabdd7fafe7a438f5ade7705de2756ccf3"
   }
 }

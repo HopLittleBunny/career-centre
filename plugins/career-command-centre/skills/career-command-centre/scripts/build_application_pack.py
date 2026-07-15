@@ -234,6 +234,17 @@ def _item_text(item: dict[str, Any]) -> str:
     return str(item.get("text", "")).strip()
 
 
+def _contact_display_text(item: dict[str, Any]) -> str:
+    """Keep email addresses visible to text-only ATS parsers and reviewers."""
+    text = str(item.get("text", "")).strip()
+    url = str(item.get("url", "")).strip()
+    if url.casefold().startswith("mailto:"):
+        email = url.split(":", 1)[1].split("?", 1)[0].strip()
+        if email:
+            return email
+    return text
+
+
 def _add_header(doc: Document, candidate: dict[str, Any]) -> None:
     paragraph = doc.add_paragraph(style="CCC Name")
     paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -251,9 +262,9 @@ def _add_header(doc: Document, candidate: dict[str, Any]) -> None:
             if index:
                 paragraph.add_run("  |  ")
             if item.get("url"):
-                _add_hyperlink(paragraph, str(item["text"]), str(item["url"]))
+                _add_hyperlink(paragraph, _contact_display_text(item), str(item["url"]))
             else:
-                paragraph.add_run(str(item["text"]))
+                paragraph.add_run(_contact_display_text(item))
 
 
 def _add_bullet(doc: Document, text: str) -> None:
@@ -336,9 +347,9 @@ def _build_cover_letter(data: dict[str, Any], output_dir: Path, template: Path) 
             if index:
                 paragraph.add_run("  |  ")
             if item.get("url"):
-                _add_hyperlink(paragraph, str(item["text"]), str(item["url"]))
+                _add_hyperlink(paragraph, _contact_display_text(item), str(item["url"]))
             else:
-                paragraph.add_run(str(item["text"]))
+                paragraph.add_run(_contact_display_text(item))
     for value in (cover.get("date"), cover.get("recipient"), identity.get("company")):
         if value:
             doc.add_paragraph(str(value))

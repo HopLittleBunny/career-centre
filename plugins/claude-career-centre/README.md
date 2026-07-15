@@ -2,6 +2,8 @@
 
 Career Centre is a skills-only Claude plugin by Amit Sharma. It turns a normal Claude conversation into an evidence-safe career workflow for role selection, Word CVs, cover letters, application tracking and interview follow-through.
 
+Amit Sharma publishes the project through the GitHub account and repository owner `HopLittleBunny`.
+
 ## Install
 
 ### Public marketplace

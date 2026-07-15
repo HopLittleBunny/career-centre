@@ -20,6 +20,7 @@ class DocumentBuilderTests(unittest.TestCase):
     def test_builder_creates_paired_structurally_valid_docx_files(self) -> None:
         skill_root = Path(__file__).resolve().parents[1]
         builder = skill_root / "scripts" / "build_application_pack.py"
+        reviewer = skill_root / "scripts" / "review_cv_text.py"
         with tempfile.TemporaryDirectory() as temporary:
             temporary_path = Path(temporary)
             input_path = temporary_path / "input.json"
@@ -36,6 +37,26 @@ class DocumentBuilderTests(unittest.TestCase):
             self.assertTrue((output_path / manifest["cv"]).exists())
             self.assertTrue((output_path / manifest["cover_letter"]).exists())
             self.assertTrue(all(not Path(item["path"]).is_absolute() for item in manifest["files"]))
+            cv_document = Document(output_path / manifest["cv"])
+            cover_document = Document(output_path / manifest["cover_letter"])
+            cv_text = "\n".join(paragraph.text for paragraph in cv_document.paragraphs)
+            cover_text = "\n".join(paragraph.text for paragraph in cover_document.paragraphs)
+            self.assertIn("maya.patel@example.test", cv_text)
+            self.assertIn("maya.patel@example.test", cover_text)
+            expected_mailto = "mailto:maya.patel@example.test"
+            self.assertTrue(any(rel.target_ref == expected_mailto for rel in cv_document.part.rels.values()))
+            self.assertTrue(any(rel.target_ref == expected_mailto for rel in cover_document.part.rels.values()))
+            review_process = subprocess.run(
+                [sys.executable, str(reviewer), str(output_path / manifest["cv"])],
+                capture_output=True,
+                text=True,
+            )
+            self.assertEqual(review_process.returncode, 0, review_process.stdout + review_process.stderr)
+            review_report = json.loads(review_process.stdout)
+            self.assertEqual(review_report["metrics"]["email_addresses_detected"], 1)
+            self.assertFalse(
+                any(item["category"] == "contact details" and item["impact"] == "high" for item in review_report["findings"])
+            )
             for report_name in manifest["structural_reports"]:
                 report = json.loads((output_path / report_name).read_text(encoding="utf-8"))
                 self.assertTrue(report["passed"], report)
