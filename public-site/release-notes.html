@@ -12,9 +12,18 @@
   <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header"><div class="shell nav"><a class="brand" href="index.html" aria-label="Career Centre home"><img src="assets/icon.png" alt=""><span class="brand-lockup"><strong>Career Centre</strong><small>Open Door</small></span></a><nav class="nav-links" aria-label="Primary navigation"><a href="index.html#how-it-works">How it works</a><a href="index.html#safety">Boundaries</a><a href="privacy.html">Privacy</a><a class="nav-install" href="install.html">Install</a></nav></div></header>
   <main id="main-content">
-    <section class="shell page-hero"><h1>Release notes</h1><p>Functional beta. The approved beta.2 remains available while beta.3 packages the improvements found in the first real end-to-end application test.</p></section>
+    <section class="shell page-hero"><h1>Release notes</h1><p>Functional beta. Beta.4 fixes the automation handoff exposed by a real ChatGPT browser journey.</p></section>
     <article class="shell prose">
       <h2>Current build</h2>
+      <p><strong>4.0.0-beta.4</strong></p>
+      <ul>
+        <li>62 ChatGPT tests and 62 Claude tests pass.</li>
+        <li>Automation is now a required milestone after the first verified search, including all-Maybe or all-Skip results.</li>
+        <li>ChatGPT Work can create the Scheduled task directly after the user gives cadence, time and timezone.</li>
+        <li>Claude uses the provider-correct Cowork /schedule route.</li>
+        <li>The first application pack repeats the automation offer once if the earlier handoff was missed or ignored.</li>
+        <li>The Open Door icon must be uploaded explicitly to every OpenAI directory and composer icon slot during the update.</li>
+      </ul>
       <p><strong>4.0.0-beta.3</strong></p>
       <ul>
         <li>61 ChatGPT tests and 62 Claude tests pass.</li>
@@ -50,13 +59,13 @@
       </ul>
 
       <h2>Known release gates</h2>
-      <p>The approved OpenAI beta.2 and submitted Claude build remain the public versions until beta.3 is submitted as an update. ChatGPT Work beta.3, broader-plan compatibility and a two-run Claude Cowork continuity test remain open.</p>
+      <p>OpenAI beta.3 remains live while beta.4 is submitted and reviewed. Beta.4 still needs one live ChatGPT Work schedule-creation smoke test after installation and one Claude Cowork /schedule handoff test. The Claude public-directory review outcome remains pending.</p>
 
       <h2>Checksums</h2>
       <p>The downloadable ChatGPT skill ZIP has SHA-256 checksum:</p>
-      <span class="checksum">bc9ad68a8384a34fecd89801e15604eabdd7fafe7a438f5ade7705de2756ccf3</span>
+      <span class="checksum">8dc97a0291322e274cb1649dcd5500b77df1de849d8163352fd485fd275d0532</span>
       <p>The downloadable Claude plugin ZIP has SHA-256 checksum:</p>
-      <span class="checksum">511998731e8bea0a67496628830c2ea3f67c8973dc919a387443f077b807327c</span>
+      <span class="checksum">62a17b6398b5fe5fc11c9e3b466e9441abef40386059e5dd01eeb84577ae5ff4</span>
     </article>
   </main>
   <footer class="site-footer"><div class="shell footer-layout"><div>Career Centre &mdash; Open Door by Amit Sharma.</div><nav class="footer-links" aria-label="Footer navigation"><a href="index.html">Home</a><a href="install.html">Install</a><a href="privacy.html">Privacy</a><a href="support.html">Support</a></nav></div></footer>

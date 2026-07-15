@@ -5,9 +5,9 @@
 - [x] Native `.claude-plugin/plugin.json` is present in the Claude package.
 - [x] Website, support, privacy and terms pages are live over HTTPS.
 - [x] Claude ZIP is downloadable and its checksum matches `release/CLAUDE_LATEST.json`.
-- [x] Package has passed 56/56 automated tests.
+- [ ] Beta.4 package has passed the current automated suite and a live Cowork `/schedule` handoff smoke test.
 - [x] Final beta.2 ZIP has passed Claude Max web replacement upload.
-- [x] Natural auto-routing, mentor reflection and readiness receipt pass.
+- [x] Natural auto-routing, mentor reflection and readiness receipt pass on beta.3; beta.4 automation expectation and recovery still require a live retest.
 - [x] Explicit setup-only/no-search/no-files boundary passes.
 - [ ] Run `claude plugin validate` with the current official developer tooling if available.
 - [x] Account holder identity and public contact fields are visible in the signed-in Platform form.

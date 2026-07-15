@@ -1,12 +1,20 @@
 # Scheduling
 
-Test one manual search before scheduling it. At the end of the first completed manual search that returns at least one verified role, proactively ask one short question in the same response—even when every role is Maybe or Skip:
+Test one manual search before scheduling it. Treat the automation handoff as a required milestone, not optional closing copy.
 
-> Would you like me to turn this calibrated search into a daily or weekday Cowork task? If yes, tell me the time and timezone; I will keep the current role limit unless you change it.
+During the readiness receipt, set the expectation once:
+
+> After this first search, I’ll ask whether you want me to make it a daily or weekday Cowork task.
+
+At the end of the first completed manual search that returns at least one exact verified role, proactively use this visually separate invitation in the same response—even when every role is Maybe or Skip:
+
+> Want me to make this search automatic? I can set up a daily or weekday Career Centre task in Cowork. Reply with the cadence, time and timezone (for example, “Weekdays at 8:00 AM Eastern time”); I’ll keep the current role limit unless you change it.
+
+If the user proceeds to an application pack without accepting, declining or creating a schedule, repeat the invitation once after the first completed pack. This is the recovery gate for a missed or ignored first-search offer. Do not repeat after an explicit decline or when a schedule already exists.
 
 `Current role limit` means the cap used in the successful manual run or the user's latest explicit choice. Preserve it exactly. Use the default of five only when no cap has been established; never replace a confirmed limit with five in the offer or receipt.
 
-Do not ask about automation during first-time setup. If the user accepts, confirm only missing details:
+Do not ask the user to configure automation during first-time setup; the readiness sentence is expectation-setting only. If the user accepts, confirm only missing details:
 
 - cadence and local timezone;
 - preferred run time;
@@ -15,7 +23,22 @@ Do not ask about automation during first-time setup. If the user accepts, confir
 
 Never auto-submit. Never tell the user to upload the plugin ZIP every day. It is installed once.
 
-`Do not create a schedule` means no schedule may be created; it does not suppress this invitation because the invitation changes no external state. Suppress the invitation only when the user explicitly says not to mention, offer or discuss recurring searches. Before sending the search response, silently verify that the invitation is present once, after the mentor verdict. Do not bury it inside role details.
+`Do not create a schedule` means no schedule may be created; it does not suppress this invitation because the invitation changes no external state. Suppress the invitation only when the user explicitly says not to mention, offer or discuss recurring searches. Before sending the search response, silently verify that the invitation is present once, after the mentor verdict and role details. Do not bury it inside role details.
+
+## Acceptance handling
+
+Claude Scheduled tasks live in Cowork. They can use installed plugins, skills and connected tools, and each scheduled execution is its own Cowork session.
+
+1. If cadence, time or timezone is missing, ask only for the missing value.
+2. If the current surface is Cowork, start the `/schedule` flow with the calibrated prompt when all values are known. Let the user confirm through Cowork's **Schedule** control when Claude presents it.
+3. If the current surface is ordinary Claude chat, do not claim that the task was created. Give the exact copy-ready command below and direct the user to **Cowork** once.
+4. After creation, show a compact receipt: task name, cadence, timezone, role limit, application-pack boundary, manual-submission boundary and `Snapshot-backed` continuity unless persistent loading is demonstrably verified.
+
+Ordinary-chat fallback:
+
+> Open **Cowork**, start a task with Career Centre available, and paste: `/schedule On [daily/weekday cadence] at [time] [timezone], use Career Centre and the embedded Career Passport snapshot to run my calibrated role search. Return at most [role limit] verified roles with exact posting URLs, salary context and Apply/Maybe/Skip decisions. Reconcile the snapshot's reviewed-role history and disclose possible repeats across later runs. Do not create application packs automatically and never submit an application.`
+
+As a second route, use **Scheduled** in the left sidebar, choose **New task**, then **Set up manually**, and paste the same instructions. Scheduled tasks require an eligible Claude paid plan and Cowork availability; do not describe scheduling itself as universally free.
 
 ## Cowork scheduled task
 

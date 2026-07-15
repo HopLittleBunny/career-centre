@@ -18,7 +18,7 @@ Amit Sharma
 
 ## Short description
 
-Find roles. Build better CVs.
+Find roles. Build CVs. Repeat automatically.
 
 ## Description
 
@@ -26,7 +26,7 @@ Career Centre is a free-to-use career partner with no separate subscription; it 
 
 It is global rather than Australian by default. Geography, currency, work rights, compensation and source language follow the candidate. Experienced candidates normally receive a two-page CV with the second page at least 80% filled. Users can change CV fields, section order, document language and regional spelling in ordinary language or provide a permitted reference Word CV whose visual format is reused without copying its content or metadata.
 
-Career Centre has no publisher-operated account, model API, CV database, analytics service or required connector. Its portable Career Passport is prepared after setup and acts as the user's source-mapped Career Evidence File and history backup. Applications are always submitted manually. After the first useful manual search, it offers a daily or weekday Cowork task. If Word creation is unavailable, it returns the complete CV in chat as a clearly labelled partial fallback rather than returning nothing.
+Career Centre has no publisher-operated account, model API, CV database, analytics service or required connector. Its portable Career Passport is prepared after setup and acts as the user's source-mapped Career Evidence File and history backup. Applications are always submitted manually. After the first useful manual search, it makes automation the next action and guides the user into Cowork's `/schedule` flow for a daily or weekday task; if the first offer is missed, it recovers after the first application pack. If Word creation is unavailable, it returns the complete CV in chat as a clearly labelled partial fallback rather than returning nothing.
 
 ## Starter prompts
 
@@ -40,8 +40,8 @@ Career Centre has no publisher-operated account, model API, CV database, analyti
 - Ordinary conversation auto-routed without a slash command.
 - Candid career orientation, compact follow-up questions and the exact seven-line readiness receipt passed with synthetic global personas.
 - Final package respected explicit `do not search` and `do not create files` instructions.
-- Fresh fictional India and US setup plus selective manual-search journeys pass, including India-market source selection and proactive Cowork scheduling offers.
-- 60/60 automated package tests pass.
+- Fresh fictional India and US setup plus selective manual-search journeys pass for market localisation and exact-role selection. The beta.4 automation recovery journey is a required live resubmission smoke test.
+- The current beta.4 automated package suite passes before release packaging.
 
 ## Public URLs
 

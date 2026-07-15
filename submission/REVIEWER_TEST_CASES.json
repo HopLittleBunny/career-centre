@@ -35,6 +35,20 @@
       "fixture": "Continue a task that contains the P3 role dossier and Career Passport.",
       "expected_behavior": "Append a dated user-sourced application event without changing the original recommendation. Suggest one practical next action.",
       "expected_result_shape": "Brief confirmation of the recorded stage and a concise follow-up recommendation; no external message is sent."
+    },
+    {
+      "id": "P6-first-search-automation-handoff",
+      "prompt": "Run my first calibrated search. It is fine if the strongest verified roles are all Maybe.",
+      "fixture": "Continue P2 and complete a search containing at least one exact verified role.",
+      "expected_behavior": "After the role results and Passport note, make automation the visually separate final next action. State that Career Centre can create a Scheduled task in ChatGPT Work, or set it up through /schedule in Claude Cowork. Ask only for cadence, time and timezone while preserving the current role limit.",
+      "expected_result_shape": "The response ends with 'Want me to make this search automatic?' and the provider-correct creation route. The offer appears even when every role is Maybe or Skip."
+    },
+    {
+      "id": "P7-application-pack-automation-recovery",
+      "prompt": "Create the application pack for the strongest role.",
+      "fixture": "Continue a first-search journey where the automation offer was missed or ignored and no schedule was accepted, declined or created.",
+      "expected_behavior": "Create and validate the pack, then repeat the provider-correct automation offer once as the final next action.",
+      "expected_result_shape": "Paired Word files and QA summary followed by the visually separate automation invitation; no automatic application submission and no schedule created without acceptance."
     }
   ],
   "negative": [

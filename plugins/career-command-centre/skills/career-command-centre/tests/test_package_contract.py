@@ -111,15 +111,35 @@ class PackageContractTests(unittest.TestCase):
         self.assertIn("Exact posting URL: https://", text)
         self.assertIn("external job ID without its URL does not satisfy", text)
 
-    def test_first_completed_search_must_offer_recurring_run_without_creating_it(self) -> None:
+    def test_automation_handoff_is_enforced_at_ready_search_pack_and_acceptance(self) -> None:
         skill = (self.skill_root / "SKILL.md").read_text(encoding="utf-8")
         scheduling = (self.skill_root / "references" / "06_SCHEDULING.md").read_text(encoding="utf-8")
-        self.assertIn("at the end of the first completed manual search", skill)
+        self.assertIn("recurring-search handoff as a required product deliverable", skill)
+        self.assertIn("After this first search, I’ll ask whether you want me to make it a daily or weekday Scheduled task", skill)
         self.assertIn("Live-search response release gate", skill)
-        self.assertIn("Would you like me to run this calibrated search daily or on weekdays", skill)
+        self.assertIn("Want me to make this search automatic?", skill)
+        self.assertIn("I can create a Scheduled Career Centre task here", skill)
+        self.assertIn("Application-pack automation recovery gate", skill)
+        self.assertIn("first completed application pack", skill)
+        self.assertIn("use the host's scheduled-task capability immediately", skill)
+        self.assertIn("create the Scheduled task immediately", scheduling)
+        self.assertIn("Open **Work**", scheduling)
+        self.assertIn("Optional Indeed discovery extension", scheduling)
+        self.assertIn("@Indeed find me roles matching", scheduling)
         self.assertIn("Do not create a schedule", scheduling)
         self.assertIn("does not suppress this invitation", scheduling)
         self.assertIn("verify that the invitation is present once", scheduling)
+
+    def test_open_door_assets_are_square_and_match_the_public_site(self) -> None:
+        manifest = json.loads((self.plugin_root / ".codex-plugin" / "plugin.json").read_text(encoding="utf-8"))
+        icon = self.plugin_root / "assets" / "icon.png"
+        logo = self.plugin_root / "assets" / "logo.png"
+        public_icon = self.plugin_root.parents[1] / "public-site" / "assets" / "icon.png"
+        self.assertEqual(manifest["interface"]["composerIcon"], "./assets/icon.png")
+        self.assertEqual(manifest["interface"]["logo"], "./assets/logo.png")
+        self.assertEqual(icon.read_bytes(), logo.read_bytes())
+        self.assertEqual(icon.read_bytes(), public_icon.read_bytes())
+        self.assertGreater(len(icon.read_bytes()), 10_000)
 
     def test_release_tree_contains_no_compiled_or_html_artifacts(self) -> None:
         forbidden = [

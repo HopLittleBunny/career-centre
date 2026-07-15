@@ -18,13 +18,13 @@ Productivity
 
 ## Short description
 
-Find roles. Build better CVs.
+Find roles. Build CVs. Repeat automatically.
 
 ## Long description
 
 Career Centre has no separate subscription: it runs inside the user's ChatGPT plan. It turns one CV, or several CVs tailored to different role directions, into a selective continuing career conversation. It first gives a constructive overall-strength verdict and compact review without pretending there is one universal ATS score. It can then find and assess roles, explain the strongest match and main risk, show exact posting links with salary and employment context, and create tailored Word CV and cover-letter packs grounded only in the user's evidence. It records application updates and helps prepare for follow-up and interviews. It never auto-submits an application and does not send CV data to an Amit-operated backend.
 
-After reading the CV, it shows a concise “Your Career Centre is ready” summary of the active market, source, salary/employment and document assumptions and prepares a portable Career Passport. Defaults work for most people; advanced preferences stay optional. Reference Word formatting is used only when explicitly requested. After the first useful manual search, Career Centre offers to schedule the calibrated search daily or on weekdays from the same Work task.
+After reading the CV, it shows a concise “Your Career Centre is ready” summary of the active market, source, salary/employment and document assumptions and prepares a portable Career Passport. Defaults work for most people; advanced preferences stay optional. Reference Word formatting is used only when explicitly requested. After the first useful manual search, Career Centre makes automation the next action and can create a daily or weekday Scheduled task from the same Work task after the user supplies the cadence, time and timezone. If the first offer is missed, it recovers after the first application pack.
 
 ## Capabilities
 
@@ -34,7 +34,7 @@ After reading the CV, it shows a concise “Your Career Centre is ready” summa
 - Evidence-led Apply / Maybe / Skip decisions
 - Tailored Word CV and cover-letter packs
 - Application tracking, follow-up and interview preparation
-- Recurring search guidance where the host supports scheduling
+- Direct recurring-search creation in ChatGPT Work, with a copy-ready Scheduled fallback when the current surface cannot create it
 - Portable Career Passport as the Career Evidence File and history backup, with source CVs, generated-document versions, preferences, corrections, feedback and outcomes
 - Optional reference-CV formatting, configurable section plan, document language and regional spelling
 - Complete CV text in chat as a last-resort partial result when Word creation is unavailable

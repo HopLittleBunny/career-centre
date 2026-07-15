@@ -1,5 +1,16 @@
 # Changelog
 
+## 4.0.0-beta.4 — 15 July 2026
+
+- Promoted the recurring-search handoff to a non-negotiable product milestone instead of leaving it as buried closing guidance.
+- Added expectation-setting during readiness, a visually separate automation CTA after the first verified search, and a recovery CTA after the first application pack.
+- Made ChatGPT Work create the Scheduled task directly after the user supplies cadence, time and timezone; added an exact Work/Scheduled fallback only when the current surface cannot create it.
+- Added the provider-correct Claude Cowork `/schedule` route and ordinary-chat handoff without implying that a normal chat created a scheduled task.
+- Made the automation offer apply even when every verified role is Maybe or Skip.
+- Replaced the weak scheduling string-presence regression with milestone-specific readiness, search, pack, acceptance and fallback checks.
+- Added the official Indeed ChatGPT plugin as an optional post-automation discovery extension while keeping employer or authorised-recruiter postings authoritative.
+- Kept the Open Door icon in the package and added a release gate requiring explicit upload to every OpenAI directory and composer icon slot.
+
 ## 4.0.0-beta.3 — 15 July 2026
 
 - Added an explicit overall CV-strength verdict and optional deeper review during intake.
