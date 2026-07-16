@@ -4,7 +4,7 @@ title: Career Centre
 
 # Career Centre
 
-Career Centre is a free career plugin by Amit Sharma for the ChatGPT or Claude you already use. It reviews one CV or the key versions you use for different role directions, helps you find and judge roles worth your time, creates tailored Word CVs and cover letters, and keeps the confirmed evidence tied to its source.
+Career Centre is a free, global career plugin by Amit Sharma for the ChatGPT or Claude you already use. It reviews one CV or the key versions you use for different role directions, helps you find and judge roles worth your time, creates tailored Word CVs and cover letters, and keeps the confirmed evidence tied to its source.
 
 ## Simple by design
 
@@ -14,7 +14,9 @@ Career Centre is a free career plugin by Amit Sharma for the ChatGPT or Claude y
 4. Review a short, selective set of roles with exact links and salary context.
 5. Create a Word CV and cover letter for the roles you choose.
 
-Before the first search, Career Centre shows exactly what it will assume: market and work-right boundary, source mix, salary/currency, employment preference, CV length and section plan. Experienced candidates default to a two-page CV with the second page at least 80% filled; early-career candidates may use one strong page.
+Before the first search, Career Centre shows exactly what it will assume: active or passive search mode, market and work-right boundary, source mix, salary/currency, employment preference, CV length and section plan. An active search can include strong matches and a few credible stretches. A passive search uses a higher bar: normally no more than three exceptional roles, usually 8/10+ fit with a clear improvement in scope, compensation, direction, employer or flexibility. Experienced candidates default to a two-page CV with the second page at least 80% filled; early-career candidates may use one strong page.
+
+Career Centre is not limited to India, the United States and Australia. It adapts sources, currency, compensation language, work-right boundaries, CV conventions and schedules to the user&apos;s country and local timezone. Those three markets are tested examples, not product limits; coverage still depends on accessible public postings and provider web access.
 
 The skill first gives a qualitative CV review: what already works, what may be underselling the candidate and one priority edit. It does not pretend there is one universal ATS score. With multiple CVs, it identifies the best starting base by direction and flags material inconsistencies.
 
