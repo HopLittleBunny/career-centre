@@ -19,13 +19,14 @@ If Plugins is unavailable, try ChatGPT on the web. Your plan, region or organisa
 
 ## Claude personal plugin
 
-1. Download the official Claude plugin ZIP and do not unzip it.
-2. Open **Customize → Plugins** in Claude.
-3. Choose **Add → Upload plugin**, select the ZIP and enable **Career Centre**.
-4. Start a normal chat, type **/career-centre**, then say **Help me find my next role.**
-5. Share your CV when asked. If you use different CVs for different role directions, share the key versions together.
+1. Open the [Career Centre Claude plugin on Google Drive](https://drive.google.com/file/d/1-Ixc1DnbeEUiceOikcWkTOjyuZ8ZPLjm/view?usp=sharing) and choose **Download**.
+2. Save the downloaded ZIP and do not unzip it.
+3. Open **Settings → Customize → Plugins** in Claude.
+4. Choose **Add plugin → Upload plugin**, select the ZIP and enable **Career Centre**.
+5. Start a normal chat and say **Help me find my next role.** Claude should invoke Career Centre naturally; if it does not, type **/career-centre** once.
+6. Share your CV when asked. If you use different CVs for different role directions, share the key versions together.
 
-The Claude public directory submission is under review. The personal plugin ZIP works now.
+The Claude public directory submission is under review. Until approval, the current personal plugin ZIP is available through the Google Drive link above.
 
 ## Directory installation
 
@@ -39,7 +40,7 @@ Where available, Claude users may optionally connect the official Indeed connect
 
 ## First conversation
 
-The skill reads every supplied CV before asking questions. It gives a short review of what works and what may be underselling you, then asks only for missing decisions that could change the result and shows **Your Career Centre is ready** with the active market, sources, salary, employment and CV assumptions. You can later say **change my advanced preferences** if you want different sources, sections, page strategy, document language, regional spelling or reference-CV formatting.
+The skill reads every supplied CV before asking questions. It gives a short review of what works and what may be underselling you, then asks only for missing decisions that could change the result—including whether you are actively looking or passively open. It shows **Your Career Centre is ready** with the search mode, market, sources, salary, employment and CV assumptions. You can later say **change my advanced preferences** if you want different sources, sections, page strategy, document language, regional spelling or reference-CV formatting.
 
 Use one main Career Centre conversation for the active search and save the latest Career Passport. If you move to a new ChatGPT or Claude conversation, upload that Passport with any new CV or evidence so the source-mapped history can continue.
 
