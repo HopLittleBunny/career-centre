@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import ast
 import json
+import os
 import sys
 import unittest
 from pathlib import Path
@@ -11,6 +12,7 @@ from pathlib import Path
 
 def main() -> int:
     sys.dont_write_bytecode = True
+    os.environ["PYTHONDONTWRITEBYTECODE"] = "1"
     skill_root = Path(__file__).resolve().parent.parent
     for schema in (skill_root / "schemas").glob("*.json"):
         json.loads(schema.read_text(encoding="utf-8"))

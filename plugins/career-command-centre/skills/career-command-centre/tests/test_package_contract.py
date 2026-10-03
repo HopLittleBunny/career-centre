@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import json
+import subprocess
+import sys
 import unittest
 from pathlib import Path
 
@@ -148,6 +150,18 @@ class PackageContractTests(unittest.TestCase):
             if path.is_file() and (path.suffix.casefold() in {".pyc", ".pyo", ".html", ".htm"} or "__pycache__" in path.parts)
         ]
         self.assertEqual(forbidden, [])
+
+    def test_subprocess_children_inherit_bytecode_suppression(self) -> None:
+        """build_application_pack.py imports contracts and validate_docx as
+        modules; test_document_builder.py runs it via subprocess.run with
+        sys.executable. sys.dont_write_bytecode alone does not reach that
+        child process, so run_tests.py must also export
+        PYTHONDONTWRITEBYTECODE for every spawned child to stay clean."""
+        scripts_dir = self.skill_root / "scripts"
+        probe = f"import sys; sys.path.insert(0, {str(scripts_dir)!r}); import contracts, validate_docx"
+        subprocess.run([sys.executable, "-c", probe], check=True, capture_output=True, text=True)
+        leftover = list(scripts_dir.rglob("__pycache__"))
+        self.assertEqual(leftover, [], leftover)
 
     def test_manifest_matches_plugin_folder(self) -> None:
         manifest = json.loads((self.plugin_root / ".codex-plugin" / "plugin.json").read_text(encoding="utf-8"))
