@@ -79,6 +79,25 @@ python3 scripts/validate_release.py
 
 The second command performs the repository-level release checks. OpenAI's local plugin validator is also run during author testing.
 
+### First run on a clean checkout
+
+`run_tests.py` needs `python-docx`, which is not installed by default. Without
+it the suite stops at import time with
+`ModuleNotFoundError: No module named 'docx'` and runs only part of the tests.
+Use a virtual environment kept outside the repository so it cannot be
+committed:
+
+```bash
+python3 -m venv ~/.venvs/career-centre
+~/.venvs/career-centre/bin/pip install python-docx
+~/.venvs/career-centre/bin/python plugins/career-command-centre/skills/career-command-centre/scripts/run_tests.py
+~/.venvs/career-centre/bin/python plugins/claude-career-centre/skills/career-centre/scripts/run_tests.py
+```
+
+Both plugin packages have their own suite; run both. A passing run ends with
+`OK`. Delete any `__pycache__` directories a run leaves under `plugins/`
+before committing.
+
 ## Distribution model
 
 The intended public routes are OpenAI's universal plugin directory and Claude's custom-plugin or marketplace flow. This keeps the publisher's ongoing infrastructure cost at zero: there is no hosted MCP server or paid publisher-side model usage. The free static site hosts the installers, privacy, terms and support pages.
