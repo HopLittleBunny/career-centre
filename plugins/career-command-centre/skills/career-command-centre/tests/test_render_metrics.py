@@ -84,6 +84,7 @@ class RenderMetricTests(unittest.TestCase):
                 (root / "render" / "Candidate_CV_Render_Validation.json").read_text(encoding="utf-8")
             )
         self.assertEqual(process.returncode, 2)
+        self.assertNotIn("Traceback", process.stderr)
         self.assertEqual(report["status"], "pending")
         self.assertEqual(report["visual_inspection"], "pending")
         self.assertTrue(
