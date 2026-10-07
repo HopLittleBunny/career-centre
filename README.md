@@ -82,21 +82,21 @@ The second command performs the repository-level release checks. OpenAI's local 
 ### First run on a clean checkout
 
 `run_tests.py` needs `python-docx`, which is not installed by default. Without
-it the suite stops at import time with
-`ModuleNotFoundError: No module named 'docx'` and runs only part of the tests.
-Use a virtual environment kept outside the repository so it cannot be
-committed:
+it, two test modules fail to import: 51 of the 62 tests run and the suite ends
+with `FAILED (errors=2)`. On macOS or Linux, use a virtual environment kept
+outside the repository so it cannot be committed, and set
+`PYTHONDONTWRITEBYTECODE=1` so a run does not leave `__pycache__` directories
+under `plugins/`:
 
 ```bash
 python3 -m venv ~/.venvs/career-centre
 ~/.venvs/career-centre/bin/pip install python-docx
-~/.venvs/career-centre/bin/python plugins/career-command-centre/skills/career-command-centre/scripts/run_tests.py
-~/.venvs/career-centre/bin/python plugins/claude-career-centre/skills/career-centre/scripts/run_tests.py
+PYTHONDONTWRITEBYTECODE=1 ~/.venvs/career-centre/bin/python plugins/career-command-centre/skills/career-command-centre/scripts/run_tests.py
+PYTHONDONTWRITEBYTECODE=1 ~/.venvs/career-centre/bin/python plugins/claude-career-centre/skills/career-centre/scripts/run_tests.py
 ```
 
-Both plugin packages have their own suite; run both. A passing run ends with
-`OK`. Delete any `__pycache__` directories a run leaves under `plugins/`
-before committing.
+Each plugin package has its own suite; run both. A passing run prints
+`Ran 62 tests` and ends with `OK`.
 
 ## Distribution model
 
