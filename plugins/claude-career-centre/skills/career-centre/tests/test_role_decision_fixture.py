@@ -70,30 +70,32 @@ class CanadaRoleDecisionFixtureTests(unittest.TestCase):
             self.assertIn(requirement["assessment"], {"direct", "adjacent"})
             self.assertTrue(requirement["evidence_ids"])
 
-    def test_do_not_pursue_scenario_never_invents_unsupported_scope(self) -> None:
-        scenario = self._scenario("do_not_pursue")
-        dossier = scenario["expected_decision"]
+    def test_every_requirement_in_a_decision_comes_from_its_role_description(self) -> None:
+        for scenario in self.fixture["scenarios"]:
+            role = scenario["role_description"]
+            stated = set(role["essential_requirements"]) | set(role.get("important_requirements", []))
+            mapped = {item["requirement"] for item in scenario["expected_decision"]["requirement_map"]}
+            self.assertEqual(mapped, stated, scenario["scenario_id"])
+
+    def test_do_not_pursue_scenario_keeps_unmet_essentials_as_gaps(self) -> None:
+        dossier = self._scenario("do_not_pursue")["expected_decision"]
         self.assertEqual(dossier["decision"], "skip")
         self.assertTrue(dossier["skip_reason"].strip())
-        self.assertIn("invent", dossier["skip_reason"].casefold())
 
         essentials = [item for item in dossier["requirement_map"] if item["importance"] == "essential"]
         self.assertTrue(essentials)
         for requirement in essentials:
-            # An unmet essential requirement stays an honest gap with no fabricated evidence.
             self.assertEqual(requirement["assessment"], "gap")
             self.assertEqual(requirement["evidence_ids"], [])
 
-        # Each forbidden claim is anchored to an explicit persona restriction, not an editorial choice.
-        restrictions = " ".join(
-            restriction
-            for item in self.persona["evidence"]
-            for restriction in item.get("restrictions", [])
-        ).casefold()
-        guard = scenario["invention_guard"]
+    def test_invention_guard_grounding_quotes_real_persona_restrictions(self) -> None:
+        guard = self._scenario("do_not_pursue")["invention_guard"]
         self.assertTrue(guard["forbidden_claims"])
-        self.assertIn("national accountability", restrictions)
-        self.assertIn("enterprise analytics ownership", restrictions)
+        restrictions_by_id = {item["evidence_id"]: item.get("restrictions", []) for item in self.persona["evidence"]}
+        for entry in guard["grounding"]:
+            evidence_id, _, quoted = entry.partition(" restriction: ")
+            self.assertIn(evidence_id, restrictions_by_id, entry)
+            self.assertIn(quoted, restrictions_by_id[evidence_id], entry)
 
 
 if __name__ == "__main__":

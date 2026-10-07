@@ -18,7 +18,7 @@ Share one CV or several role-specific versions, set the preferences that matter,
 - Version: `4.0.0-beta.4`; published in the ChatGPT Plugins directory
 - Personal ChatGPT Pro web: tested
 - Claude Max web: plugin upload, natural auto-routing, mentor reflection and readiness receipt tested
-- Automated tests: 68/68 passing in each provider package
+- Automated tests: 62/62 passing in each provider package
 - Word pack and reference-format CV journeys: browser verified
 - Scheduled work: same-task context preferred in ChatGPT Work; Cowork schedule for Claude; snapshot fallback disclosed
 - OpenAI beta.4 published with the automation and Open Door update; Claude directory review remains pending
