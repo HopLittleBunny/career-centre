@@ -12,6 +12,7 @@ from pathlib import Path
 
 def main() -> int:
     sys.dont_write_bytecode = True
+    # child interpreters (test_document_builder.py spawns several) do not inherit the flag above
     os.environ["PYTHONDONTWRITEBYTECODE"] = "1"
     skill_root = Path(__file__).resolve().parent.parent
     for schema in (skill_root / "schemas").glob("*.json"):
