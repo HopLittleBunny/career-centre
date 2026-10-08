@@ -82,9 +82,11 @@ The second command performs the repository-level release checks. OpenAI's local 
 ### First run on a clean checkout
 
 `run_tests.py` needs `python-docx`, which is not installed by default. Without
-it, two test modules fail to import and the suite ends with `FAILED`. On macOS
-or Linux, use a virtual environment kept outside the repository so it cannot be
-committed:
+it, some test modules fail to import and the suite ends with `FAILED`. Use a
+virtual environment kept outside the repository so it cannot be committed, and
+run the commands from the repository root (the paths are relative). These
+commands were tried on macOS; on Debian or Ubuntu, `python3 -m venv` needs the
+`python3-venv` package first.
 
 ```bash
 python3 -m venv ~/.venvs/career-centre
@@ -94,9 +96,11 @@ PYTHONDONTWRITEBYTECODE=1 ~/.venvs/career-centre/bin/python plugins/claude-caree
 ```
 
 Each plugin package has its own suite; run both. A passing run ends with `OK`.
-`PYTHONDONTWRITEBYTECODE=1` works around #13, where a run leaves
-`__pycache__` directories under `plugins/` and one release-tree test fails; it
-can be dropped once the fix for that issue (#15) is merged.
+`PYTHONDONTWRITEBYTECODE=1` stops a run leaving `__pycache__` directories under
+`plugins/`; a leftover one makes `test_release_tree_contains_no_compiled_or_html_artifacts`
+fail on the next run. This section covers the test suites only, not
+`scripts/validate_release.py`, which needs a release archive that is not in the
+repository.
 
 ## Distribution model
 
