@@ -96,11 +96,17 @@ PYTHONDONTWRITEBYTECODE=1 ~/.venvs/career-centre/bin/python plugins/claude-caree
 ```
 
 Each plugin package has its own suite; run both. A passing run ends with `OK`.
-`PYTHONDONTWRITEBYTECODE=1` stops a run leaving `__pycache__` directories under
-`plugins/`; a leftover one makes `test_release_tree_contains_no_compiled_or_html_artifacts`
-fail on the next run. This section covers the test suites only, not
-`scripts/validate_release.py`, which needs a release archive that is not in the
-repository.
+`PYTHONDONTWRITEBYTECODE=1` matters: without it the run itself writes
+`__pycache__` directories under `plugins/`, and
+`test_release_tree_contains_no_compiled_or_html_artifacts` then fails in that same
+run. If you already ran without it, remove the leftovers first:
+
+```bash
+find plugins -name __pycache__ -type d -prune -exec rm -r {} +
+```
+
+This section covers the test suites only, not `scripts/validate_release.py`,
+which needs a release archive that is not in the repository.
 
 ## Distribution model
 
