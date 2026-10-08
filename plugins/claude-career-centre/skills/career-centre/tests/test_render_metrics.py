@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import hashlib
+import os
 import sys
 import json
 import subprocess
@@ -54,6 +56,44 @@ class RenderMetricTests(unittest.TestCase):
         self.assertIn("Source DOCX is missing", report)
         self.assertNotIn("Traceback", process.stderr)
         self.assertEqual(json.loads(report)["source_docx"], "missing.docx")
+
+    def test_missing_rendering_dependency_is_reported_as_pending(self) -> None:
+        renderer = SCRIPT_ROOT / "render_docx.py"
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            docx = root / "Candidate_CV.docx"
+            docx.write_bytes(b"synthetic docx fixture")
+            empty_bin = root / "empty-bin"
+            empty_bin.mkdir()
+            environment = os.environ.copy()
+            environment["PATH"] = str(empty_bin)
+            process = subprocess.run(
+                [
+                    sys.executable,
+                    str(renderer),
+                    str(docx),
+                    "--output-dir",
+                    str(root / "render"),
+                    "--expected-pages",
+                    "2",
+                ],
+                capture_output=True,
+                text=True,
+                env=environment,
+            )
+            report = json.loads(
+                (root / "render" / "Candidate_CV_Render_Validation.json").read_text(encoding="utf-8")
+            )
+        self.assertEqual(process.returncode, 2)
+        self.assertNotIn("Traceback", process.stderr)
+        self.assertEqual(report["status"], "pending")
+        self.assertEqual(report["visual_inspection"], "pending")
+        # An empty PATH hides all four tools, and the reason names each of them.
+        self.assertEqual(
+            report["reasons"],
+            ["Missing rendering dependency: LibreOffice/soffice, pdftoppm, pdftotext, pdfinfo"],
+        )
+        self.assertEqual(report["source_sha256"], hashlib.sha256(b"synthetic docx fixture").hexdigest())
 
 
 if __name__ == "__main__":
