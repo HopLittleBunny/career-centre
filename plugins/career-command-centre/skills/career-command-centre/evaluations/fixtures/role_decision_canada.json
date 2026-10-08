@@ -3,7 +3,7 @@
   "synthetic": true,
   "market": "Canada",
   "persona": "midcareer_operations",
-  "purpose": "Confirm that a Canada role-decision keeps every requirement mapped to source-only candidate evidence and never invents national accountability or enterprise analytics-platform ownership to force a match.",
+  "purpose": "Data-consistency fixture: a Canada role-decision whose requirements are mapped to source-only candidate evidence, with unmet requirements left as gaps and no national accountability or enterprise analytics-platform ownership claimed.",
   "candidate_evidence_note": "The candidate evidence set is the synthetic persona evaluations/personas/midcareer_operations.json (Jordan Lee, Toronto). Every evidence_id below must resolve to that file and stay source_only.",
   "scenarios": [
     {
@@ -28,7 +28,6 @@
           "Experience coaching frontline team leaders."
         ]
       },
-      "evidence_used": ["EV-P02-001", "EV-P02-002", "EV-P02-003"],
       "expected_decision": {
         "schema_version": "4.0",
         "role_id": "ROLE-EVAL-CA-PURSUE-001",
@@ -61,7 +60,7 @@
           "synthetic": true
         },
         "recruiter_contact": null,
-        "main_match": "Direct nine-year customer-operations leadership: a 45-person function across service and quality, a measured complaint-resolution improvement and established service metrics and performance routines.",
+        "main_match": "Direct customer-operations leadership: a 45-person function across service and quality, a measured complaint-resolution improvement and established service metrics and performance routines.",
         "main_risk": "The candidate has not evidenced formal frontline-leader coaching, so that important requirement stays a documented gap rather than a claim.",
         "cv_angle": "Lead with the 45-person function, the 28% complaint-resolution result over nine months and the weekly performance routines; keep the improvement work described as service ownership, not enterprise analytics.",
         "recommended_cv_base": "Professional ATS",
@@ -94,7 +93,7 @@
             "importance": "important",
             "assessment": "adjacent",
             "evidence_ids": ["EV-P02-002"],
-            "gap_note": "Supported by the workflow-redesign result; dedicated journey-mapping work is older and secondary."
+            "gap_note": "Supported by the workflow-redesign result (EV-P02-002)."
           },
           {
             "requirement": "Experience coaching frontline team leaders.",
@@ -124,7 +123,6 @@
           "Direct a workforce of several hundred people across multiple contact centres."
         ]
       },
-      "evidence_used": ["EV-P02-001", "EV-P02-003"],
       "invention_guard": {
         "forbidden_claims": [
           "National or multi-province accountability for the customer operations function.",
@@ -195,7 +193,7 @@
             "importance": "essential",
             "assessment": "gap",
             "evidence_ids": [],
-            "gap_note": "Evidenced scope is 45 people across service and quality teams at a single operation."
+            "gap_note": "Evidenced scope is 45 people across service and quality teams (EV-P02-001)."
           }
         ]
       }

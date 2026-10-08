@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 import sys
 import unittest
 from pathlib import Path
@@ -43,8 +44,6 @@ class CanadaRoleDecisionFixtureTests(unittest.TestCase):
 
     def test_cited_evidence_resolves_to_the_persona_evidence_set(self) -> None:
         for scenario in self.fixture["scenarios"]:
-            for evidence_id in scenario.get("evidence_used", []):
-                self.assertIn(evidence_id, self.evidence_ids)
             for requirement in scenario["expected_decision"]["requirement_map"]:
                 for evidence_id in requirement["evidence_ids"]:
                     self.assertIn(evidence_id, self.evidence_ids, requirement["requirement"])
@@ -63,18 +62,19 @@ class CanadaRoleDecisionFixtureTests(unittest.TestCase):
 
     def test_pursue_scenario_maps_every_essential_requirement_to_real_evidence(self) -> None:
         dossier = self._scenario("pursue")["expected_decision"]
-        self.assertIn(dossier["decision"], {"apply", "maybe"})
         essentials = [item for item in dossier["requirement_map"] if item["importance"] == "essential"]
         self.assertGreaterEqual(len(essentials), 3)
         for requirement in essentials:
             self.assertIn(requirement["assessment"], {"direct", "adjacent"})
             self.assertTrue(requirement["evidence_ids"])
 
-    def test_every_requirement_in_a_decision_comes_from_its_role_description(self) -> None:
+    def test_every_requirement_and_its_importance_come_from_the_role_description(self) -> None:
         for scenario in self.fixture["scenarios"]:
             role = scenario["role_description"]
-            stated = set(role["essential_requirements"]) | set(role.get("important_requirements", []))
-            mapped = {item["requirement"] for item in scenario["expected_decision"]["requirement_map"]}
+            stated = {(text, "essential") for text in role["essential_requirements"]}
+            stated |= {(text, "important") for text in role.get("important_requirements", [])}
+            mapped = {(item["requirement"], item["importance"])
+                      for item in scenario["expected_decision"]["requirement_map"]}
             self.assertEqual(mapped, stated, scenario["scenario_id"])
 
     def test_do_not_pursue_scenario_keeps_unmet_essentials_as_gaps(self) -> None:
@@ -87,6 +87,39 @@ class CanadaRoleDecisionFixtureTests(unittest.TestCase):
         for requirement in essentials:
             self.assertEqual(requirement["assessment"], "gap")
             self.assertEqual(requirement["evidence_ids"], [])
+
+    def test_outcome_maps_to_the_expected_decision(self) -> None:
+        expected = {"pursue": "apply", "do_not_pursue": "skip"}
+        for scenario in self.fixture["scenarios"]:
+            self.assertEqual(scenario["expected_decision"]["decision"], expected[scenario["expected_outcome"]],
+                             scenario["scenario_id"])
+
+    def test_a_gap_has_no_evidence_and_everything_else_has_some(self) -> None:
+        for scenario in self.fixture["scenarios"]:
+            for item in scenario["expected_decision"]["requirement_map"]:
+                self.assertEqual(item["assessment"] == "gap", item["evidence_ids"] == [], item["requirement"])
+
+    def test_met_requirements_share_vocabulary_with_the_evidence_they_cite(self) -> None:
+        """A requirement cannot be marked direct/adjacent on evidence that never mentions it."""
+        evidence_words = {
+            item["evidence_id"]: set(re.findall(r"[a-z]{5,}", " ".join(str(v) for v in item.values()).lower()))
+            for item in self.persona["evidence"]
+        }
+        for scenario in self.fixture["scenarios"]:
+            for item in scenario["expected_decision"]["requirement_map"]:
+                if item["assessment"] == "gap":
+                    continue
+                words = set(re.findall(r"[a-z]{5,}", item["requirement"].lower()))
+                cited = set().union(*(evidence_words[evidence_id] for evidence_id in item["evidence_ids"]))
+                self.assertTrue(words & cited, item["requirement"])
+
+    def test_figures_in_the_decision_text_come_from_the_persona(self) -> None:
+        evidence_text = " ".join(str(v) for item in self.persona["evidence"] for v in item.values())
+        for scenario in self.fixture["scenarios"]:
+            dossier = scenario["expected_decision"]
+            for field in ("main_match", "main_risk", "cv_angle"):
+                for number in re.findall(r"\d+", dossier.get(field) or ""):
+                    self.assertIn(number, evidence_text, f"{scenario['scenario_id']}.{field}")
 
     def test_invention_guard_grounding_quotes_real_persona_restrictions(self) -> None:
         guard = self._scenario("do_not_pursue")["invention_guard"]
