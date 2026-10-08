@@ -100,9 +100,13 @@ class CanadaRoleDecisionFixtureTests(unittest.TestCase):
                 self.assertEqual(item["assessment"] == "gap", item["evidence_ids"] == [], item["requirement"])
 
     def test_met_requirements_share_vocabulary_with_the_evidence_they_cite(self) -> None:
-        """A requirement cannot be marked direct/adjacent on evidence that never mentions it."""
+        """A heuristic, not proof: a met requirement must share at least two words, and at least
+        a third of its words, with the wording of the evidence it cites. Restrictions are
+        excluded, since they forbid claims. Generic words can still overlap by chance."""
+        wording_fields = ("text", "safe_wording", "source_excerpt", "role_relevance")
         evidence_words = {
-            item["evidence_id"]: set(re.findall(r"[a-z]{5,}", " ".join(str(v) for v in item.values()).lower()))
+            item["evidence_id"]: set(re.findall(
+                r"[a-z]{5,}", " ".join(str(item.get(field, "")) for field in wording_fields).lower()))
             for item in self.persona["evidence"]
         }
         for scenario in self.fixture["scenarios"]:
@@ -111,7 +115,9 @@ class CanadaRoleDecisionFixtureTests(unittest.TestCase):
                     continue
                 words = set(re.findall(r"[a-z]{5,}", item["requirement"].lower()))
                 cited = set().union(*(evidence_words[evidence_id] for evidence_id in item["evidence_ids"]))
-                self.assertTrue(words & cited, item["requirement"])
+                shared = words & cited
+                self.assertGreaterEqual(len(shared), 2, item["requirement"])
+                self.assertGreaterEqual(len(shared) * 3, len(words), item["requirement"])
 
     def test_figures_in_the_decision_text_come_from_the_persona(self) -> None:
         evidence_text = " ".join(str(v) for item in self.persona["evidence"] for v in item.values())
@@ -121,8 +127,8 @@ class CanadaRoleDecisionFixtureTests(unittest.TestCase):
                 for number in re.findall(r"\d+", dossier.get(field) or ""):
                     self.assertIn(number, evidence_text, f"{scenario['scenario_id']}.{field}")
 
-    def test_invention_guard_grounding_quotes_real_persona_restrictions(self) -> None:
-        guard = self._scenario("do_not_pursue")["invention_guard"]
+    def test_evidence_boundaries_quote_real_persona_restrictions(self) -> None:
+        guard = self._scenario("do_not_pursue")["evidence_boundaries"]
         self.assertTrue(guard["forbidden_claims"])
         restrictions_by_id = {item["evidence_id"]: item.get("restrictions", []) for item in self.persona["evidence"]}
         for entry in guard["grounding"]:
