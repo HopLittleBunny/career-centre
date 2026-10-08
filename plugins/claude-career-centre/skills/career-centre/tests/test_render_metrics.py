@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import os
 import sys
 import json
@@ -87,10 +88,12 @@ class RenderMetricTests(unittest.TestCase):
         self.assertNotIn("Traceback", process.stderr)
         self.assertEqual(report["status"], "pending")
         self.assertEqual(report["visual_inspection"], "pending")
-        self.assertTrue(
-            any("Missing rendering dependency" in reason for reason in report["reasons"]), report
+        # An empty PATH hides all four tools, and the reason names each of them.
+        self.assertEqual(
+            report["reasons"],
+            ["Missing rendering dependency: LibreOffice/soffice, pdftoppm, pdftotext, pdfinfo"],
         )
-        self.assertIsNotNone(report["source_sha256"])
+        self.assertEqual(report["source_sha256"], hashlib.sha256(b"synthetic docx fixture").hexdigest())
 
 
 if __name__ == "__main__":
