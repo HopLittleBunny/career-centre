@@ -70,43 +70,20 @@ After the first completed manual role search containing a verified role, Career 
 
 ## Local validation
 
-Run from this directory with Python 3.11+ and `python-docx` available:
+Run from this directory with Python 3.11+ and `python-docx` available (`pip install python-docx`; without it some test
+modules fail to import). Each plugin package has its own suite, so run both. A passing run ends with `OK`.
 
 ```bash
-python3 plugins/career-command-centre/skills/career-command-centre/scripts/run_tests.py
+PYTHONDONTWRITEBYTECODE=1 python3 plugins/career-command-centre/skills/career-command-centre/scripts/run_tests.py
+PYTHONDONTWRITEBYTECODE=1 python3 plugins/claude-career-centre/skills/career-centre/scripts/run_tests.py
 python3 scripts/validate_release.py
 ```
 
-The second command performs the repository-level release checks. OpenAI's local plugin validator is also run during author testing.
+`PYTHONDONTWRITEBYTECODE=1` keeps the run from writing `__pycache__` directories, which the release-tree test rejects. The
+`pip install` and test commands were tried on macOS only. `scripts/validate_release.py` needs a release archive that is not in
+the repository, so it is not covered here.
 
-### First run on a clean checkout
-
-`run_tests.py` needs `python-docx`, which is not installed by default. Without
-it, some test modules fail to import and the suite ends with `FAILED`. Use a
-virtual environment kept outside the repository so it cannot be committed, and
-run the commands from the repository root (the paths are relative). These
-commands were tried on macOS; on Debian or Ubuntu, `python3 -m venv` needs the
-`python3-venv` package first.
-
-```bash
-python3 -m venv ~/.venvs/career-centre
-~/.venvs/career-centre/bin/pip install python-docx
-PYTHONDONTWRITEBYTECODE=1 ~/.venvs/career-centre/bin/python plugins/career-command-centre/skills/career-command-centre/scripts/run_tests.py
-PYTHONDONTWRITEBYTECODE=1 ~/.venvs/career-centre/bin/python plugins/claude-career-centre/skills/career-centre/scripts/run_tests.py
-```
-
-Each plugin package has its own suite; run both. A passing run ends with `OK`.
-`PYTHONDONTWRITEBYTECODE=1` matters: without it the run itself writes
-`__pycache__` directories under `plugins/`, and
-`test_release_tree_contains_no_compiled_or_html_artifacts` then fails in that same
-run. If you already ran without it, remove the leftovers first:
-
-```bash
-find plugins -name __pycache__ -type d -prune -exec rm -r {} +
-```
-
-This section covers the test suites only, not `scripts/validate_release.py`,
-which needs a release archive that is not in the repository.
+The last command performs the repository-level release checks. OpenAI's local plugin validator is also run during author testing.
 
 ## Distribution model
 
