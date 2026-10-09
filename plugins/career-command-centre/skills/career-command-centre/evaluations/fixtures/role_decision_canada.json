@@ -1,0 +1,202 @@
+{
+  "fixture_id": "EVAL-ROLE-DECISION-CA-001",
+  "synthetic": true,
+  "market": "Canada",
+  "persona": "midcareer_operations",
+  "purpose": "Data-consistency fixture: a Canada role-decision whose requirements are mapped to source-only candidate evidence, with unmet requirements left as gaps and no national accountability or enterprise analytics-platform ownership claimed.",
+  "candidate_evidence_note": "The candidate evidence set is the synthetic persona evaluations/personas/midcareer_operations.json (Jordan Lee, Toronto). Every evidence_id below must resolve to that file and stay source_only.",
+  "scenarios": [
+    {
+      "scenario_id": "pursue",
+      "expected_outcome": "pursue",
+      "summary": "A permanent Customer Operations Manager role whose essential requirements are all directly supported by the candidate's source-only evidence.",
+      "role_description": {
+        "role_id": "ROLE-EVAL-CA-PURSUE-001",
+        "company": "MapleGrid Services (synthetic)",
+        "title": "Customer Operations Manager",
+        "location": "Toronto, Canada (hybrid)",
+        "employment": "Permanent",
+        "salary_listed": "CAD 120,000-135,000 base (synthetic listed band)",
+        "posting_status": "open",
+        "essential_requirements": [
+          "Lead a multi-team customer operations function spanning service, quality and workforce coordination.",
+          "Deliver measurable customer-service improvement.",
+          "Run service metrics and recurring performance routines."
+        ],
+        "important_requirements": [
+          "Continuous-improvement or service-design background.",
+          "Experience coaching frontline team leaders."
+        ]
+      },
+      "expected_decision": {
+        "schema_version": "4.0",
+        "role_id": "ROLE-EVAL-CA-PURSUE-001",
+        "track": "Customer operations leadership",
+        "decision": "apply",
+        "fit_score": 8.2,
+        "shortlist_chance_percent": 42,
+        "salary": {
+          "band": "CAD 120,000-135,000 base",
+          "basis": "listed",
+          "currency": "CAD",
+          "evidence_note": "Synthetic listed band for evaluation only; not a live salary claim."
+        },
+        "employment": {
+          "type": "permanent",
+          "duration": null,
+          "deprioritisation_note": null
+        },
+        "identity": {
+          "company": "MapleGrid Services",
+          "title": "Customer Operations Manager",
+          "location": "Toronto, Canada",
+          "exact_posting_url": "https://jobs.example.org/postings/maplegrid-customer-operations-2207",
+          "source": "Synthetic evaluation fixture",
+          "external_job_id": "MAPLEGRID-CA-2207",
+          "posting_status": "open",
+          "link_status": "verified_exact",
+          "checked_at": "2026-07-14T10:00:00-04:00",
+          "content_fingerprint": "sha256:synthetic-maplegrid-ca-2207",
+          "synthetic": true
+        },
+        "recruiter_contact": null,
+        "main_match": "Direct customer-operations leadership: a 45-person function across service and quality, a measured complaint-resolution improvement and established service metrics and performance routines.",
+        "main_risk": "The candidate has not evidenced formal frontline-leader coaching, so that important requirement stays a documented gap rather than a claim.",
+        "cv_angle": "Lead with the 45-person function, the 28% complaint-resolution result over nine months and the weekly performance routines; keep the improvement work described as service ownership, not enterprise analytics.",
+        "recommended_cv_base": "Professional ATS",
+        "add_to_tracker": true,
+        "skip_reason": null,
+        "requirement_map": [
+          {
+            "requirement": "Lead a multi-team customer operations function spanning service, quality and workforce coordination.",
+            "importance": "essential",
+            "assessment": "direct",
+            "evidence_ids": ["EV-P02-001"],
+            "gap_note": null
+          },
+          {
+            "requirement": "Deliver measurable customer-service improvement.",
+            "importance": "essential",
+            "assessment": "direct",
+            "evidence_ids": ["EV-P02-002"],
+            "gap_note": null
+          },
+          {
+            "requirement": "Run service metrics and recurring performance routines.",
+            "importance": "essential",
+            "assessment": "direct",
+            "evidence_ids": ["EV-P02-003"],
+            "gap_note": null
+          },
+          {
+            "requirement": "Continuous-improvement or service-design background.",
+            "importance": "important",
+            "assessment": "adjacent",
+            "evidence_ids": ["EV-P02-002"],
+            "gap_note": "Supported by the workflow-redesign result (EV-P02-002)."
+          },
+          {
+            "requirement": "Experience coaching frontline team leaders.",
+            "importance": "important",
+            "assessment": "gap",
+            "evidence_ids": [],
+            "gap_note": "No evidence records structured coaching of frontline leaders; leave unstated rather than inferred from team leadership."
+          }
+        ]
+      }
+    },
+    {
+      "scenario_id": "do_not_pursue",
+      "expected_outcome": "do_not_pursue",
+      "summary": "A national customer-operations-and-analytics mandate whose essential requirements would require inventing scope the candidate's evidence explicitly forbids.",
+      "role_description": {
+        "role_id": "ROLE-EVAL-CA-SKIP-001",
+        "company": "Northern Meridian Utilities (synthetic)",
+        "title": "National Head of Customer Operations and Analytics",
+        "location": "Remote Canada",
+        "employment": "Permanent",
+        "salary_listed": "CAD 180,000-205,000 package (synthetic listed band)",
+        "posting_status": "open",
+        "essential_requirements": [
+          "Hold national accountability for the customer operations function across every Canadian province.",
+          "Own an enterprise customer-analytics platform and its data model.",
+          "Direct a workforce of several hundred people across multiple contact centres."
+        ]
+      },
+      "evidence_boundaries": {
+        "forbidden_claims": [
+          "National or multi-province accountability for the customer operations function.",
+          "Ownership of an enterprise customer-analytics platform or its data model.",
+          "Leadership of a workforce of several hundred people."
+        ],
+        "grounding": [
+          {"evidence_id": "EV-P02-001", "restriction": "Do not increase team size or claim national accountability."},
+          {"evidence_id": "EV-P02-003", "restriction": "Do not describe as enterprise analytics ownership."}
+        ],
+        "correct_behaviour": "Map each unmet essential requirement as a gap with no evidence, keep the decision at do-not-pursue, and offer only source-backed wording for the evidence that genuinely exists."
+      },
+      "expected_decision": {
+        "schema_version": "4.0",
+        "role_id": "ROLE-EVAL-CA-SKIP-001",
+        "track": "Customer operations leadership",
+        "decision": "skip",
+        "fit_score": 3.4,
+        "shortlist_chance_percent": 7,
+        "salary": {
+          "band": "CAD 180,000-205,000 package",
+          "basis": "listed",
+          "currency": "CAD",
+          "evidence_note": "Synthetic listed band for evaluation only; not a live salary claim."
+        },
+        "employment": {
+          "type": "permanent",
+          "duration": null,
+          "deprioritisation_note": null
+        },
+        "identity": {
+          "company": "Northern Meridian Utilities",
+          "title": "National Head of Customer Operations and Analytics",
+          "location": "Remote Canada",
+          "exact_posting_url": "https://jobs.example.org/postings/northern-meridian-national-operations-4501",
+          "source": "Synthetic evaluation fixture",
+          "external_job_id": "NMU-CA-4501",
+          "posting_status": "open",
+          "link_status": "verified_exact",
+          "checked_at": "2026-07-14T10:15:00-04:00",
+          "content_fingerprint": "sha256:synthetic-northern-meridian-ca-4501",
+          "synthetic": true
+        },
+        "recruiter_contact": null,
+        "main_match": "Genuine mid-size customer-operations leadership and a measurable service-improvement result at a 45-person function scale.",
+        "main_risk": "Every essential requirement depends on national accountability, enterprise analytics-platform ownership or several-hundred-person workforce leadership that the source-only evidence does not support.",
+        "cv_angle": "Not recommended: the honest evidence base is below this mandate's scope and cannot be closed by wording.",
+        "recommended_cv_base": "None for this role",
+        "add_to_tracker": false,
+        "skip_reason": "The three essential requirements - national accountability, enterprise customer-analytics-platform ownership and directing several hundred staff - are all gaps against source-only evidence. Meeting them on paper would require inventing scope the candidate has not held, so this is a do-not-pursue rather than a tailoring exercise.",
+        "requirement_map": [
+          {
+            "requirement": "Hold national accountability for the customer operations function across every Canadian province.",
+            "importance": "essential",
+            "assessment": "gap",
+            "evidence_ids": [],
+            "gap_note": "Evidence covers a 45-person function; EV-P02-001 explicitly forbids claiming national accountability or a larger team."
+          },
+          {
+            "requirement": "Own an enterprise customer-analytics platform and its data model.",
+            "importance": "essential",
+            "assessment": "gap",
+            "evidence_ids": [],
+            "gap_note": "EV-P02-003 restricts the service-metrics work from being described as enterprise analytics ownership."
+          },
+          {
+            "requirement": "Direct a workforce of several hundred people across multiple contact centres.",
+            "importance": "essential",
+            "assessment": "gap",
+            "evidence_ids": [],
+            "gap_note": "Evidenced scope is 45 people across service and quality teams (EV-P02-001)."
+          }
+        ]
+      }
+    }
+  ]
+}
