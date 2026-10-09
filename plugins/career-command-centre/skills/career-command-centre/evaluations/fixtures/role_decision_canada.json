@@ -130,8 +130,8 @@
           "Leadership of a workforce of several hundred people."
         ],
         "grounding": [
-          "EV-P02-001 restriction: Do not increase team size or claim national accountability.",
-          "EV-P02-003 restriction: Do not describe as enterprise analytics ownership."
+          {"evidence_id": "EV-P02-001", "restriction": "Do not increase team size or claim national accountability."},
+          {"evidence_id": "EV-P02-003", "restriction": "Do not describe as enterprise analytics ownership."}
         ],
         "correct_behaviour": "Map each unmet essential requirement as a gap with no evidence, keep the decision at do-not-pursue, and offer only source-backed wording for the evidence that genuinely exists."
       },

@@ -2,8 +2,7 @@
 
 ## Unreleased
 
-- Added a synthetic Canada role-decision evaluation fixture (`evaluations/fixtures/role_decision_canada.json`) with a "pursue" and a "do-not-pursue" role, plus tests that keep its requirement mapping, evidence citations and evidence-boundary quotes consistent with the persona.
-- Expanded both provider suites to 74/74 passing tests.
+- Added a synthetic Canada role-decision evaluation fixture (`evaluations/fixtures/role_decision_canada.json`) with a "pursue" and a "do-not-pursue" role, and `check_role_decision`, which keeps its requirement mapping, evidence citations and figures consistent with the persona. This is a data-consistency check only: nothing runs the fixture through a model yet.
 
 ## 4.0.0-beta.4 — 15 July 2026
 
