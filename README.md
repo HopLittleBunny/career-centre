@@ -70,20 +70,22 @@ After the first completed manual role search containing a verified role, Career 
 
 ## Local validation
 
-Run from this directory with Python 3.11+ and `python-docx` available (`pip install python-docx`; without it some test
-modules fail to import). Each plugin package has its own suite, so run both. A passing run ends with `OK`.
+Run from this directory with Python 3.11+ and `python-docx`. Install it in a virtual environment kept outside the repository (`.venv` is not in `.gitignore`, and a bare `pip install` fails on Python builds that block system-wide installs). Each plugin package has its own suite, so run both. A passing run ends with `OK`; without `python-docx`, some test modules fail to import.
 
 ```bash
-PYTHONDONTWRITEBYTECODE=1 python3 plugins/career-command-centre/skills/career-command-centre/scripts/run_tests.py
-PYTHONDONTWRITEBYTECODE=1 python3 plugins/claude-career-centre/skills/career-centre/scripts/run_tests.py
-python3 scripts/validate_release.py
+python3 -m venv ~/.venvs/career-centre
+~/.venvs/career-centre/bin/python -m pip install python-docx
+PYTHONDONTWRITEBYTECODE=1 ~/.venvs/career-centre/bin/python plugins/career-command-centre/skills/career-command-centre/scripts/run_tests.py
+PYTHONDONTWRITEBYTECODE=1 ~/.venvs/career-centre/bin/python plugins/claude-career-centre/skills/career-centre/scripts/run_tests.py
 ```
 
-`PYTHONDONTWRITEBYTECODE=1` keeps the run from writing `__pycache__` directories, which the release-tree test rejects. The
-`pip install` and test commands were tried on macOS only. `scripts/validate_release.py` needs a release archive that is not in
-the repository, so it is not covered here.
+The commands use POSIX shell syntax; `VAR=1 command` does not work in PowerShell or `cmd`. `PYTHONDONTWRITEBYTECODE=1` keeps the run from writing `__pycache__` directories, which the release-tree test rejects. If you already ran the suites without it, remove the leftovers first:
 
-The last command performs the repository-level release checks. OpenAI's local plugin validator is also run during author testing.
+```bash
+find plugins -name __pycache__ -type d -prune -exec rm -r {} +
+```
+
+Maintainers also run `python3 scripts/validate_release.py` for the repository-level release checks; it needs a release archive that is not in the repository. OpenAI's local plugin validator is also run during author testing.
 
 ## Distribution model
 
