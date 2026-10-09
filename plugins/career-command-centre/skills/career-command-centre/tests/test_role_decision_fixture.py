@@ -24,7 +24,7 @@ DECISION_TEXT_FIELDS = ("main_match", "main_risk", "cv_angle", "skip_reason")
 EVIDENCE_ID = re.compile(r"EV-[A-Z0-9-]+")
 FIGURE = re.compile(r"\d+(?:[.,]\d+)*")
 MIN_SHARED_WORDS = 2
-MIN_SHARED_WORD_SHARE = 3  # a met requirement shares at least 1/3 of its words with the evidence it cites
+MIN_SHARED_WORD_DIVISOR = 3  # a met requirement shares at least 1/divisor of its words with the evidence it cites
 
 
 def _words(text: str) -> set[str]:
@@ -43,7 +43,7 @@ def check_role_decision(scenario: dict, persona: dict) -> list[str]:
     description, cites only real source-only evidence, keeps gaps as gaps and introduces no figure the persona lacks.
     The vocabulary rule is a heuristic: a met requirement must share at least two words, and a third of its words, with
     the wording of the evidence it cites (restrictions are excluded, since they forbid claims). Generic words can still
-    overlap by chance. A model harness can call this on real model output.
+    overlap by chance. It has not been tried on real model output.
     """
     errors: list[str] = []
     decision = scenario["expected_decision"]
@@ -78,7 +78,7 @@ def check_role_decision(scenario: dict, persona: dict) -> list[str]:
             continue
         cited = set().union(*(evidence_words[evidence_id] for evidence_id in item["evidence_ids"]))
         shared = _words(name) & cited
-        if len(shared) < MIN_SHARED_WORDS or len(shared) * MIN_SHARED_WORD_SHARE < len(_words(name)):
+        if len(shared) < MIN_SHARED_WORDS or len(shared) * MIN_SHARED_WORD_DIVISOR < len(_words(name)):
             errors.append(f"{name}: shares too little wording with the evidence it cites")
 
     essentials = [item for item in items if item["importance"] == "essential"]
@@ -90,7 +90,7 @@ def check_role_decision(scenario: dict, persona: dict) -> list[str]:
     if scenario["expected_outcome"] == "do_not_pursue" and len(unmet) != len(essentials):
         errors.append("a do-not-pursue decision must keep every essential requirement a gap")
 
-    allowed = _figures(json.dumps(persona["evidence"]))
+    allowed = _figures(json.dumps(persona["evidence"], ensure_ascii=False))
     texts = {field: decision.get(field) or "" for field in DECISION_TEXT_FIELDS}
     texts.update({f"gap_note[{item['requirement']}]": item.get("gap_note") or "" for item in items})
     for field, text in texts.items():
@@ -157,6 +157,13 @@ class CheckRoleDecisionCatchesBrokenDecisionsTests(unittest.TestCase):
         cls.persona = load_persona(fixture["persona"])
         cls.scenarios = {scenario["scenario_id"]: scenario for scenario in fixture["scenarios"]}
 
+    @staticmethod
+    def _requirement(decision: dict, text: str) -> dict:
+        """The requirement whose text starts with `text`, so tests do not depend on fixture order."""
+        matches = [item for item in decision["requirement_map"] if item["requirement"].startswith(text)]
+        assert len(matches) == 1, f"{text!r} matches {len(matches)} requirements"
+        return matches[0]
+
     def _mutated(self, scenario_id: str, mutate) -> list[str]:
         scenario = copy.deepcopy(self.scenarios[scenario_id])
         mutate(scenario["expected_decision"])
@@ -168,37 +175,37 @@ class CheckRoleDecisionCatchesBrokenDecisionsTests(unittest.TestCase):
 
     def test_gap_relabelled_as_met_without_evidence(self) -> None:
         def mutate(decision):
-            decision["requirement_map"][4].update(assessment="direct")  # the unevidenced important requirement
+            self._requirement(decision, "Experience coaching frontline").update(assessment="direct")
 
         self._assert_flagged("pursue", mutate, "a gap must have no evidence")
 
     def test_gap_relabelled_as_met_on_unrelated_evidence(self) -> None:
         def mutate(decision):
-            decision["requirement_map"][4].update(assessment="direct", evidence_ids=["EV-P02-001"])
+            self._requirement(decision, "Experience coaching frontline").update(assessment="direct", evidence_ids=["EV-P02-001"])
 
         self._assert_flagged("pursue", mutate, "shares too little wording")
 
     def test_unknown_evidence_id(self) -> None:
         def mutate(decision):
-            decision["requirement_map"][0]["evidence_ids"] = ["EV-P02-999"]
+            self._requirement(decision, "Lead a multi-team")["evidence_ids"] = ["EV-P02-999"]
 
         self._assert_flagged("pursue", mutate, "unknown evidence")
 
     def test_essential_requirement_relabelled_important(self) -> None:
         def mutate(decision):
-            decision["requirement_map"][0]["importance"] = "important"
+            self._requirement(decision, "Lead a multi-team")["importance"] = "important"
 
         self._assert_flagged("pursue", mutate, "differs from the role description")
 
     def test_essential_requirement_turned_into_a_gap_on_a_pursue_decision(self) -> None:
         def mutate(decision):
-            decision["requirement_map"][0].update(assessment="gap", evidence_ids=[])
+            self._requirement(decision, "Lead a multi-team").update(assessment="gap", evidence_ids=[])
 
         self._assert_flagged("pursue", mutate, "unmet essentials")
 
     def test_unmet_essential_relabelled_as_met_on_a_do_not_pursue_decision(self) -> None:
         def mutate(decision):
-            decision["requirement_map"][0].update(assessment="adjacent", evidence_ids=["EV-P02-001"])
+            self._requirement(decision, "Hold national accountability").update(assessment="adjacent", evidence_ids=["EV-P02-001"])
 
         self._assert_flagged("do_not_pursue", mutate, "must keep every essential requirement a gap")
 
@@ -217,7 +224,7 @@ class CheckRoleDecisionCatchesBrokenDecisionsTests(unittest.TestCase):
     def test_invented_figure_in_skip_reason_and_gap_note(self) -> None:
         def mutate(decision):
             decision["skip_reason"] += " The candidate directed 300 staff."
-            decision["requirement_map"][0]["gap_note"] += " Covers 12 provinces."
+            self._requirement(decision, "Hold national accountability")["gap_note"] += " Covers 12 provinces."
 
         errors = self._mutated("do_not_pursue", mutate)
         self.assertTrue(any(error.startswith("skip_reason") and "'300'" in error for error in errors), errors)
